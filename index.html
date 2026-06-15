@@ -1162,8 +1162,7 @@
     }); // end tilt
 
     /* ── WAITLIST FORM ── */
-    // TODO: replace ENDPOINT with your Brevo / serverless route
-    const ENDPOINT = '';
+    const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwm5lUaV1iTI9G0BpUq_F9ovCv6YCIn4nm6JqmYzvairjMz17w37bj12ohXYUuZUgbcag/exec';
     const wlForm = document.getElementById('wl-form');
     const wlBtn  = document.getElementById('f-btn');
     const wlOk   = document.getElementById('f-ok');
@@ -1175,14 +1174,12 @@
       if (!name || !email) return;
       wlBtn.disabled = true; wlBtn.textContent = 'Joining…';
       try {
-        if (ENDPOINT) {
-          await fetch(ENDPOINT, {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email }),
-          });
-        } else {
-          await new Promise(r => setTimeout(r, 1000));
-        }
+        await fetch(ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email }),
+        });
         wlForm.style.display = 'none';
         wlOk.classList.add('on');
       } catch {
