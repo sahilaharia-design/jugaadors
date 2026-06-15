@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jugaadors — Where Gatherings Become Legendary</title>
+  <meta name="description" content="Jugaadors creates immersive social experiences designed to spark conversations, deepen connections, and transform ordinary gatherings into unforgettable memories."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ───────────────────────── TOKENS ───────────────────────── */
+    :root {
+      --bg:          #0A0A0A;
+      --surface:     #111111;
+      --surface-2:   #181818;
+      --text:        #F2F0EB;
+      --text-2:      #8A8880;
+      --text-muted:  #4A4845;
+      --accent:      #52C8A4;
+      --accent-glow: rgba(82,200,164,0.22);
+      --accent-dim:  rgba(82,200,164,0.08);
+      --border:      rgba(242,240,235,0.07);
+      --nav-h:       72px;
+    }
+
+    /* ───────────────────────── RESET ───────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { display: block; max-width: 100%; }
+    a   { color: inherit; text-decoration: none; }
+    ul  { list-style: none; }
+    button, input { font-family: inherit; }
+
+    /* ───────────────────────── PROGRESS BAR ───────────────────────── */
+    #progress {
+      position: fixed; top: 0; left: 0; z-index: 500;
+      height: 2px; width: 0; background: var(--accent);
+      transition: width 0.08s linear;
+    }
+
+    /* ───────────────────────── TYPE UTILITIES ───────────────────────── */
+    .t-display {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700; line-height: 1.07; letter-spacing: -0.022em;
+    }
+    .t-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600; line-height: 1.15; letter-spacing: -0.015em;
+    }
+    .t-label {
+      font-size: .6875rem; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--accent);
+    }
+
+    /* ───────────────────────── LAYOUT ───────────────────────── */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 64px; }
+    .section-line { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* ───────────────────────── REVEAL SYSTEM ───────────────────────── */
+    .rv {
+      opacity: 0; transform: translateY(44px);
+      transition: opacity .9s cubic-bezier(.22,1,.36,1),
+                  transform .9s cubic-bezier(.22,1,.36,1);
+    }
+    .rv.on { opacity: 1; transform: none; }
+    .rv.d1.on { transition-delay: .10s; }
+    .rv.d2.on { transition-delay: .22s; }
+    .rv.d3.on { transition-delay: .34s; }
+    .rv.d4.on { transition-delay: .46s; }
+    .rv.d5.on { transition-delay: .58s; }
+
+    .rv-l {
+      opacity: 0; transform: translateX(-40px);
+      transition: opacity .9s cubic-bezier(.22,1,.36,1),
+                  transform .9s cubic-bezier(.22,1,.36,1);
+    }
+    .rv-l.on { opacity: 1; transform: none; }
+
+    .rv-r {
+      opacity: 0; transform: translateX(40px);
+      transition: opacity .9s cubic-bezier(.22,1,.36,1),
+                  transform .9s cubic-bezier(.22,1,.36,1);
+    }
+    .rv-r.on { opacity: 1; transform: none; }
+
+    /* ───────────────────────── BUTTONS ───────────────────────── */
+    .btn-p {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 36px; background: var(--accent); color: #0A0A0A;
+      font-size: .9375rem; font-weight: 500; letter-spacing: .04em;
+      border: none; cursor: pointer; position: relative; overflow: hidden;
+      transition: box-shadow .3s, transform .25s;
+    }
+    .btn-p::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(255,255,255,0); transition: background .2s;
+    }
+    .btn-p:hover::after { background: rgba(255,255,255,.12); }
+    .btn-p:hover { box-shadow: 0 8px 36px var(--accent-glow); transform: translateY(-2px); }
+
+    .btn-g {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 36px; background: transparent; color: var(--text);
+      font-size: .9375rem; font-weight: 300; letter-spacing: .04em;
+      border: 1px solid rgba(242,240,235,.14); cursor: pointer;
+      transition: border-color .25s, background .25s, transform .25s;
+    }
+    .btn-g:hover { border-color: rgba(242,240,235,.35); background: rgba(242,240,235,.04); transform: translateY(-2px); }
+
+    /* ═══════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════ */
+    #nav {
+      position: fixed; top: 0; inset-inline: 0; z-index: 200;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 64px;
+      transition: background .5s ease, border-bottom .5s ease;
+    }
+    #nav.up {
+      background: rgba(10,10,10,.90);
+      backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo img {
+      height: 36px; width: auto;
+    }
+    .nav-r { display: flex; align-items: center; gap: 32px; }
+    .nav-link { font-size: .8125rem; color: var(--text-2); letter-spacing: .05em; transition: color .2s; }
+    .nav-link:hover { color: var(--text); }
+    .nav-cta {
+      padding: 10px 26px; background: var(--accent); color: #0A0A0A;
+      font-size: .8125rem; font-weight: 500; letter-spacing: .04em;
+      border: none; cursor: pointer; transition: opacity .2s, transform .2s;
+    }
+    .nav-cta:hover { opacity: .82; transform: translateY(-1px); }
+
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: calc(var(--nav-h) + 60px) 64px 140px;
+      position: relative; overflow: hidden;
+    }
+
+    /* Background image layer */
+    .hero-img {
+      position: absolute; inset: 0;
+      background: url('assets/hero-bg.png') center/cover no-repeat;
+      transform: scale(1.06);
+      transition: transform 1.6s cubic-bezier(.22,1,.36,1);
+    }
+    .hero-img.loaded { transform: scale(1); }
+
+    /* Multi-layer dark cinematic overlay */
+    .hero-veil {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to right,  rgba(10,10,10,.88) 0%,  rgba(10,10,10,.55) 55%, rgba(10,10,10,.75) 100%),
+        linear-gradient(to bottom, rgba(10,10,10,.30) 0%, rgba(10,10,10,.70) 65%, rgba(10,10,10,1.0) 100%);
+    }
+
+    /* Canvas sits above veil */
+    #c {
+      position: absolute; inset: 0; z-index: 1;
+      pointer-events: none; opacity: .55;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1280px; width: 100%; margin: 0 auto;
+    }
+
+    .hero-eye {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 30px;
+    }
+    .hero-eye-line { width: 44px; height: 1px; background: var(--accent); }
+
+    /* Headline: each word gets a clip-reveal wrapper */
+    .hero-head { font-size: clamp(3rem, 7vw, 6.5rem); max-width: 13ch; margin-bottom: 26px; }
+
+    .word-clip { overflow: hidden; display: inline-block; }
+    .word-in {
+      display: inline-block;
+      transform: translateY(108%); opacity: 0;
+      transition: transform .82s cubic-bezier(.22,1,.36,1), opacity .6s ease;
+    }
+    .word-in.on { transform: translateY(0); opacity: 1; }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.45vw, 1.175rem);
+      color: rgba(242,240,235,.70);
+      max-width: 52ch; margin-bottom: 52px; line-height: 1.82;
+    }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* Animated scroll indicator */
+    .scroll-hint {
+      position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%);
+      z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 10px;
+      animation: sh 2.4s ease-in-out infinite;
+    }
+    .scroll-hint span { font-size: .625rem; letter-spacing: .18em; text-transform: uppercase; color: var(--text-muted); }
+    .scroll-hint-line { width: 1px; height: 44px; background: linear-gradient(to bottom, transparent, rgba(82,200,164,.6)); }
+    @keyframes sh { 0%,100% { opacity:.45; transform:translateX(-50%) translateY(0); } 55% { opacity:.9; transform:translateX(-50%) translateY(8px); } }
+
+    /* ═══════════════════════════════════════
+       MARQUEE TICKER
+    ═══════════════════════════════════════ */
+    .ticker {
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 17px 0; overflow: hidden; background: var(--surface);
+    }
+    .ticker-track {
+      display: flex; gap: 0; width: max-content;
+      animation: ticker 32s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-set { display: flex; align-items: center; gap: 0; }
+    .ticker-word {
+      padding: 0 36px;
+      font-family: 'Playfair Display', serif; font-size: .875rem; font-style: italic;
+      color: var(--text-2); letter-spacing: .04em; white-space: nowrap;
+    }
+    .ticker-dot {
+      width: 4px; height: 4px; background: var(--accent);
+      border-radius: 50%; flex-shrink: 0;
+    }
+    @keyframes ticker { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+    /* ═══════════════════════════════════════
+       PROBLEM
+    ═══════════════════════════════════════ */
+    #problem { padding: 160px 0; }
+
+    .problem-top {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: end; margin-bottom: 72px;
+    }
+    .problem-head { font-size: clamp(2rem, 3.8vw, 3.25rem); }
+    .problem-intro { font-size: 1.0625rem; color: var(--text-2); line-height: 1.82; }
+
+    .stats {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 1px; background: var(--border);
+    }
+    .stat {
+      background: var(--bg); padding: 48px 36px;
+      transition: background .3s;
+    }
+    .stat:hover { background: var(--surface); }
+
+    .stat-n {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem,4vw,4rem); font-weight: 700;
+      color: var(--text); display: block; margin-bottom: 16px; line-height: 1;
+    }
+    .stat-t { font-size: .9375rem; color: var(--text-2); line-height: 1.75; }
+
+    .problem-pull {
+      margin-top: 72px; padding: 64px 72px;
+      background: var(--surface); border-left: 2px solid var(--accent);
+      position: relative; overflow: hidden;
+    }
+    .problem-pull::before {
+      content: '"'; position: absolute; top: -60px; left: 48px;
+      font-family: 'Playfair Display', serif; font-size: 20rem;
+      color: rgba(82,200,164,.03); line-height: 1; pointer-events: none;
+    }
+    .problem-pull p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.25rem,2.2vw,1.875rem); font-style: italic;
+      color: var(--text); line-height: 1.5; position: relative; max-width: 68ch;
+    }
+
+    /* ═══════════════════════════════════════
+       PILLARS
+    ═══════════════════════════════════════ */
+    #pillars { padding: 160px 0; }
+
+    .sec-hdr { margin-bottom: 72px; }
+    .sec-lbl { display: block; margin-bottom: 20px; }
+    .sec-hl  { font-size: clamp(2rem,3.8vw,3.25rem); max-width: 22ch; }
+
+    .pillars-g {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+    }
+    .pcard {
+      background: var(--surface); padding: 56px 44px;
+      border: 1px solid var(--border); position: relative; overflow: hidden;
+      cursor: default; transition: border-color .4s, box-shadow .4s;
+      transform-style: preserve-3d;
+    }
+    /* Radial glow follows cursor */
+    .pcard::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(82,200,164,.08) 0%, transparent 65%);
+      opacity: 0; transition: opacity .4s;
+    }
+    .pcard:hover::before { opacity: 1; }
+    .pcard:hover { border-color: rgba(82,200,164,.28); box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+
+    /* Top accent sweep */
+    .pcard::after {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 0; height: 2px; background: var(--accent);
+      transition: width .55s cubic-bezier(.22,1,.36,1);
+    }
+    .pcard:hover::after { width: 100%; }
+
+    .pcard-num {
+      position: absolute; top: 36px; right: 44px;
+      font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 700;
+      color: rgba(242,240,235,.035); line-height: 1;
+    }
+    .pcard-icon {
+      width: 56px; height: 56px; margin-bottom: 36px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--accent-dim); border: 1px solid rgba(82,200,164,.14);
+      transition: background .3s, border-color .3s;
+    }
+    .pcard:hover .pcard-icon { background: rgba(82,200,164,.14); border-color: rgba(82,200,164,.3); }
+    .pcard-icon svg { width: 24px; height: 24px; }
+    .pcard-title {
+      font-family: 'Playfair Display', serif; font-size: 1.4375rem; font-weight: 600;
+      margin-bottom: 14px; color: var(--text);
+    }
+    .pcard-desc { font-size: .9375rem; color: var(--text-2); line-height: 1.82; }
+
+    /* ═══════════════════════════════════════
+       MANIFESTO  (parallax bg)
+    ═══════════════════════════════════════ */
+    #manifesto {
+      padding: 200px 0; position: relative; overflow: hidden; text-align: center;
+    }
+    .mfst-bg {
+      position: absolute; inset: 0;
+      background: url('assets/atmosphere-bg.png') center/cover no-repeat;
+      will-change: transform;
+      /* background-attachment:fixed breaks on iOS Safari — use JS parallax instead */
+    }
+    .mfst-veil {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(10,10,10,.93) 0%,
+        rgba(10,10,10,.87) 50%,
+        rgba(10,10,10,.93) 100%);
+    }
+    .mfst-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+    .mfst-eye   { margin-bottom: 40px; }
+    .mfst-hl    { font-size: clamp(2.25rem,5vw,4.25rem); line-height: 1.13; margin-bottom: 56px; }
+    .mfst-body  {
+      font-size: clamp(.9375rem,1.3vw,1.125rem); color: rgba(242,240,235,.60);
+      line-height: 1.92; max-width: 66ch; margin: 0 auto 64px; text-align: left;
+    }
+    .mfst-body p + p { margin-top: 24px; }
+    .mfst-close {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.125rem,1.8vw,1.625rem); font-style: italic; color: var(--accent);
+    }
+
+    /* ═══════════════════════════════════════
+       EXPERIENCE DIFFERENCE
+    ═══════════════════════════════════════ */
+    #diff { padding: 160px 0; }
+
+    .diff-wrap {
+      display: grid; grid-template-columns: 360px 1fr; gap: 80px; align-items: start;
+    }
+    .diff-hdr { position: sticky; top: calc(var(--nav-h) + 56px); }
+    .diff-hl  { font-size: clamp(2rem,3.4vw,3rem); margin-top: 20px; }
+
+    .diff-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border);
+    }
+    .diff-col { padding: 64px 52px; background: var(--bg); }
+    .diff-col.jg { background: var(--surface); }
+    .diff-lbl { display: block; margin-bottom: 48px; }
+    .diff-col.trad .diff-lbl { color: var(--text-muted); }
+
+    .diff-words { display: flex; flex-direction: column; }
+    .dw {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem,2.4vw,2.25rem); font-weight: 600;
+      padding: 22px 0; border-bottom: 1px solid var(--border);
+      transition: color .3s;
+    }
+    .dw:last-child { border-bottom: none; }
+    .trad .dw {
+      color: var(--text-muted);
+      text-decoration: line-through;
+      text-decoration-color: rgba(74,72,69,.5); text-decoration-thickness: 1px;
+    }
+    .jg .dw { color: var(--text); }
+    .jg .dw:first-child { color: var(--accent); }
+    .jg .dw:hover { color: var(--accent); }
+
+    /* ═══════════════════════════════════════
+       TEASER
+    ═══════════════════════════════════════ */
+    #teaser {
+      padding: 200px 0; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .teaser-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 55% at 50% 50%, rgba(82,200,164,.055) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .teaser-in { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; }
+
+    /* Ripple pulse */
+    .pulse {
+      width: 10px; height: 10px; background: var(--accent); border-radius: 50%;
+      margin: 0 auto 52px; position: relative;
+    }
+    .pulse::before, .pulse::after {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      background: var(--accent); animation: rpl 3s ease-out infinite;
+    }
+    .pulse::after { animation-delay: 1.5s; }
+    @keyframes rpl { 0% { transform:scale(1); opacity:.6; } 100% { transform:scale(5.5); opacity:0; } }
+
+    .teaser-eye { margin-bottom: 28px; }
+    .teaser-hl  { font-size: clamp(2.5rem,5.5vw,5rem); line-height: 1.08; margin-bottom: 32px; }
+    .teaser-sub {
+      font-size: clamp(.9375rem,1.3vw,1.125rem); color: var(--text-2);
+      max-width: 54ch; margin: 0 auto 56px; line-height: 1.82;
+    }
+
+    /* ═══════════════════════════════════════
+       VISION
+    ═══════════════════════════════════════ */
+    #vision { padding: 160px 0; border-top: 1px solid var(--border); }
+
+    .vision-grid {
+      display: grid; grid-template-columns: 1fr 1.25fr; gap: 100px; align-items: start;
+    }
+    .vision-l { position: sticky; top: calc(var(--nav-h) + 60px); }
+    .vision-lbl { margin-bottom: 24px; }
+    .vision-hl { font-size: clamp(2rem,3.4vw,3rem); }
+    .vision-p  { font-size: 1.0625rem; color: var(--text-2); line-height: 1.85; margin-bottom: 28px; }
+    .vision-q  {
+      font-family: 'Playfair Display', serif; font-size: 1.25rem; font-style: italic;
+      color: var(--text); border-left: 2px solid var(--accent); padding-left: 28px; margin-top: 48px;
+    }
+
+    /* ═══════════════════════════════════════
+       WAITLIST
+    ═══════════════════════════════════════ */
+    #wl { padding: 160px 0; background: var(--surface); position: relative; overflow: hidden; }
+    #wl::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 55% at 50% 110%, rgba(82,200,164,.065) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .wl-in { max-width: 580px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .wl-eye { margin-bottom: 24px; }
+    .wl-hl  { font-size: clamp(2.25rem,4vw,3.5rem); margin-bottom: 20px; line-height: 1.1; }
+    .wl-sub { font-size: 1.0625rem; color: var(--text-2); margin-bottom: 48px; line-height: 1.75; }
+    .wl-benefits { display: flex; flex-direction: column; gap: 14px; margin-bottom: 48px; text-align: left; }
+    .wl-b  { display: flex; align-items: center; gap: 14px; font-size: .9375rem; color: var(--text-2); }
+    .wl-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+
+    .form { display: flex; flex-direction: column; gap: 10px; }
+    .fi {
+      width: 100%; padding: 18px 22px; background: rgba(10,10,10,.7);
+      border: 1px solid var(--border); color: var(--text); font-size: .9375rem; font-weight: 300;
+      outline: none; -webkit-appearance: none; appearance: none; transition: border-color .25s, box-shadow .25s;
+    }
+    .fi::placeholder { color: var(--text-muted); }
+    .fi:focus { border-color: rgba(82,200,164,.5); box-shadow: 0 0 0 4px rgba(82,200,164,.06); }
+    .fs {
+      width: 100%; padding: 18px 22px; background: var(--accent); color: #0A0A0A;
+      font-size: .9375rem; font-weight: 500; letter-spacing: .04em;
+      border: none; cursor: pointer; transition: box-shadow .3s, transform .2s, opacity .2s;
+    }
+    .fs:not(:disabled):hover { box-shadow: 0 8px 36px var(--accent-glow); transform: translateY(-1px); }
+    .fs:disabled { opacity: .5; cursor: not-allowed; }
+
+    .form-ok { display: none; padding: 48px 40px; background: var(--accent-dim); border: 1px solid rgba(82,200,164,.2); }
+    .form-ok.on { display: block; }
+    .ok-title  { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--accent); margin-bottom: 12px; }
+    .ok-sub    { font-size: 1rem; color: var(--text-2); line-height: 1.65; }
+    .form-prv  { font-size: .75rem; color: var(--text-muted); margin-top: 16px; }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    footer { padding: 56px 0; border-top: 1px solid var(--border); }
+    .ft-in { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .ft-logo img { height: 32px; }
+    .ft-mission { font-size: .8125rem; color: var(--text-muted); max-width: 44ch; line-height: 1.65; }
+    .ft-r  { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+    .ft-links { display: flex; gap: 24px; }
+    .ft-links a { font-size: .75rem; color: var(--text-muted); letter-spacing: .08em; text-transform: uppercase; transition: color .2s; }
+    .ft-links a:hover { color: var(--text-2); }
+    .ft-copy { font-size: .75rem; color: var(--text-muted); }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE — comprehensive mobile pass
+    ═══════════════════════════════════════ */
+
+    /* ── Tablet / small desktop ── */
+    @media (max-width: 1100px) {
+      .container { padding: 0 40px; }
+      #nav  { padding: 0 40px; }
+      #hero { padding: calc(var(--nav-h) + 48px) 40px 100px; }
+      .stats       { grid-template-columns: repeat(2,1fr); }
+      .diff-wrap   { grid-template-columns: 1fr; gap: 48px; }
+      .diff-hdr    { position: static; }
+      .vision-grid { grid-template-columns: 1fr; gap: 56px; }
+      .vision-l    { position: static; }
+      .pillars-g   { grid-template-columns: repeat(2,1fr); }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      :root { --nav-h: 64px; }
+
+      .container { padding: 0 20px; }
+      #nav  { padding: 0 20px; height: 64px; }
+      #hero { padding: calc(var(--nav-h) + 40px) 20px 80px; min-height: 100svh; }
+
+      /* hide nav text link, keep CTA */
+      .nav-link { display: none; }
+
+      /* section vertical rhythm */
+      #problem, #pillars, #diff, #teaser, #vision, #wl { padding-block: 88px; }
+      #manifesto { padding-block: 120px; }
+
+      /* problem */
+      .problem-top { grid-template-columns: 1fr; gap: 28px; margin-bottom: 48px; }
+      .stats       { grid-template-columns: repeat(2,1fr); }
+      .stat        { padding: 36px 24px; }
+      .problem-pull { padding: 36px 28px; margin-top: 48px; }
+
+      /* pillars */
+      .pillars-g { grid-template-columns: 1fr; gap: 14px; }
+      .sec-hdr   { margin-bottom: 48px; }
+      .pcard     { padding: 44px 32px; }
+
+      /* manifesto */
+      .mfst-hl   { font-size: clamp(2rem, 8vw, 3rem); }
+      .mfst-body { text-align: left; }
+      .mfst-inner { padding: 0 4px; }
+
+      /* difference */
+      .diff-grid { grid-template-columns: 1fr; }
+      .diff-col  { padding: 44px 28px; }
+
+      /* vision */
+      .vision-grid { gap: 40px; }
+
+      /* waitlist */
+      #wl { padding-block: 88px; }
+      .wl-in { padding: 0 4px; }
+
+      /* footer */
+      .ft-in  { flex-direction: column; align-items: flex-start; gap: 28px; }
+      .ft-r   { align-items: flex-start; }
+      footer  { padding: 48px 0; }
+    }
+
+    /* ── Small mobile (iPhone SE / 375px) ── */
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      #nav  { padding: 0 16px; }
+      #hero { padding: calc(var(--nav-h) + 32px) 16px 72px; }
+
+      .hero-ctas { flex-direction: column; gap: 12px; }
+      .btn-p, .btn-g { width: 100%; justify-content: center; padding: 16px 24px; }
+
+      /* prevent iOS zoom on input focus */
+      .fi { font-size: 1rem; }
+
+      .stats { grid-template-columns: 1fr; }
+      .stat  { padding: 28px 20px; }
+
+      .problem-pull { padding: 28px 20px; }
+      .pcard        { padding: 36px 24px; }
+      .diff-col     { padding: 36px 20px; }
+
+      .sec-hdr { margin-bottom: 40px; }
+
+      /* ticker padding tighter on small screens */
+      .ticker-word { padding: 0 20px; }
+
+      /* scroll hint hidden on very small phones */
+      .scroll-hint { display: none; }
+    }
+
+    /* ── Very small (320px) ── */
+    @media (max-width: 360px) {
+      .container, #nav, #hero { padding-inline: 12px; }
+      .hero-head { font-size: clamp(2.25rem, 9vw, 3rem); }
+    }
+
+    /* ── Touch: disable hover-only effects ── */
+    @media (hover: none) {
+      .pcard:hover::before { opacity: 0; }
+      .pcard:hover { border-color: var(--border); box-shadow: none; }
+      .pcard:hover::after { width: 0; }
+      .stat:hover { background: var(--bg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress bar -->
+  <div id="progress"></div>
+
+  <!-- ══════════════════════════════
+       NAVIGATION
+  ══════════════════════════════ -->
+  <nav id="nav">
+    <a href="/" class="nav-logo" aria-label="Jugaadors">
+      <img src="assets/logo.png" alt="Jugaadors"/>
+    </a>
+    <div class="nav-r">
+      <a href="#manifesto" class="nav-link">Our Belief</a>
+      <a href="#wl"        class="nav-cta">Join The Waitlist</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════
+       HERO
+  ══════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-img" id="hero-img"></div>
+    <div class="hero-veil"></div>
+    <canvas id="c"></canvas>
+
+    <div class="hero-inner">
+      <div class="hero-eye rv">
+        <div class="hero-eye-line"></div>
+        <span class="t-label">Experience-Led Entertainment</span>
+      </div>
+
+      <!-- JS splits into per-word clip animations -->
+      <h1 class="t-display hero-head" id="hero-hl"
+          aria-label="The Best Moments Happen Around A Table."></h1>
+
+      <p class="hero-sub rv d3">
+        Jugaadors creates immersive social experiences designed to spark
+        conversations, deepen connections, and transform ordinary gatherings
+        into unforgettable memories.
+      </p>
+
+      <div class="hero-ctas rv d4">
+        <a href="#wl"        class="btn-p">Join The Waitlist</a>
+        <a href="#manifesto" class="btn-g">Explore Our Philosophy</a>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-hint-line"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       MARQUEE TICKER
+  ══════════════════════════════ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <!-- Set 1 -->
+      <div class="ticker-set">
+        <span class="ticker-word">Participate</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Connect</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Celebrate</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Remember</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Gather</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Create</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Belong</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Share</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Laugh</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Experience</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Connect</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Celebrate</span><span class="ticker-dot"></span>
+      </div>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="ticker-set" aria-hidden="true">
+        <span class="ticker-word">Participate</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Connect</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Celebrate</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Remember</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Gather</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Create</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Belong</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Share</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Laugh</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Experience</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Connect</span><span class="ticker-dot"></span>
+        <span class="ticker-word">Celebrate</span><span class="ticker-dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       PROBLEM
+  ══════════════════════════════ -->
+  <section id="problem">
+    <div class="container">
+      <div class="problem-top">
+        <h2 class="t-heading problem-head rv">
+          We Are More Connected Than Ever. And More Alone.
+        </h2>
+        <p class="problem-intro rv d1">
+          Digital convenience gave us access to everything and presence in
+          nothing. The average gathering has become a room full of people
+          staring at separate screens.
+        </p>
+      </div>
+
+      <div class="stats">
+        <div class="stat rv d1">
+          <span class="stat-n" data-end="7" data-sfx="hrs">0hrs</span>
+          <p class="stat-t">daily average spent consuming digital content — more than in any meaningful face-to-face conversation.</p>
+        </div>
+        <div class="stat rv d2">
+          <span class="stat-n" data-end="40" data-sfx="%">0%</span>
+          <p class="stat-t">of adults feel persistently lonely — even when surrounded by people. Presence stopped being enough.</p>
+        </div>
+        <div class="stat rv d3">
+          <span class="stat-n" data-end="2" data-sfx="×">0×</span>
+          <p class="stat-t">more time is spent on passive solo entertainment than in shared experiences with those right beside us.</p>
+        </div>
+        <div class="stat rv d4">
+          <span class="stat-n" data-end="1" data-sfx=" table">0 table</span>
+          <p class="stat-t">is all it takes. The most unforgettable moments still happen around one — when we choose to be fully present.</p>
+        </div>
+      </div>
+
+      <div class="problem-pull rv">
+        <p>"Entertainment told us to sit back and watch. We believe it's time to lean forward and participate."</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-line"/>
+
+  <!-- ══════════════════════════════
+       WHAT WE CREATE
+  ══════════════════════════════ -->
+  <section id="pillars">
+    <div class="container">
+      <div class="sec-hdr">
+        <span class="t-label sec-lbl rv">What We Create</span>
+        <h2 class="t-heading sec-hl rv d1">Experiences Built For Human Connection</h2>
+      </div>
+
+      <div class="pillars-g">
+        <!-- Card 1 -->
+        <div class="pcard rv d1" data-tilt>
+          <span class="pcard-num">01</span>
+          <div class="pcard-icon">
+            <!-- Two people icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#52C8A4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="7" r="3.5"/>
+              <circle cx="17" cy="7" r="3.5"/>
+              <path d="M2 21c0-3 2.7-5.5 6-5.5s6 2.5 6 5.5"/>
+              <path d="M13 21c0-3 1.8-5.5 5-5.5s5 2.5 5 5.5" opacity=".6"/>
+            </svg>
+          </div>
+          <h3 class="pcard-title">Break The Ice</h3>
+          <p class="pcard-desc">Experiences crafted to dissolve social barriers — turning strangers into people who've shared a story. Because the best relationships start with a moment no one planned for.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="pcard rv d2" data-tilt>
+          <span class="pcard-num">02</span>
+          <div class="pcard-icon">
+            <!-- Chat/conversation icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#52C8A4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+          </div>
+          <h3 class="pcard-title">Deepen Relationships</h3>
+          <p class="pcard-desc">Experiences that open space for the conversations people want to have but never find the moment for. Connection isn't accidental — it's designed.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="pcard rv d3" data-tilt>
+          <span class="pcard-num">03</span>
+          <div class="pcard-icon">
+            <!-- Star/celebration icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#52C8A4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h3 class="pcard-title">Celebrate Together</h3>
+          <p class="pcard-desc">Experiences built for life's defining moments — celebrations that deserve more than a photograph. We design for the stories that outlast the occasion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       MANIFESTO
+  ══════════════════════════════ -->
+  <section id="manifesto">
+    <div class="mfst-bg" id="mfst-bg"></div>
+    <div class="mfst-veil"></div>
+    <div class="container">
+      <div class="mfst-inner">
+        <span class="t-label mfst-eye rv">Our Belief</span>
+        <h2 class="t-display mfst-hl rv d1">
+          Every gathering is a chance to go deeper.<br>We build the vehicle.
+        </h2>
+        <div class="mfst-body rv d2">
+          <p>
+            The dinner table. The wedding celebration. The reunion after years apart.
+            These are not just occasions — they are the architecture of our lives,
+            the chapters we return to when we think about who we are and who shaped us.
+          </p>
+          <p>
+            The world has built extraordinary tools for consuming content alone.
+            We build something different: experiences that require your presence,
+            your voice, your story. Experiences that work because people are in the
+            room together — because the chemistry between people creates something
+            no algorithm can replicate.
+          </p>
+          <p>
+            We don't make games. We design the conditions for people to become
+            unforgettable to each other.
+          </p>
+        </div>
+        <span class="mfst-close rv d3">
+          "This is not entertainment. This is connection, by design."
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-line"/>
+
+  <!-- ══════════════════════════════
+       EXPERIENCE DIFFERENCE
+  ══════════════════════════════ -->
+  <section id="diff">
+    <div class="container">
+      <div class="diff-wrap">
+        <div class="diff-hdr">
+          <span class="t-label sec-lbl rv">The Experience Difference</span>
+          <h2 class="t-heading diff-hl rv d1">
+            Two Kinds of Entertainment.<br>Only One Creates Memories.
+          </h2>
+        </div>
+
+        <div class="diff-grid">
+          <div class="diff-col trad rv-l">
+            <span class="t-label diff-lbl" style="color:var(--text-muted)">Traditional Entertainment</span>
+            <ul class="diff-words">
+              <li class="dw">Watch.</li>
+              <li class="dw">Scroll.</li>
+              <li class="dw">Consume.</li>
+              <li class="dw">Forget.</li>
+            </ul>
+          </div>
+          <div class="diff-col jg rv-r">
+            <span class="t-label diff-lbl">Jugaadors</span>
+            <ul class="diff-words">
+              <li class="dw">Participate.</li>
+              <li class="dw">Connect.</li>
+              <li class="dw">Celebrate.</li>
+              <li class="dw">Remember.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       TEASER
+  ══════════════════════════════ -->
+  <section id="teaser">
+    <div class="teaser-glow"></div>
+    <div class="container">
+      <div class="teaser-in">
+        <div class="pulse" aria-hidden="true"></div>
+        <span class="t-label teaser-eye rv">Something Worth Gathering For</span>
+        <h2 class="t-display teaser-hl rv d1">Our Most Ambitious Experience Yet.</h2>
+        <p class="teaser-sub rv d2">
+          We've spent months designing an experience unlike anything that exists —
+          built for the moments that matter most. We're not ready to show you what
+          it is. But we're ready to tell you it's worth the wait.
+        </p>
+        <a href="#wl" class="btn-p rv d3">Join The Waitlist →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-line"/>
+
+  <!-- ══════════════════════════════
+       VISION
+  ══════════════════════════════ -->
+  <section id="vision">
+    <div class="container">
+      <div class="vision-grid">
+        <div class="vision-l">
+          <span class="t-label vision-lbl rv">Our Vision</span>
+          <h2 class="t-heading vision-hl rv d1">Building the Future of How People Gather</h2>
+        </div>
+        <div>
+          <p class="vision-p rv d2">
+            Jugaadors is not a board game company with a website. We are a category in
+            formation — an experience company building the infrastructure for human
+            connection at its most deliberate, most joyful, most memorable.
+          </p>
+          <p class="vision-p rv d3">
+            The gatherings of the future will be designed, not left to chance. The
+            moments people remember will be intentional, not incidental. We are
+            building the experiences, the brand, and the vocabulary for a world
+            that gathers differently.
+          </p>
+          <p class="vision-p rv d4">
+            Every experience we create carries the same belief: that the best version
+            of time together is possible — and that people will choose it, once
+            someone shows them how good it can be.
+          </p>
+          <blockquote class="vision-q rv d5">
+            "We are not competing in a category. We are creating one."
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       WAITLIST
+  ══════════════════════════════ -->
+  <section id="wl">
+    <div class="container">
+      <div class="wl-in">
+        <span class="t-label wl-eye rv">Join The Gathering</span>
+        <h2 class="t-display wl-hl rv d1">
+          Be The First To Experience What We're Building Next.
+        </h2>
+        <p class="wl-sub rv d2">
+          Sign up for early access, launch announcements, and the first invitation
+          when we're ready to share what's coming.
+        </p>
+        <div class="wl-benefits rv d2">
+          <div class="wl-b"><span class="wl-dot"></span><span>Early access before public launch</span></div>
+          <div class="wl-b"><span class="wl-dot"></span><span>Exclusive launch announcements</span></div>
+          <div class="wl-b"><span class="wl-dot"></span><span>Behind-the-scenes updates</span></div>
+          <div class="wl-b"><span class="wl-dot"></span><span>Founding member invitations</span></div>
+        </div>
+        <form class="form rv d3" id="wl-form" novalidate>
+          <input type="text"  class="fi" id="f-n" name="name"  placeholder="Your name"          autocomplete="given-name" required/>
+          <input type="email" class="fi" id="f-e" name="email" placeholder="Your email address" autocomplete="email"      required/>
+          <button type="submit" class="fs" id="f-btn">Join The Waitlist →</button>
+        </form>
+        <div class="form-ok" id="f-ok" role="status" aria-live="polite">
+          <p class="ok-title">You're in.</p>
+          <p class="ok-sub">We'll reach out before anyone else. Something worth gathering for is coming.</p>
+        </div>
+        <p class="form-prv rv">We respect your privacy. No spam, ever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="ft-in">
+        <div class="ft-logo">
+          <img src="assets/logo.png" alt="Jugaadors"/>
+        </div>
+        <p class="ft-mission">
+          Creating immersive social experiences that transform ordinary
+          gatherings into extraordinary memories.
+        </p>
+        <div class="ft-r">
+          <div class="ft-links">
+            <a href="https://www.facebook.com/profile.php?id=100066866651196" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.linkedin.com/company/jugaadors/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+          <p class="ft-copy">© 2026 Jugaadors. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════
+       SCRIPTS
+  ══════════════════════════════ -->
+  <script>
+    /* ── PROGRESS BAR ── */
+    const pb = document.getElementById('progress');
+    window.addEventListener('scroll', () => {
+      const dh = document.documentElement;
+      pb.style.width = (window.scrollY / (dh.scrollHeight - dh.clientHeight) * 100) + '%';
+    }, { passive: true });
+
+    /* ── NAV ── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('up', window.scrollY > 80), { passive: true });
+
+    /* ── HERO BG LOAD ANIMATION ── */
+    window.addEventListener('load', () => {
+      document.getElementById('hero-img').classList.add('loaded');
+    });
+
+    /* ── HERO HEADLINE — WORD CLIP REVEAL ── */
+    const hlEl    = document.getElementById('hero-hl');
+    const hlWords = 'The Best Moments Happen Around A Table.'.split(' ');
+    hlEl.innerHTML = hlWords.map((w, i) =>
+      `<span class="word-clip"><span class="word-in" style="transition-delay:${.44 + i * .09}s">${w}</span></span>${i < hlWords.length - 1 ? ' ' : ''}`
+    ).join('');
+    window.addEventListener('load', () => {
+      setTimeout(() => hlEl.querySelectorAll('.word-in').forEach(el => el.classList.add('on')), 120);
+    });
+
+    /* ── CANVAS PARTICLE NETWORK ── */
+    const cv  = document.getElementById('c');
+    const gx  = cv.getContext('2d');
+    const AC  = { r: 82, g: 200, b: 164 };
+    const isTouch = window.matchMedia('(hover: none)').matches;
+    const N   = isTouch ? 28 : 60; // fewer particles on mobile for performance
+    const CD  = isTouch ? 120 : 170;
+    let W, H, pts = [];
+
+    function resize() {
+      W = cv.width  = cv.offsetWidth;
+      H = cv.height = cv.offsetHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class P {
+      constructor() { this.init(); }
+      init() {
+        this.x  = Math.random() * W;
+        this.y  = Math.random() * H;
+        this.vx = (Math.random() - .5) * .38;
+        this.vy = (Math.random() - .5) * .38;
+        this.r  = Math.random() * 1.8 + .8;
+        this.a  = Math.random() * .5 + .18;
+      }
+      tick() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < -20 || this.x > W + 20) this.vx *= -1;
+        if (this.y < -20 || this.y > H + 20) this.vy *= -1;
+      }
+      draw() {
+        gx.beginPath();
+        gx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        gx.fillStyle = `rgba(${AC.r},${AC.g},${AC.b},${this.a})`;
+        gx.fill();
+      }
+    }
+
+    for (let i = 0; i < N; i++) pts.push(new P());
+
+    (function loop() {
+      gx.clearRect(0, 0, W, H);
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+          const d  = Math.sqrt(dx * dx + dy * dy);
+          if (d < CD) {
+            const a = (1 - d / CD) * .22;
+            gx.beginPath();
+            gx.moveTo(pts[i].x, pts[i].y);
+            gx.lineTo(pts[j].x, pts[j].y);
+            gx.strokeStyle = `rgba(${AC.r},${AC.g},${AC.b},${a})`;
+            gx.lineWidth = .8;
+            gx.stroke();
+          }
+        }
+      }
+      pts.forEach(p => { p.tick(); p.draw(); });
+      requestAnimationFrame(loop);
+    })();
+
+    /* ── PARALLAX on MANIFESTO BG ── */
+    const mfstBg = document.getElementById('mfst-bg');
+    function applyParallax() {
+      if (!mfstBg) return;
+      const rect = mfstBg.parentElement.getBoundingClientRect();
+      const ofs  = (rect.top + rect.height / 2 - window.innerHeight / 2) * 0.12;
+      mfstBg.style.transform = `translateY(${ofs}px)`;
+    }
+    window.addEventListener('scroll', applyParallax, { passive: true });
+
+    /* ── SCROLL REVEAL ── */
+    const rvEls = document.querySelectorAll('.rv, .rv-l, .rv-r');
+    const rvObs = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }),
+      { threshold: .1, rootMargin: '0px 0px -48px 0px' }
+    );
+    rvEls.forEach(el => rvObs.observe(el));
+
+    // Hero fires on load
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('#hero .rv').forEach(el => el.classList.add('on'));
+    });
+
+    /* ── COUNTER ANIMATION ── */
+    function runCounter(el) {
+      const end  = parseFloat(el.dataset.end);
+      const sfx  = el.dataset.sfx;
+      const dur  = 1800;
+      const t0   = performance.now();
+      function step(now) {
+        const p = Math.min((now - t0) / dur, 1);
+        const e = 1 - Math.pow(1 - p, 3);       // ease-out-cubic
+        el.textContent = Math.round(e * end) + sfx;
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = end + sfx;
+      }
+      requestAnimationFrame(step);
+    }
+    const ctrObs = new IntersectionObserver(
+      es => es.forEach(e => {
+        if (e.isIntersecting && !e.target.dataset.done) {
+          e.target.dataset.done = '1'; runCounter(e.target);
+        }
+      }),
+      { threshold: .55 }
+    );
+    document.querySelectorAll('[data-end]').forEach(el => ctrObs.observe(el));
+
+    /* ── 3D TILT on CARDS (desktop only) ── */
+    if (!isTouch) document.querySelectorAll('[data-tilt]').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r  = card.getBoundingClientRect();
+        const cx = r.left + r.width  / 2;
+        const cy = r.top  + r.height / 2;
+        const dx = (e.clientX - cx) / (r.width  / 2);
+        const dy = (e.clientY - cy) / (r.height / 2);
+        card.style.transform = `perspective(900px) rotateX(${-dy * 5}deg) rotateY(${dx * 5}deg) translateZ(6px)`;
+        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width  * 100) + '%');
+        card.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100) + '%');
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    }); // end tilt
+
+    /* ── WAITLIST FORM ── */
+    // TODO: replace ENDPOINT with your Brevo / serverless route
+    const ENDPOINT = '';
+    const wlForm = document.getElementById('wl-form');
+    const wlBtn  = document.getElementById('f-btn');
+    const wlOk   = document.getElementById('f-ok');
+
+    wlForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const name  = document.getElementById('f-n').value.trim();
+      const email = document.getElementById('f-e').value.trim();
+      if (!name || !email) return;
+      wlBtn.disabled = true; wlBtn.textContent = 'Joining…';
+      try {
+        if (ENDPOINT) {
+          await fetch(ENDPOINT, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email }),
+          });
+        } else {
+          await new Promise(r => setTimeout(r, 1000));
+        }
+        wlForm.style.display = 'none';
+        wlOk.classList.add('on');
+      } catch {
+        wlBtn.disabled = false; wlBtn.textContent = 'Join The Waitlist →';
+      }
+    });
+  </script>
+</body>
+</html>
