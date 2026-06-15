@@ -301,8 +301,10 @@
       padding: 10px 26px; background: var(--accent); color: #0A0A0A;
       font-size: .8125rem; font-weight: 500; letter-spacing: .04em;
       border: none; cursor: pointer; transition: opacity .2s, transform .2s;
+      white-space: nowrap;
     }
     .nav-cta:hover { opacity: .82; transform: translateY(-1px); }
+    .nav-short { display: none; }
 
     /* ═══════════════════════════════════════
        HERO
@@ -748,8 +750,10 @@
       #nav  { padding: 0 16px; }
       #hero { padding: calc(var(--nav-h) + 28px) 16px 60px; }
 
-      /* nav CTA: shorten so it doesn't crowd the logo */
-      .nav-cta { padding: 8px 14px; font-size: 0.6875rem; }
+      /* nav CTA: swap to short label so it doesn't crowd the logo */
+      .nav-cta { padding: 8px 14px; font-size: 0.75rem; }
+      .nav-full { display: none; }
+      .nav-short { display: inline; }
 
       /* hero text tighter on small screens */
       .hero-sub { font-size: 0.875rem; line-height: 1.65; margin-bottom: 16px; }
@@ -806,7 +810,7 @@
     </a>
     <div class="nav-r">
       <a href="#pillars" class="nav-link">The Experience</a>
-      <a href="#wl"      class="nav-cta">Join The Founding List</a>
+      <a href="#wl" class="nav-cta"><span class="nav-full">Join The Founding List</span><span class="nav-short">Join List</span></a>
     </div>
   </nav>
 
@@ -1201,9 +1205,14 @@
     hlEl.innerHTML = hlWords.map((w, i) =>
       `<span class="word-clip"><span class="word-in" style="transition-delay:${.44 + i * .09}s">${w}</span></span>${i < hlWords.length - 1 ? ' ' : ''}`
     ).join('');
-    window.addEventListener('load', () => {
-      setTimeout(() => hlEl.querySelectorAll('.word-in').forEach(el => el.classList.add('on')), 120);
-    });
+    // Fire headline words on DOMContentLoaded (not window.load) so the headline
+    // is never invisible while the hero image is still loading
+    const fireHL = () => setTimeout(() => hlEl.querySelectorAll('.word-in').forEach(el => el.classList.add('on')), 180);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fireHL);
+    } else {
+      fireHL();
+    }
 
     /* ── CANVAS PARTICLE NETWORK ── */
     const cv  = document.getElementById('c');
