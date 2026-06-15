@@ -349,7 +349,7 @@
     .hero-eye-line { width: 44px; height: 1px; background: var(--accent); }
 
     /* Headline: each word gets a clip-reveal wrapper */
-    .hero-head { font-size: clamp(3rem, 7vw, 6.5rem); max-width: 13ch; margin-bottom: 26px; }
+    .hero-head { font-size: clamp(1.625rem, calc(0.75rem + 5.5vw), 6.5rem); max-width: 13ch; margin-bottom: 26px; }
 
     .word-clip { overflow: hidden; display: inline-block; }
     .word-in {
@@ -424,7 +424,7 @@
 
     .stat-n {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem,4vw,4rem); font-weight: 700;
+      font-size: clamp(1.75rem,4vw,4rem); font-weight: 700;
       color: var(--text); display: block; margin-bottom: 16px; line-height: 1;
     }
     .stat-t { font-size: .9375rem; color: var(--text-2); line-height: 1.75; }
@@ -595,7 +595,7 @@
     @keyframes rpl { 0% { transform:scale(1); opacity:.6; } 100% { transform:scale(5.5); opacity:0; } }
 
     .teaser-eye { margin-bottom: 28px; }
-    .teaser-hl  { font-size: clamp(2.5rem,5.5vw,5rem); line-height: 1.08; margin-bottom: 32px; }
+    .teaser-hl  { font-size: clamp(1.5rem, calc(0.5rem + 4vw), 5rem); line-height: 1.08; margin-bottom: 32px; }
     .teaser-sub {
       font-size: clamp(.9375rem,1.3vw,1.125rem); color: var(--text-2);
       max-width: 54ch; margin: 0 auto 56px; line-height: 1.82;
@@ -713,10 +713,17 @@
       .sec-hdr   { margin-bottom: 48px; }
       .pcard     { padding: 44px 32px; }
 
+      /* hero type */
+      .hero-head { max-width: none; }
+      .hero-sub  { margin-bottom: 32px; line-height: 1.7; }
+
       /* manifesto */
-      .mfst-hl   { font-size: clamp(2rem, 8vw, 3rem); }
-      .mfst-body { text-align: left; }
+      .mfst-hl   { font-size: clamp(1.375rem, 5.5vw, 3rem); }
+      .mfst-body { text-align: left; font-size: .9375rem; }
       .mfst-inner { padding: 0 4px; }
+
+      /* vision body breathing room */
+      .vision-p { line-height: 1.65; font-size: 1rem; }
 
       /* difference */
       .diff-grid { grid-template-columns: 1fr; }
@@ -739,10 +746,16 @@
     @media (max-width: 480px) {
       .container { padding: 0 16px; }
       #nav  { padding: 0 16px; }
-      #hero { padding: calc(var(--nav-h) + 32px) 16px 72px; }
+      #hero { padding: calc(var(--nav-h) + 28px) 16px 60px; }
 
-      .hero-ctas { flex-direction: column; gap: 12px; }
-      .btn-p, .btn-g { width: 100%; justify-content: center; padding: 16px 24px; }
+      /* nav CTA: shorten so it doesn't crowd the logo */
+      .nav-cta { padding: 8px 14px; font-size: 0.6875rem; }
+
+      /* hero text tighter on small screens */
+      .hero-sub { font-size: 0.875rem; line-height: 1.65; margin-bottom: 16px; }
+
+      .hero-ctas { flex-direction: column; gap: 10px; }
+      .btn-p, .btn-g { width: 100%; justify-content: center; padding: 14px 20px; font-size: 0.875rem; }
 
       /* prevent iOS zoom on input focus */
       .fi { font-size: 1rem; }
@@ -766,7 +779,8 @@
     /* ── Very small (320px) ── */
     @media (max-width: 360px) {
       .container, #nav, #hero { padding-inline: 12px; }
-      .hero-head { font-size: clamp(2.25rem, 9vw, 3rem); }
+      .hero-sub { font-size: 0.8125rem; }
+      .stat-n   { font-size: clamp(1.5rem, 3.5vw, 4rem); }
     }
 
     /* ── Touch: disable hover-only effects ── */
