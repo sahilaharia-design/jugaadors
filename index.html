@@ -351,9 +351,10 @@
     .hero-eye-line { width: 44px; height: 1px; background: var(--accent); }
 
     /* Headline: each word gets a clip-reveal wrapper */
-    .hero-head { font-size: clamp(1.625rem, calc(0.75rem + 5.5vw), 6.5rem); max-width: 13ch; margin-bottom: 26px; }
+    .hero-head { font-size: clamp(1.625rem, calc(0.95rem + 2.9vw), 3.5rem); max-width: 18ch; margin-bottom: 26px; }
 
-    .word-clip { overflow: hidden; display: inline-block; }
+    /* padding-top gives ascenders room inside the overflow:hidden clip box */
+    .word-clip { overflow: hidden; display: inline-block; padding-top: 0.15em; margin-top: -0.15em; }
     .word-in {
       display: inline-block;
       transform: translateY(108%); opacity: 0;
