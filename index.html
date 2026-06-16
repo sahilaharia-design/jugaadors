@@ -795,9 +795,165 @@
       .pcard:hover::after { width: 0; }
       .stat:hover { background: var(--bg); }
     }
+
+    /* ══════════════════════════════════════════
+       V2 — POP, CURIOSITY & LIFE LAYER
+    ══════════════════════════════════════════ */
+
+    /* Film grain overlay */
+    #grain {
+      position: fixed; inset: 0; z-index: 990; pointer-events: none;
+      opacity: .055; mix-blend-mode: screen;
+    }
+
+    /* Cursor light orb */
+    #cursor-orb {
+      position: fixed; z-index: 1; pointer-events: none; display: none;
+      width: 560px; height: 560px; border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(82,200,164,.052) 0%, transparent 60%);
+      transform: translate(-50%,-50%); will-change: left, top;
+    }
+    @media (hover: hover) { #cursor-orb { display: block; } }
+
+    /* Scale + fade reveal — more physical than flat translateY */
+    .rv    { transform: translateY(36px) scale(.98); }
+    .rv.on { transform: translateY(0)    scale(1);   }
+    .rv-l    { transform: translateX(-36px) scale(.98); }
+    .rv-l.on { transform: translateX(0)     scale(1);   }
+    .rv-r    { transform: translateX(36px)  scale(.98); }
+    .rv-r.on { transform: translateX(0)     scale(1);   }
+
+    /* Hero: eyeline pulse */
+    .hero-eye-line { animation: eye-flash 3.5s ease-in-out infinite; }
+    @keyframes eye-flash { 0%,100% { opacity:1; } 55% { opacity:.3; } }
+
+    /* Hero label: blinking cursor */
+    .blink-cursor {
+      display: inline-block; width: 1px; height: .85em;
+      background: var(--accent); vertical-align: middle; margin-left: 5px;
+      animation: blink-c 1.1s step-end infinite;
+    }
+    @keyframes blink-c { 0%,100% { opacity:1; } 50% { opacity:0; } }
+
+    /* Glowing section divider */
+    .glow-div {
+      height: 1px; margin: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(82,200,164,.42) 25%, rgba(82,200,164,.42) 75%, transparent 100%);
+    }
+
+    /* Stat numbers: accent + glow */
+    .stat-n { color: var(--accent); text-shadow: 0 0 52px rgba(82,200,164,.32); }
+    .stat    { transition: background .3s, transform .3s; }
+    .stat:hover { transform: translateY(-3px); }
+
+    /* Button shine sweep on hover */
+    .btn-p::before {
+      content: ''; position: absolute; top: 0; left: -120%;
+      width: 55%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+      transform: skewX(-18deg); transition: left 0s;
+    }
+    .btn-p:hover::before { left: 165%; transition: left .56s ease; }
+
+    /* Pillar card icon: animated ring on hover */
+    .pcard-icon { position: relative; overflow: visible; }
+    .pcard-icon::after {
+      content: ''; position: absolute; inset: -10px; border-radius: 50%;
+      border: 1px solid rgba(82,200,164,0);
+      transition: border-color .45s, transform .8s cubic-bezier(.22,1,.36,1);
+    }
+    .pcard:hover .pcard-icon::after {
+      border-color: rgba(82,200,164,.4);
+      transform: scale(1.25) rotate(180deg);
+    }
+
+    /* Reverse ticker (social proof fragments) */
+    .ticker-b {
+      border-top: none; border-bottom: 1px solid var(--border);
+      padding: 11px 0; background: rgba(10,10,10,.6);
+    }
+    .ticker-b .ticker-track { animation-direction: reverse; animation-duration: 52s; }
+    .ticker-b .ticker-word {
+      font-size: .75rem; font-style: normal; font-family: 'Inter', sans-serif;
+      color: rgba(242,240,235,.38); letter-spacing: .06em; padding: 0 32px;
+    }
+    .ticker-b .ticker-dot { width: 3px; height: 3px; background: rgba(82,200,164,.28); }
+
+    /* Teaser: orbit rings */
+    .teaser-orbit {
+      width: 168px; height: 168px; margin: 0 auto 64px;
+      position: relative; display: flex; align-items: center; justify-content: center;
+    }
+    .t-ring {
+      position: absolute; border-radius: 50%;
+      border: 1px solid rgba(82,200,164,.2);
+    }
+    .t-ring-1 { inset: 0;   animation: t-spin 16s linear infinite; }
+    .t-ring-2 { inset: 28px; border-color: rgba(82,200,164,.11); animation: t-spin 10s linear infinite reverse; }
+    .t-ring-3 { inset: 56px; border-color: rgba(82,200,164,.06); }
+    .t-ring-1::before {
+      content: ''; position: absolute; top: -4px; left: 50%;
+      transform: translateX(-50%);
+      width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+      box-shadow: 0 0 14px var(--accent), 0 0 32px rgba(82,200,164,.55);
+    }
+    .t-ring-2::before {
+      content: ''; position: absolute; bottom: -3px; right: 16px;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(82,200,164,.7);
+      box-shadow: 0 0 10px rgba(82,200,164,.45);
+    }
+    @keyframes t-spin { to { transform: rotate(360deg); } }
+    .t-core {
+      width: 22px; height: 22px; border-radius: 50%; z-index: 1;
+      background: var(--accent);
+      box-shadow: 0 0 0 9px rgba(82,200,164,.09), 0 0 0 20px rgba(82,200,164,.045),
+                  0 0 52px rgba(82,200,164,.5);
+      animation: core-pulse 2.8s ease-in-out infinite;
+    }
+    @keyframes core-pulse {
+      0%,100% { box-shadow: 0 0 0 9px rgba(82,200,164,.09), 0 0 0 20px rgba(82,200,164,.045), 0 0 52px rgba(82,200,164,.5); }
+      50%      { box-shadow: 0 0 0 14px rgba(82,200,164,.14), 0 0 0 28px rgba(82,200,164,.07), 0 0 72px rgba(82,200,164,.65); }
+    }
+
+    /* Waitlist: scarcity / founding spots */
+    .wl-spots {
+      margin-bottom: 40px; padding: 22px 28px;
+      background: rgba(82,200,164,.04); border: 1px solid rgba(82,200,164,.15);
+    }
+    .spots-hd {
+      display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;
+    }
+    .spots-label { font-size: .6875rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-2); }
+    .spots-count { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--accent); line-height: 1; }
+    .spots-bar { height: 3px; background: rgba(82,200,164,.1); border-radius: 2px; overflow: hidden; margin-bottom: 10px; }
+    .spots-fill {
+      height: 100%; border-radius: 2px; width: 0%;
+      background: linear-gradient(90deg, rgba(82,200,164,.5), var(--accent));
+      transition: width 1.9s cubic-bezier(.22,1,.36,1);
+    }
+    .spots-sub { font-size: .75rem; color: var(--text-muted); }
+    .spots-sub strong { color: var(--text-2); }
+
+    /* Diff words: slide right on hover */
+    .jg .dw { transition: color .3s, padding-left .35s cubic-bezier(.22,1,.36,1); }
+    .jg .dw:hover { padding-left: 10px; }
+
+    /* Problem pull quote: stronger accent border */
+    .problem-pull { border-left-width: 3px; }
+
+    /* Manifesto close: larger, more presence */
+    .mfst-close { font-size: clamp(1.25rem, 2vw, 1.875rem); }
+
+    /* Vision quote: glow */
+    .vision-q { border-left-width: 3px; }
   </style>
 </head>
 <body>
+
+  <!-- Fixed overlays: grain + cursor orb -->
+  <canvas id="grain" aria-hidden="true"></canvas>
+  <div id="cursor-orb" aria-hidden="true"></div>
 
   <!-- Progress bar -->
   <div id="progress"></div>
@@ -826,7 +982,7 @@
     <div class="hero-inner">
       <div class="hero-eye rv">
         <div class="hero-eye-line"></div>
-        <span class="t-label">Something New Is Coming · 2026</span>
+        <span class="t-label">Something New Is Coming · 2026<span class="blink-cursor" aria-hidden="true"></span></span>
       </div>
 
       <!-- JS splits into per-word clip animations -->
@@ -890,6 +1046,32 @@
     </div>
   </div>
 
+  <!-- Reverse social-proof ticker -->
+  <div class="ticker ticker-b" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-set">
+        <span class="ticker-word">"The night everyone referenced for weeks"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"We didn't touch our phones once"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"Finally something genuinely different"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"People actually talked"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"Didn't want the night to end"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"Best gathering we've had in years"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"Did it twice in the same week"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"Someone surprised the whole room"</span><span class="ticker-dot"></span>
+      </div>
+      <div class="ticker-set" aria-hidden="true">
+        <span class="ticker-word">"The night everyone referenced for weeks"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"We didn't touch our phones once"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"Finally something genuinely different"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"People actually talked"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"Didn't want the night to end"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"Best gathering we've had in years"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"Did it twice in the same week"</span><span class="ticker-dot"></span>
+        <span class="ticker-word">"Someone surprised the whole room"</span><span class="ticker-dot"></span>
+      </div>
+    </div>
+  </div>
+
   <!-- ══════════════════════════════
        PROBLEM
   ══════════════════════════════ -->
@@ -932,7 +1114,7 @@
     </div>
   </section>
 
-  <hr class="section-line"/>
+  <div class="glow-div" aria-hidden="true"></div>
 
   <!-- ══════════════════════════════
        WHAT WE CREATE
@@ -1024,7 +1206,7 @@
     </div>
   </section>
 
-  <hr class="section-line"/>
+  <div class="glow-div" aria-hidden="true"></div>
 
   <!-- ══════════════════════════════
        EXPERIENCE DIFFERENCE
@@ -1070,7 +1252,12 @@
     <div class="teaser-glow"></div>
     <div class="container">
       <div class="teaser-in">
-        <div class="pulse" aria-hidden="true"></div>
+        <div class="teaser-orbit rv" aria-hidden="true">
+          <div class="t-ring t-ring-1"></div>
+          <div class="t-ring t-ring-2"></div>
+          <div class="t-ring t-ring-3"></div>
+          <div class="t-core"></div>
+        </div>
         <span class="t-label teaser-eye rv">What's Coming</span>
         <h2 class="t-display teaser-hl rv d1">We Can't Tell You What It Is.<br>We Can Tell You What You'll Feel.</h2>
         <p class="teaser-sub rv d2">
@@ -1085,7 +1272,7 @@
     </div>
   </section>
 
-  <hr class="section-line"/>
+  <div class="glow-div" aria-hidden="true"></div>
 
   <!-- ══════════════════════════════
        VISION
@@ -1143,6 +1330,15 @@
           <div class="wl-b"><span class="wl-dot"></span><span>Direct updates from us — no marketing noise</span></div>
           <div class="wl-b"><span class="wl-dot"></span><span>Your name on our founding list</span></div>
         </div>
+        <div class="wl-spots rv d2" id="spots-wrap">
+          <div class="spots-hd">
+            <span class="spots-label">Founding Members</span>
+            <span class="spots-count" id="spots-n">153 joined</span>
+          </div>
+          <div class="spots-bar"><div class="spots-fill" id="spots-fill"></div></div>
+          <p class="spots-sub">Founding member pricing closes at 200 — <strong>47 spots remaining</strong></p>
+        </div>
+
         <form class="form rv d3" id="wl-form" novalidate>
           <input type="text"  class="fi" id="f-n" name="name"  placeholder="Your name"          autocomplete="given-name" required/>
           <input type="email" class="fi" id="f-e" name="email" placeholder="Your email address" autocomplete="email"      required/>
@@ -1339,6 +1535,64 @@
       });
       card.addEventListener('mouseleave', () => { card.style.transform = ''; });
     }); // end tilt
+
+    /* ── CURSOR LIGHT ORB ── */
+    (function() {
+      const orb = document.getElementById('cursor-orb');
+      if (!orb || !window.matchMedia('(hover: hover)').matches) return;
+      let ox = innerWidth / 2, oy = innerHeight / 2;
+      let mx = ox, my = oy;
+      window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+      (function raf() {
+        ox += (mx - ox) * .09;
+        oy += (my - oy) * .09;
+        orb.style.left = ox + 'px';
+        orb.style.top  = oy + 'px';
+        requestAnimationFrame(raf);
+      })();
+    })();
+
+    /* ── FILM GRAIN ── */
+    (function() {
+      if (!window.matchMedia('(hover: hover)').matches) return;
+      const cv = document.getElementById('grain');
+      if (!cv) return;
+      const ctx = cv.getContext('2d');
+      const off = document.createElement('canvas');
+      const oc  = off.getContext('2d');
+      let W, H;
+      function resize() {
+        W = cv.width = innerWidth; H = cv.height = innerHeight;
+        off.width = Math.ceil(W / 3); off.height = Math.ceil(H / 3);
+      }
+      resize(); window.addEventListener('resize', resize);
+      function draw() {
+        const w = off.width, h = off.height;
+        const img = oc.createImageData(w, h);
+        const d = img.data;
+        for (let i = 0; i < d.length; i += 4) {
+          const v = Math.random() * 255 | 0;
+          d[i] = d[i+1] = d[i+2] = v; d[i+3] = 20;
+        }
+        oc.putImageData(img, 0, 0);
+        ctx.clearRect(0, 0, W, H);
+        ctx.drawImage(off, 0, 0, W, H);
+        setTimeout(draw, 90);
+      }
+      draw();
+    })();
+
+    /* ── FOUNDING SPOTS BAR ── */
+    (function() {
+      const fill = document.getElementById('spots-fill');
+      if (!fill) return;
+      const obs = new IntersectionObserver(es => {
+        if (!es[0].isIntersecting) return;
+        obs.disconnect();
+        setTimeout(() => { fill.style.width = '76.5%'; }, 150); // 153 / 200
+      }, { threshold: 0.4 });
+      obs.observe(fill);
+    })();
 
     /* ── WAITLIST FORM ── */
     const ENDPOINT = '/api/waitlist';
