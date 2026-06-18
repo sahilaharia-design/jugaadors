@@ -947,6 +947,101 @@
 
     /* Vision quote: glow */
     .vision-q { border-left-width: 3px; }
+
+    /* ═══════════════════════════════════════
+       HERO INLINE FORM
+    ═══════════════════════════════════════ */
+    .hero-form { width: 100%; max-width: 540px; }
+    .hero-form-row {
+      display: flex; gap: 0; margin-bottom: 16px;
+    }
+    .hero-fi {
+      flex: 1; min-width: 0; padding: 17px 20px;
+      background: rgba(10,10,10,.72); border: 1px solid rgba(242,240,235,.18);
+      border-right: none; color: var(--text); font-size: .9375rem; font-weight: 300;
+      outline: none; -webkit-appearance: none;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    .hero-fi::placeholder { color: var(--text-muted); }
+    .hero-fi:focus {
+      border-color: rgba(82,200,164,.55);
+      box-shadow: 0 0 0 3px rgba(82,200,164,.07);
+    }
+    .hero-fs {
+      padding: 17px 28px; background: var(--accent); color: #0A0A0A;
+      font-size: .875rem; font-weight: 500; letter-spacing: .04em;
+      border: none; cursor: pointer; white-space: nowrap;
+      transition: box-shadow .3s, opacity .2s; flex-shrink: 0;
+    }
+    .hero-fs:hover { box-shadow: 0 6px 28px var(--accent-glow); opacity: .9; }
+    .hero-fs:disabled { opacity: .5; cursor: not-allowed; }
+    .hero-form-meta {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 6px 0;
+      font-size: .75rem; color: rgba(242,240,235,.44); line-height: 1.5;
+    }
+    .hero-dot-sep { margin: 0 8px; color: rgba(242,240,235,.2); }
+    .hero-more-link { color: rgba(82,200,164,.72); transition: color .2s; }
+    .hero-more-link:hover { color: var(--accent); }
+    .hero-form-ok {
+      padding: 14px 20px; background: rgba(82,200,164,.08);
+      border: 1px solid rgba(82,200,164,.25); color: var(--accent);
+      font-size: .9375rem;
+    }
+    @media (max-width: 480px) {
+      .hero-form-row { flex-direction: column; }
+      .hero-fi { border-right: 1px solid rgba(242,240,235,.18); border-bottom: none; }
+      .hero-fs { padding: 15px 20px; }
+    }
+
+    /* ═══════════════════════════════════════
+       MID-PAGE CTA
+    ═══════════════════════════════════════ */
+    .mid-cta {
+      padding: 72px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: linear-gradient(to bottom, rgba(82,200,164,.025) 0%, transparent 100%);
+    }
+    .mid-cta-in {
+      display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
+    }
+    .mid-cta-txt {
+      font-family: 'Playfair Display', serif; font-size: clamp(1.125rem,2vw,1.5rem);
+      font-style: italic; color: var(--text); flex: 1; min-width: 240px;
+    }
+    .mid-cta-txt strong { color: var(--accent); font-style: normal; }
+    .mid-form { display: flex; gap: 0; flex: 1; min-width: 240px; max-width: 420px; }
+    .mid-fs { padding: 17px 24px; }
+    .mid-ok-txt { color: var(--accent); font-size: .9375rem; }
+    @media (max-width: 768px) {
+      .mid-cta-in { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .mid-form { width: 100%; max-width: none; }
+    }
+
+    /* ═══════════════════════════════════════
+       STICKY BOTTOM STRIP
+    ═══════════════════════════════════════ */
+    #sticky-strip {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
+      display: flex; align-items: center; justify-content: center; gap: 20px;
+      padding: 14px 24px;
+      background: rgba(10,10,10,.94);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border);
+      transform: translateY(100%);
+      transition: transform .45s cubic-bezier(.22,1,.36,1);
+    }
+    #sticky-strip.show { transform: translateY(0); }
+    .ss-count { font-size: .8125rem; color: var(--text-2); white-space: nowrap; }
+    .ss-count strong { color: var(--text); }
+    .ss-cta {
+      padding: 10px 24px; background: var(--accent); color: #0A0A0A;
+      font-size: .8125rem; font-weight: 500; letter-spacing: .04em;
+      white-space: nowrap; transition: opacity .2s;
+    }
+    .ss-cta:hover { opacity: .84; }
+    @media (max-width: 480px) {
+      #sticky-strip { flex-direction: column; gap: 10px; padding: 14px 16px; }
+      .ss-count { font-size: .75rem; }
+    }
   </style>
 </head>
 <body>
@@ -954,6 +1049,12 @@
   <!-- Fixed overlays: grain + cursor orb -->
   <canvas id="grain" aria-hidden="true"></canvas>
   <div id="cursor-orb" aria-hidden="true"></div>
+
+  <!-- Sticky conversion strip -->
+  <div id="sticky-strip" aria-hidden="true">
+    <span class="ss-count"><strong id="ss-n">153</strong> founding members joined</span>
+    <a href="#wl" class="ss-cta">Reserve Your Spot →</a>
+  </div>
 
   <!-- Progress bar -->
   <div id="progress"></div>
@@ -996,10 +1097,22 @@
         founding waitlist before we launch.
       </p>
 
-      <div class="hero-ctas rv d4">
-        <a href="#wl"      class="btn-p">Join The Founding List →</a>
-        <a href="#pillars" class="btn-g">See The Experience ↓</a>
-      </div>
+      <form class="hero-form rv d4" id="hero-form" novalidate>
+        <div class="hero-form-row">
+          <input type="email" class="hero-fi" id="hero-email" placeholder="your@email.com" autocomplete="email" required/>
+          <button type="submit" class="hero-fs" id="hero-btn">Join The Founding List →</button>
+        </div>
+        <div class="hero-form-meta" id="hero-meta">
+          <span>Join <strong id="hero-count">153</strong> founding members</span>
+          <span class="hero-dot-sep">·</span>
+          <span>One email when we launch</span>
+          <span class="hero-dot-sep">·</span>
+          <a href="#pillars" class="hero-more-link">See the experience ↓</a>
+        </div>
+        <div class="hero-form-ok" id="hero-form-ok" style="display:none">
+          You're on the founding list. We'll reach out before anyone else.
+        </div>
+      </form>
     </div>
 
     <div class="scroll-hint" aria-hidden="true">
@@ -1272,7 +1385,23 @@
     </div>
   </section>
 
-  <div class="glow-div" aria-hidden="true"></div>
+  <!-- ══════════════════════════════
+       MID-PAGE CTA
+  ══════════════════════════════ -->
+  <div class="mid-cta">
+    <div class="container">
+      <div class="mid-cta-in rv">
+        <p class="mid-cta-txt">Ready? Join <strong id="mid-count">153</strong> founding members before we open the doors.</p>
+        <div id="mid-signup">
+          <form class="mid-form" id="mid-form" novalidate>
+            <input type="email" class="hero-fi" id="mid-email" placeholder="your@email.com" autocomplete="email" required/>
+            <button type="submit" class="hero-fs mid-fs" id="mid-btn">Join Now →</button>
+          </form>
+          <div id="mid-ok" style="display:none"><span class="mid-ok-txt">You're in. We'll reach out first.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ══════════════════════════════
        VISION
@@ -1333,10 +1462,10 @@
         <div class="wl-spots rv d2" id="spots-wrap">
           <div class="spots-hd">
             <span class="spots-label">Founding Members</span>
-            <span class="spots-count" id="spots-n">153 joined</span>
+            <span class="spots-count"><span id="spots-n">153</span> joined</span>
           </div>
           <div class="spots-bar"><div class="spots-fill" id="spots-fill"></div></div>
-          <p class="spots-sub">Founding member pricing closes at 200 — <strong>47 spots remaining</strong></p>
+          <p class="spots-sub">Founding list closes at 1,000 — <strong><span id="spots-remaining">847</span> spots remaining</strong></p>
         </div>
 
         <form class="form rv d3" id="wl-form" novalidate>
@@ -1582,42 +1711,134 @@
       draw();
     })();
 
-    /* ── FOUNDING SPOTS BAR ── */
+    /* ── DYNAMIC COUNT + SPOTS BAR ── */
+    const ENDPOINT   = '/api/waitlist';
+    const TARGET     = 1000;
+    let   liveCount  = 153;
+    let   barReady   = false;
+    let   countReady = false;
+
+    function setCount(n) {
+      liveCount = Math.max(n, liveCount); // never go backwards
+      const remaining = Math.max(TARGET - liveCount, 0);
+      const pct = Math.min((liveCount / TARGET) * 100, 100);
+
+      // Update all count displays
+      ['spots-n','hero-count','mid-count','ss-n'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = liveCount.toLocaleString();
+      });
+      document.querySelectorAll('#spots-remaining').forEach(el => {
+        el.textContent = remaining.toLocaleString();
+      });
+
+      // Fire bar if the section is visible
+      countReady = true;
+      if (barReady) animateBar(pct);
+    }
+
+    function animateBar(pct) {
+      const fill = document.getElementById('spots-fill');
+      if (fill) setTimeout(() => { fill.style.width = Math.max(pct, 1.5) + '%'; }, 150);
+    }
+
+    // Observe the bar section so animation fires on scroll into view
     (function() {
       const fill = document.getElementById('spots-fill');
       if (!fill) return;
       const obs = new IntersectionObserver(es => {
         if (!es[0].isIntersecting) return;
         obs.disconnect();
-        setTimeout(() => { fill.style.width = '76.5%'; }, 150); // 153 / 200
-      }, { threshold: 0.4 });
+        barReady = true;
+        if (countReady) animateBar(Math.min((liveCount / TARGET) * 100, 100));
+      }, { threshold: 0.3 });
       obs.observe(fill);
     })();
 
-    /* ── WAITLIST FORM ── */
-    const ENDPOINT = '/api/waitlist';
+    // Fetch real count from API
+    fetch('/api/count')
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { if (d && typeof d.count === 'number') setCount(d.count); })
+      .catch(() => {});
+
+    /* ── SHARED FORM SUBMIT ── */
+    function submitSignup({ name, email, btn, onSuccess }) {
+      btn.disabled = true; btn.textContent = 'Joining…';
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name || 'Founding Member', email }),
+      }).then(() => {
+        setCount(liveCount + 1);
+        onSuccess();
+      }).catch(() => {
+        btn.disabled = false; btn.textContent = 'Try again →';
+      });
+    }
+
+    /* ── WAITLIST FORM (full, name + email) ── */
     const wlForm = document.getElementById('wl-form');
     const wlBtn  = document.getElementById('f-btn');
     const wlOk   = document.getElementById('f-ok');
-
-    wlForm.addEventListener('submit', async e => {
+    wlForm.addEventListener('submit', e => {
       e.preventDefault();
       const name  = document.getElementById('f-n').value.trim();
       const email = document.getElementById('f-e').value.trim();
       if (!name || !email) return;
-      wlBtn.disabled = true; wlBtn.textContent = 'Joining…';
-      try {
-        await fetch(ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email }),
-        });
+      submitSignup({ name, email, btn: wlBtn, onSuccess: () => {
         wlForm.style.display = 'none';
         wlOk.classList.add('on');
-      } catch {
-        wlBtn.disabled = false; wlBtn.textContent = 'Join The Waitlist →';
-      }
+      }});
     });
+
+    /* ── HERO INLINE FORM (email only) ── */
+    const heroForm = document.getElementById('hero-form');
+    const heroBtn  = document.getElementById('hero-btn');
+    const heroOk   = document.getElementById('hero-form-ok');
+    const heroMeta = document.getElementById('hero-meta');
+    heroForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('hero-email').value.trim();
+      if (!email) return;
+      submitSignup({ email, btn: heroBtn, onSuccess: () => {
+        heroForm.querySelector('.hero-form-row').style.display = 'none';
+        heroMeta.style.display = 'none';
+        heroOk.style.display = 'block';
+      }});
+    });
+
+    /* ── MID-PAGE FORM (email only) ── */
+    const midForm = document.getElementById('mid-form');
+    const midBtn  = document.getElementById('mid-btn');
+    const midOk   = document.getElementById('mid-ok');
+    midForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('mid-email').value.trim();
+      if (!email) return;
+      submitSignup({ email, btn: midBtn, onSuccess: () => {
+        midForm.style.display = 'none';
+        midOk.style.display = 'block';
+      }});
+    });
+
+    /* ── STICKY BOTTOM STRIP ── */
+    (function() {
+      const strip  = document.getElementById('sticky-strip');
+      const hero   = document.getElementById('hero');
+      const wl     = document.getElementById('wl');
+      if (!strip || !hero || !wl) return;
+      function checkStrip() {
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        const wlTop      = wl.getBoundingClientRect().top;
+        const inWl       = wlTop < window.innerHeight * 0.75;
+        strip.classList.toggle('show', heroBottom < 0 && !inWl);
+      }
+      window.addEventListener('scroll', checkStrip, { passive: true });
+      // clicking strip CTA closes it after navigation
+      strip.querySelector('.ss-cta').addEventListener('click', () => {
+        setTimeout(() => strip.classList.remove('show'), 600);
+      });
+    })();
   </script>
 </body>
 </html>
