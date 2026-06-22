@@ -1180,6 +1180,80 @@
       #sticky-strip { flex-direction: column; gap: 10px; padding: 14px 16px; }
       .ss-count { font-size: .75rem; }
     }
+    /* ── Stat Icons ── */
+    .stat-icon {
+      width: 36px; height: 36px; margin-bottom: 20px;
+      color: var(--accent); opacity: .7;
+    }
+    .stat-icon svg { width: 100%; height: 100%; }
+    /* ── WL Check Icons ── */
+    .wl-check {
+      width: 16px; height: 16px; flex-shrink: 0;
+      color: var(--accent);
+    }
+    .wl-check svg { width: 100%; height: 100%; }
+    /* ── Contact Section ── */
+    #contact { padding: 120px 0; border-top: 1px solid var(--border); }
+    .contact-g {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start; margin-top: 64px;
+    }
+    .contact-links {
+      display: flex; flex-direction: column;
+      border: 1px solid var(--border);
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 18px;
+      padding: 22px 28px; border-bottom: 1px solid var(--border);
+      text-decoration: none; transition: background .2s;
+    }
+    .contact-link:last-child { border-bottom: none; }
+    .contact-link:hover { background: var(--surface); }
+    .contact-link-icon {
+      width: 20px; height: 20px; flex-shrink: 0; color: var(--accent);
+    }
+    .contact-link-icon svg { width: 100%; height: 100%; }
+    .contact-link-body { display: flex; flex-direction: column; gap: 3px; }
+    .contact-link-label {
+      font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .contact-link-val { font-size: .9375rem; color: var(--text); }
+    .contact-r { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
+    .contact-loc {
+      background: var(--bg); padding: 32px 36px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .contact-loc-city {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem; font-weight: 700; color: var(--text);
+    }
+    .contact-loc-sub { font-size: .825rem; color: var(--text-muted); }
+    .contact-promise {
+      background: var(--bg); padding: 32px 36px;
+      border-left: 2px solid var(--accent);
+    }
+    .contact-promise-lbl {
+      font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); display: block; margin-bottom: 10px;
+    }
+    .contact-promise-txt { font-size: .9375rem; color: var(--text-2); line-height: 1.75; }
+    .contact-social {
+      background: var(--bg); padding: 28px 36px;
+      display: flex; gap: 24px; align-items: center;
+    }
+    .contact-social-link {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: var(--text-muted);
+      font-size: .8125rem; letter-spacing: .06em; text-transform: uppercase;
+      transition: color .2s;
+    }
+    .contact-social-link:hover { color: var(--accent); }
+    .contact-social-link svg { width: 16px; height: 16px; }
+    /* ── Responsive contact ── */
+    @media (max-width: 768px) {
+      .contact-g { grid-template-columns: 1fr; gap: 40px; }
+    }
     /* ── Operator Experience Strip ── */
     .ops-strip {
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -1261,6 +1335,7 @@
     <div class="nav-r">
       <a href="#pillars" class="nav-link">The Experience</a>
       <a href="#team" class="nav-link">The Team</a>
+      <a href="#contact" class="nav-link">Contact</a>
       <a href="#wl" class="nav-cta"><span class="nav-full">Join The Founding List</span><span class="nav-short">Join List</span></a>
     </div>
   </nav>
@@ -1398,18 +1473,22 @@
 
       <div class="stats">
         <div class="stat rv d1">
+          <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2"/></svg></div>
           <span class="stat-n" data-end="23" data-sfx=" min">0 min</span>
           <p class="stat-t">before someone at the average gathering reaches for their phone. Not because they're bored with you — because nothing was designed to keep everyone present.</p>
         </div>
         <div class="stat rv d2">
+          <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <span class="stat-n" data-end="68" data-sfx="%">0%</span>
           <p class="stat-t">of people say their most memorable experiences happened around a table. We've just forgotten how to make those moments happen on purpose.</p>
         </div>
         <div class="stat rv d3">
+          <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
           <span class="stat-n" data-end="0" data-sfx=" gatherings">0 gatherings</span>
           <p class="stat-t">in a lifetime that most people actually design. Everyone plans what to serve. Nobody plans what will happen between the people.</p>
         </div>
         <div class="stat rv d4">
+          <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
           <span class="stat-n" data-end="1" data-sfx=" night">0 night</span>
           <p class="stat-t">designed differently is all it takes for a group to reference it for years. We've built that night. Now we're packaging it.</p>
         </div>
@@ -1783,10 +1862,10 @@
           after launch day.
         </p>
         <div class="wl-benefits rv d2">
-          <div class="wl-b"><span class="wl-dot"></span><span>First access — before public launch, before retail</span></div>
-          <div class="wl-b"><span class="wl-dot"></span><span>Founding member pricing — locked in permanently</span></div>
-          <div class="wl-b"><span class="wl-dot"></span><span>Direct updates from us — no marketing noise</span></div>
-          <div class="wl-b"><span class="wl-dot"></span><span>Your name on our founding list</span></div>
+          <div class="wl-b"><span class="wl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>First access — before public launch, before retail</span></div>
+          <div class="wl-b"><span class="wl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Founding member pricing — locked in permanently</span></div>
+          <div class="wl-b"><span class="wl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Direct updates from us — no marketing noise</span></div>
+          <div class="wl-b"><span class="wl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Your name on our founding list</span></div>
         </div>
         <div class="wl-spots rv d2" id="spots-wrap">
           <div class="spots-hd">
@@ -1827,6 +1906,115 @@
           <p class="ok-sub">We'll reach out before anyone else. Something is coming — and you'll be first to experience it.</p>
         </div>
         <p class="form-prv rv">One email when we launch. No spam, ever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       CONTACT
+  ══════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="sec-hdr">
+        <span class="t-label sec-lbl rv">Get In Touch</span>
+        <h2 class="t-heading sec-hl rv d1">Real People. Real Responses.</h2>
+      </div>
+
+      <div class="contact-g">
+
+        <!-- Left: contact methods -->
+        <div class="contact-l rv d1">
+          <div class="contact-links">
+
+            <a href="mailto:jugaadors@gmail.com" class="contact-link">
+              <span class="contact-link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              <div class="contact-link-body">
+                <span class="contact-link-label">Email</span>
+                <span class="contact-link-val">jugaadors@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="tel:+919082666569" class="contact-link">
+              <span class="contact-link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              </span>
+              <div class="contact-link-body">
+                <span class="contact-link-label">Phone</span>
+                <span class="contact-link-val">+91 9082 666 569</span>
+              </div>
+            </a>
+
+            <a href="https://wa.me/919082666569" target="_blank" rel="noopener" class="contact-link">
+              <span class="contact-link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+              </span>
+              <div class="contact-link-body">
+                <span class="contact-link-label">WhatsApp</span>
+                <span class="contact-link-val">Message us directly</span>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/company/jugaadors/" target="_blank" rel="noopener" class="contact-link">
+              <span class="contact-link-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </span>
+              <div class="contact-link-body">
+                <span class="contact-link-label">LinkedIn</span>
+                <span class="contact-link-val">Jugaadors Company Page</span>
+              </div>
+            </a>
+
+            <a href="https://www.facebook.com/profile.php?id=100066866651196" target="_blank" rel="noopener" class="contact-link">
+              <span class="contact-link-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </span>
+              <div class="contact-link-body">
+                <span class="contact-link-label">Facebook</span>
+                <span class="contact-link-val">Follow Our Page</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Right: location + promise -->
+        <div class="contact-r rv d2">
+
+          <div class="contact-loc">
+            <span class="contact-link-label">Headquarters</span>
+            <span class="contact-loc-city">Mumbai, India</span>
+            <span class="contact-loc-sub">Primary HQ · Maharashtra</span>
+          </div>
+
+          <div class="contact-loc">
+            <span class="contact-link-label">US Presence</span>
+            <span class="contact-loc-city">San Francisco, California</span>
+            <span class="contact-loc-sub">West Coast · US Operations</span>
+          </div>
+
+          <div class="contact-promise">
+            <span class="contact-promise-lbl">Our Commitment</span>
+            <p class="contact-promise-txt">We're a small founding team. Every message goes to a real person. We aim to respond within 24 hours — usually much faster.</p>
+          </div>
+
+          <div class="contact-social">
+            <a href="https://www.linkedin.com/in/sahilharia92/" target="_blank" rel="noopener" class="contact-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 .774v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              Dr. Sahil Haria
+            </a>
+            <a href="https://www.linkedin.com/in/amritahemdev/" target="_blank" rel="noopener" class="contact-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 .774v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              Amrita Hemdev
+            </a>
+            <a href="https://www.linkedin.com/in/vishnusharon/" target="_blank" rel="noopener" class="contact-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 .774v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              Vishnu Sharon
+            </a>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
