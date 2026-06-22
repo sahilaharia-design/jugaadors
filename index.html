@@ -948,6 +948,38 @@
     /* Vision quote: glow */
     .vision-q { border-left-width: 3px; }
 
+    /* Honeypot — visually hidden, never shown to humans */
+    .hp-trap {
+      position: absolute; left: -9999px; width: 1px; height: 1px;
+      opacity: 0; pointer-events: none; tabindex: -1;
+    }
+
+    /* ═══════════════════════════════════════
+       EXPERIENCE SPECIFICS STRIP (Teaser)
+    ═══════════════════════════════════════ */
+    .spec-strip {
+      display: flex; align-items: stretch; gap: 0;
+      margin-bottom: 52px; border: 1px solid var(--border);
+    }
+    .spec-item {
+      flex: 1; padding: 28px 32px; text-align: left;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .spec-item + .spec-item { border-left: 1px solid var(--border); }
+    .spec-n {
+      font-family: 'Playfair Display', serif; font-size: 1.125rem;
+      font-weight: 600; color: var(--text); line-height: 1.2;
+    }
+    .spec-l {
+      font-size: .75rem; color: var(--text-muted); letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 768px) {
+      .spec-strip { flex-direction: column; }
+      .spec-item + .spec-item { border-left: none; border-top: 1px solid var(--border); }
+      .spec-item { padding: 20px 24px; }
+    }
+
     /* ═══════════════════════════════════════
        HERO INLINE FORM
     ═══════════════════════════════════════ */
@@ -1098,6 +1130,7 @@
       </p>
 
       <form class="hero-form rv d4" id="hero-form" novalidate>
+        <input type="text" name="_hp" class="hp-trap" autocomplete="off" aria-hidden="true"/>
         <div class="hero-form-row">
           <input type="email" class="hero-fi" id="hero-email" placeholder="your@email.com" autocomplete="email" required/>
           <button type="submit" class="hero-fs" id="hero-btn">Join The Founding List →</button>
@@ -1377,10 +1410,23 @@
           Everyone who's experienced an early version has said the same things:
           they didn't want the night to end. Someone across the table surprised
           them. They referenced it in conversations for weeks. They immediately
-          wanted to do it again. We're almost ready to share it. Join the list
-          before we do.
+          wanted to do it again. We're almost ready to share it.
         </p>
-        <a href="#wl" class="btn-p rv d3">Join The Founding List →</a>
+        <div class="spec-strip rv d3">
+          <div class="spec-item">
+            <span class="spec-n">Around A Table</span>
+            <span class="spec-l">Not a screen</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-n">Your Group</span>
+            <span class="spec-l">The people already in the room</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-n">One Evening</span>
+            <span class="spec-l">Referenced for years</span>
+          </div>
+        </div>
+        <a href="#wl" class="btn-p rv d4">Claim Your Founding Spot →</a>
       </div>
     </div>
   </section>
@@ -1394,6 +1440,7 @@
         <p class="mid-cta-txt">Ready? Join <strong id="mid-count">153</strong> founding members before we open the doors.</p>
         <div id="mid-signup">
           <form class="mid-form" id="mid-form" novalidate>
+            <input type="text" name="_hp" class="hp-trap" autocomplete="off" aria-hidden="true"/>
             <input type="email" class="hero-fi" id="mid-email" placeholder="your@email.com" autocomplete="email" required/>
             <button type="submit" class="hero-fs mid-fs" id="mid-btn">Join Now →</button>
           </form>
@@ -1461,14 +1508,15 @@
         </div>
         <div class="wl-spots rv d2" id="spots-wrap">
           <div class="spots-hd">
-            <span class="spots-label">Founding Members</span>
-            <span class="spots-count"><span id="spots-n">153</span> joined</span>
+            <span class="spots-label">Founding Batch · 100 Spots</span>
+            <span class="spots-count"><span id="spots-n">12</span> claimed</span>
           </div>
           <div class="spots-bar"><div class="spots-fill" id="spots-fill"></div></div>
-          <p class="spots-sub">Founding list closes at 1,000 — <strong><span id="spots-remaining">847</span> spots remaining</strong></p>
+          <p class="spots-sub"><strong><span id="spots-remaining">88</span> founding spots remaining</strong> · 1,000 total at launch</p>
         </div>
 
         <form class="form rv d3" id="wl-form" novalidate>
+          <input type="text" name="_hp" class="hp-trap" autocomplete="off" aria-hidden="true"/>
           <input type="text"  class="fi" id="f-n" name="name"  placeholder="Your name"          autocomplete="given-name" required/>
           <input type="email" class="fi" id="f-e" name="email" placeholder="Your email address" autocomplete="email"      required/>
           <button type="submit" class="fs" id="f-btn">Reserve My Founding Spot →</button>
@@ -1711,17 +1759,21 @@
       draw();
     })();
 
+    /* ── PAGE LOAD TIMESTAMP (spam timing check) ── */
+    const _pageLoad = Date.now();
+
     /* ── DYNAMIC COUNT + SPOTS BAR ── */
-    const ENDPOINT   = '/api/waitlist';
-    const TARGET     = 1000;
-    let   liveCount  = 153;
-    let   barReady   = false;
-    let   countReady = false;
+    const ENDPOINT      = '/api/waitlist';
+    const BATCH_SIZE    = 100;   // founding batch bar target
+    const TOTAL_TARGET  = 1000;  // full launch list
+    let   liveCount     = 12;
+    let   barReady      = false;
+    let   countReady    = false;
 
     function setCount(n) {
       liveCount = Math.max(n, liveCount); // never go backwards
-      const remaining = Math.max(TARGET - liveCount, 0);
-      const pct = Math.min((liveCount / TARGET) * 100, 100);
+      const remaining = Math.max(BATCH_SIZE - liveCount, 0);
+      const pct = Math.min((liveCount / BATCH_SIZE) * 100, 100);
 
       // Update all count displays
       ['spots-n','hero-count','mid-count','ss-n'].forEach(id => {
@@ -1762,12 +1814,21 @@
       .catch(() => {});
 
     /* ── SHARED FORM SUBMIT ── */
-    function submitSignup({ name, email, btn, onSuccess }) {
+    function submitSignup({ name, email, btn, form, onSuccess }) {
+      // Client-side honeypot check — if the trap field has a value, silently succeed
+      const hp = form ? form.querySelector('.hp-trap') : null;
+      if (hp && hp.value) { onSuccess(); return; }
+
       btn.disabled = true; btn.textContent = 'Joining…';
       fetch(ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name || 'Founding Member', email }),
+        body: JSON.stringify({
+          name:  name || '',
+          email,
+          _hp:   hp ? hp.value : '',   // honeypot (should be empty)
+          _t:    _pageLoad,             // page-load timestamp for timing check
+        }),
       }).then(() => {
         setCount(liveCount + 1);
         onSuccess();
@@ -1785,7 +1846,7 @@
       const name  = document.getElementById('f-n').value.trim();
       const email = document.getElementById('f-e').value.trim();
       if (!name || !email) return;
-      submitSignup({ name, email, btn: wlBtn, onSuccess: () => {
+      submitSignup({ name, email, btn: wlBtn, form: wlForm, onSuccess: () => {
         wlForm.style.display = 'none';
         wlOk.classList.add('on');
       }});
@@ -1800,7 +1861,7 @@
       e.preventDefault();
       const email = document.getElementById('hero-email').value.trim();
       if (!email) return;
-      submitSignup({ email, btn: heroBtn, onSuccess: () => {
+      submitSignup({ email, btn: heroBtn, form: heroForm, onSuccess: () => {
         heroForm.querySelector('.hero-form-row').style.display = 'none';
         heroMeta.style.display = 'none';
         heroOk.style.display = 'block';
@@ -1815,7 +1876,7 @@
       e.preventDefault();
       const email = document.getElementById('mid-email').value.trim();
       if (!email) return;
-      submitSignup({ email, btn: midBtn, onSuccess: () => {
+      submitSignup({ email, btn: midBtn, form: midForm, onSuccess: () => {
         midForm.style.display = 'none';
         midOk.style.display = 'block';
       }});
