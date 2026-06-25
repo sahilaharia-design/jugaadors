@@ -787,6 +787,16 @@
       color: rgba(245,243,238,0.22);
       margin-top: 20px;
     }
+    .fan-hint-touch {
+      display: none;
+      font-family: var(--gf);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,243,238,0.22);
+      margin-top: 20px;
+    }
 
     /* MUMBAI */
     .mumbai-section {
@@ -1003,20 +1013,64 @@
       .product-section, .htp-section, .why-section, .cta-section, .jugaadors-section { padding: 72px 20px; }
       footer { padding: 32px 20px; }
       .hero { padding: 90px 20px 60px; }
+
+      /* Product */
       .product-inner { grid-template-columns: 1fr; gap: 48px; }
-      .inside-grid { grid-template-columns: repeat(2, 1fr); }
+      .product-viewer { width: min(300px, 85vw); height: 380px; }
+      .product-dots { gap: 12px; }
+      .product-dot { padding: 14px 6px; height: auto; border-radius: 100px; }
+      .product-dot.on { width: 24px; }
+      .product-dot:not(.on) { width: 8px; }
+
+      /* Inside grid: equal 2-col + correct borders */
+      .inside-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .inside-cell { min-width: 0; padding: 28px 14px; }
+      .inside-cell:nth-child(3n) { border-right: 1px solid rgba(255,255,255,.08); }
+      .inside-cell:nth-child(2n) { border-right: 0; }
+      .inside-cell:nth-child(n+4) { border-bottom: 1px solid rgba(255,255,255,.08); }
+      .inside-cell:nth-child(n+5) { border-bottom: 0; }
+      .inside-value { font-size: 28px; }
+
+      /* Why grid */
       .why-grid { grid-template-columns: 1fr; }
       .why-card.big { grid-row: auto; }
+
+      /* Mumbai grid */
       .mumbai-grid { grid-template-columns: 1fr 1fr; }
+
+      /* Card fan: reduced size */
       .fan-wrap { height: 220px; }
       .fan-card { width: 106px; height: 164px; padding: 10px; }
       .fan-card:nth-child(1) { transform: rotate(-18deg) translateX(-140px); }
       .fan-card:nth-child(2) { transform: rotate(-9deg) translateX(-70px); }
       .fan-card:nth-child(4) { transform: rotate(9deg) translateX(70px); }
       .fan-card:nth-child(5) { transform: rotate(18deg) translateX(140px); }
+      /* Tap-to-fan on touch devices */
+      .fan-wrap.fanned .fan-card:nth-child(1) { transform: rotate(-22deg) translateX(-155px) translateY(-16px); }
+      .fan-wrap.fanned .fan-card:nth-child(2) { transform: rotate(-11deg) translateX(-78px) translateY(-8px); }
+      .fan-wrap.fanned .fan-card:nth-child(3) { transform: rotate(0) translateX(0) translateY(-5px); }
+      .fan-wrap.fanned .fan-card:nth-child(4) { transform: rotate(11deg) translateX(78px) translateY(-8px); }
+      .fan-wrap.fanned .fan-card:nth-child(5) { transform: rotate(22deg) translateX(155px) translateY(-16px); }
+      .fan-hint { display: none; }
+      .fan-hint-touch { display: block; }
+
+      /* Hero product wrap */
       .hero-product-wrap { width: 260px; height: 290px; }
-      .footer-row { flex-direction: column; align-items: flex-start; }
+
+      /* Hero CTAs: full-width stacked */
+      .hero-ctas { flex-direction: column; align-items: stretch; width: 100%; max-width: 340px; }
+      .hero-ctas .btn-buy, .hero-ctas .btn-learn { justify-content: center; }
+
+      /* Share buttons: full-width, consistent */
       .share-btns { flex-direction: column; align-items: center; }
+      .share-btn { width: 100%; max-width: 320px; justify-content: center; }
+
+      /* Footer */
+      .footer-row { flex-direction: column; align-items: flex-start; }
+      .footer-links { flex-wrap: wrap; gap: 16px; }
+
+      /* CTA */
+      .cta-title { font-size: clamp(48px, 14vw, 80px); }
     }
   </style>
 </head>
@@ -1252,6 +1306,7 @@
   </div>
 
   <p class="fan-hint">Hover to fan the cards out</p>
+  <p class="fan-hint-touch">Tap to fan the cards out</p>
 </section>
 
 <!-- MUMBAI SECTION -->
@@ -1355,13 +1410,23 @@ window.addEventListener('scroll', () => {
   });
 });
 
-document.addEventListener('mousemove', e => {
-  const pw = document.getElementById('hpw');
-  if (!pw) return;
-  const x = (e.clientX / window.innerWidth - 0.5) * 8;
-  const y = (e.clientY / window.innerHeight - 0.5) * 4;
-  pw.style.transform = `translate(${x}px, ${y}px)`;
-});
+const isTouch = window.matchMedia('(hover: none)').matches;
+if (!isTouch) {
+  document.addEventListener('mousemove', e => {
+    const pw = document.getElementById('hpw');
+    if (!pw) return;
+    const x = (e.clientX / window.innerWidth - 0.5) * 8;
+    const y = (e.clientY / window.innerHeight - 0.5) * 4;
+    pw.style.transform = `translate(${x}px, ${y}px)`;
+  });
+}
+
+const fanWrap = document.querySelector('.fan-wrap');
+if (fanWrap) {
+  fanWrap.addEventListener('click', () => {
+    fanWrap.classList.toggle('fanned');
+  });
+}
 
 function doWA() {
   const t = encodeURIComponent('You NEED this game — Traffic Mein Hoon™, Mumbai edition. Every Mumbaikar has lived this. Only ₹249. jugaadors.com/traffic-mein-hoon');
