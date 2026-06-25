@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JD0K5WPE4Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JD0K5WPE4Q');
+  </script>
+
+  <!-- SEO -->
+  <title>Traffic Mein Hoon™ — Mumbai Edition | The City Survival Card Game</title>
+  <meta name="description" content="Turn Mumbai's daily chaos into your next game night. Traffic Mein Hoon™ is a compact social card game for 2–6 players. Every card is a moment every Mumbaikar has lived. ₹249."/>
+  <meta name="keywords" content="Traffic Mein Hoon, Mumbai card game, social card game India, party game Mumbai, jugaadors, city survival game, Indian board game"/>
+  <meta name="author" content="Jugaadors"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="theme-color" content="#111111"/>
+  <meta name="geo.region" content="IN-MH"/>
+  <meta name="geo.placename" content="Mumbai, India"/>
+  <link rel="canonical" href="https://jugaadors.com/traffic-mein-hoon"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="product"/>
+  <meta property="og:site_name" content="Jugaadors"/>
+  <meta property="og:url" content="https://jugaadors.com/traffic-mein-hoon"/>
+  <meta property="og:title" content="Traffic Mein Hoon™ — The Mumbai Card Game"/>
+  <meta property="og:description" content="Turn Mumbai's daily chaos into your next game night. 50–60 cards. 2–6 players. 15–20 minutes. ₹249."/>
+  <meta property="og:image" content="https://jugaadors.com/assets/tmh-og.jpg"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Traffic Mein Hoon™ — The Mumbai Card Game"/>
+  <meta name="twitter:description" content="Every Mumbaikar has lived this. Now you can play it. ₹249."/>
+  <meta name="twitter:image" content="https://jugaadors.com/assets/tmh-og.jpg"/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+
+  <style>
+    :root {
+      --cr: #F5F3EE;
+      --bk: #111111;
+      --rd: #C8221A;
+      --yl: #F2B400;
+      --gy: #777777;
+      --lt: #E2DFD8;
+      --wh: #FFFFFF;
+      --gf: 'Space Grotesk', sans-serif;
+      --gb: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--gb);
+      background: var(--cr);
+      color: var(--bk);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      transition: background 0.4s, padding 0.4s, border-color 0.4s;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav.sol {
+      background: rgba(245, 243, 238, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: var(--lt);
+      padding: 12px 40px;
+    }
+
+    .nav-logo {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--rd); }
+
+    .nav-btn {
+      background: var(--bk);
+      color: var(--cr);
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-family: var(--gf);
+      font-weight: 600;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-btn:hover { background: var(--rd); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      background: var(--cr);
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 32px 80px;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--yl);
+      color: var(--bk);
+      padding: 6px 18px;
+      border-radius: 100px;
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+      animation: fu 0.6s ease both;
+    }
+
+    .badge-dot {
+      width: 6px; height: 6px;
+      background: var(--bk);
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero-title {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: clamp(52px, 11vw, 116px);
+      letter-spacing: -0.05em;
+      line-height: 0.88;
+      animation: fu 0.7s 0.1s ease both;
+    }
+
+    .hero-tm {
+      font-size: 0.28em;
+      vertical-align: super;
+      color: var(--gy);
+      font-weight: 400;
+    }
+
+    .hero-edition {
+      display: block;
+      font-size: 0.21em;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rd);
+      margin-top: 12px;
+    }
+
+    /* Product Box */
+    .hero-product-wrap {
+      margin: 44px 0;
+      position: relative;
+      width: 320px;
+      height: 340px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fu 0.7s 0.2s ease both;
+    }
+
+    .product-box {
+      width: 196px;
+      height: 272px;
+      background: var(--bk);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      animation: flt 5s ease-in-out infinite;
+    }
+
+    @keyframes flt {
+      0%,100%{ transform: translateY(0) rotate(-1.5deg); }
+      50%{ transform: translateY(-16px) rotate(1.5deg); }
+    }
+
+    .box-strip {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 44%;
+      background: var(--rd);
+      clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+    }
+
+    .box-circle {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      border: 2px solid var(--yl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 12px;
+    }
+
+    .box-circle-text {
+      font-family: var(--gf);
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--yl);
+      letter-spacing: -0.02em;
+    }
+
+    .box-title {
+      color: white;
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .box-sub {
+      color: var(--yl);
+      font-family: var(--gf);
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+      margin-top: 6px;
+    }
+
+    /* Floating mini cards */
+    .mini-card {
+      position: absolute;
+      width: 84px; height: 118px;
+      background: white;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px;
+      font-family: var(--gf);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .mini-card:nth-child(2) {
+      right: -6px; top: 16px;
+      transform: rotate(13deg);
+      animation: mcr 4.5s 0.5s ease-in-out infinite;
+    }
+
+    .mini-card:nth-child(3) {
+      left: -6px; bottom: 24px;
+      transform: rotate(-11deg);
+      animation: mcl 5s 1s ease-in-out infinite;
+    }
+
+    @keyframes mcr { 0%,100%{ transform: rotate(13deg) translateY(0); } 50%{ transform: rotate(11deg) translateY(-10px); } }
+    @keyframes mcl { 0%,100%{ transform: rotate(-11deg) translateY(0); } 50%{ transform: rotate(-9deg) translateY(-9px); } }
+
+    .mc-tag { font-size: 8px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gy); }
+    .mc-icon { font-size: 24px; text-align: center; display: block; margin: 4px 0; }
+    .mc-name { font-size: 9px; font-weight: 700; letter-spacing: -0.01em; color: var(--bk); line-height: 1.3; }
+
+    .hero-hl {
+      font-family: var(--gf);
+      font-weight: 600;
+      font-size: clamp(18px, 3vw, 26px);
+      letter-spacing: -0.02em;
+      color: var(--gy);
+      margin-bottom: 8px;
+      animation: fu 0.7s 0.3s ease both;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--gy);
+      margin-bottom: 36px;
+      animation: fu 0.7s 0.4s ease both;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fu 0.7s 0.5s ease both;
+    }
+
+    .btn-buy {
+      background: var(--bk);
+      color: var(--cr);
+      padding: 16px 36px;
+      border-radius: 100px;
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-buy:hover { background: var(--rd); transform: translateY(-2px); }
+
+    .price-pill {
+      background: var(--yl);
+      color: var(--bk);
+      padding: 3px 12px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .btn-learn {
+      background: transparent;
+      color: var(--bk);
+      padding: 16px 36px;
+      border-radius: 100px;
+      font-family: var(--gf);
+      font-weight: 600;
+      font-size: 16px;
+      border: 2px solid var(--lt);
+      cursor: pointer;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .btn-learn:hover { border-color: var(--bk); transform: translateY(-2px); }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--gy);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: fu 0.7s 1s ease both;
+    }
+
+    .scroll-line {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, var(--gy), transparent);
+      animation: sl 2s ease-in-out infinite;
+    }
+
+    @keyframes sl {
+      0%{ transform: scaleY(0); transform-origin: top; }
+      50%{ transform: scaleY(1); transform-origin: top; }
+      51%{ transform: scaleY(1); transform-origin: bottom; }
+      100%{ transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    @keyframes fu { from{ opacity:0; transform:translateY(28px); } to{ opacity:1; transform:translateY(0); } }
+
+    /* REVEAL */
+    .rv {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .rv.on { opacity: 1; transform: none; }
+    .d1{ transition-delay: 0.12s; }
+    .d2{ transition-delay: 0.24s; }
+    .d3{ transition-delay: 0.36s; }
+    .d4{ transition-delay: 0.48s; }
+
+    /* SOCIAL PROOF */
+    .proof {
+      background: var(--bk);
+      color: var(--cr);
+      padding: 96px 40px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .proof-heading {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: clamp(40px, 8vw, 84px);
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+      max-width: 900px;
+      margin: 0 auto 60px;
+    }
+
+    .proof-yellow { color: var(--yl); }
+
+    .ticker-outer { overflow: hidden; }
+
+    .ticker-inner {
+      display: flex;
+      gap: 48px;
+      animation: ticker 22s linear infinite;
+      white-space: nowrap;
+    }
+
+    .tick-item {
+      font-family: var(--gf);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(245,243,238,0.4);
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-shrink: 0;
+    }
+
+    .tick-dot {
+      width: 4px; height: 4px;
+      background: var(--rd);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    @keyframes ticker { 0%{ transform: translateX(0); } 100%{ transform: translateX(-50%); } }
+
+    /* PRODUCT SHOWCASE */
+    .product-section { background: var(--cr); padding: 96px 40px; }
+
+    .product-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .product-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .product-viewer {
+      width: 256px; height: 352px;
+      background: var(--bk);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .product-viewer:hover { transform: scale(1.03) rotate(-1.5deg); }
+
+    .pface {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .pface.on { opacity: 1; }
+
+    .product-dots { display: flex; gap: 8px; }
+
+    .product-dot {
+      height: 8px;
+      border-radius: 100px;
+      background: var(--lt);
+      cursor: pointer;
+      transition: all 0.35s ease;
+      border: none;
+    }
+    .product-dot.on { width: 24px; background: var(--bk); }
+    .product-dot:not(.on) { width: 8px; }
+
+    .product-text h2 {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: clamp(34px, 5vw, 52px);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .product-text p {
+      font-size: 17px;
+      color: var(--gy);
+      line-height: 1.65;
+      margin-bottom: 36px;
+      max-width: 400px;
+    }
+
+    /* WHAT'S INSIDE */
+    .inside-section {
+      background: var(--bk);
+      color: var(--cr);
+      padding: 96px 40px;
+    }
+
+    .inside-heading {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: clamp(40px, 7vw, 80px);
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .inside-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 900px;
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .inside-cell {
+      padding: 40px 28px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.3s;
+    }
+    .inside-cell:nth-child(3n) { border-right: 0; }
+    .inside-cell:nth-child(n+4) { border-bottom: 0; }
+    .inside-cell:hover { background: rgba(255,255,255,0.04); }
+
+    .inside-icon { color: var(--yl); font-size: 24px; margin-bottom: 14px; }
+
+    .inside-value {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: 34px;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .inside-label { font-size: 14px; color: rgba(245,243,238,0.5); }
+
+    /* HOW TO PLAY */
+    .htp-section { background: var(--cr); padding: 96px 40px; }
+
+    .htp-inner { max-width: 720px; margin: 0 auto; }
+
+    .section-label {
+      font-family: var(--gf);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gy);
+      margin-bottom: 18px;
+    }
+
+    .htp-title {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: clamp(36px, 6vw, 64px);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .htp-sub { font-size: 17px; color: var(--gy); margin-bottom: 56px; }
+
+    .steps { position: relative; }
+
+    .step-line {
+      position: absolute;
+      left: 27px; top: 28px; bottom: 28px;
+      width: 1px;
+      background: var(--lt);
+    }
+
+    .step {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 40px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--lt);
+      background: var(--cr);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: 18px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      transition: all 0.35s ease;
+    }
+
+    .step.act .step-num {
+      background: var(--bk);
+      color: var(--cr);
+      border-color: var(--bk);
+    }
+
+    .step-body { padding-top: 12px; }
+
+    .step-title {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .step-desc { font-size: 16px; color: var(--gy); line-height: 1.65; }
+
+    /* WHY LOVE IT */
+    .why-section { background: var(--cr); padding: 96px 40px; }
+
+    .why-heading {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: clamp(40px, 7vw, 72px);
+      letter-spacing: -0.05em;
+      line-height: 0.95;
+      margin-bottom: 56px;
+      max-width: 540px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .why-card {
+      background: white;
+      border: 1px solid var(--lt);
+      border-radius: 18px;
+      padding: 36px;
+      cursor: pointer;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .why-card:hover { transform: translateY(-6px); border-color: var(--gy); }
+    .why-card.big { grid-row: span 2; }
+
+    .why-card-title {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+    .why-card.big .why-card-title { font-size: clamp(26px, 3vw, 36px); }
+
+    .why-card-sub { font-size: 15px; color: var(--gy); line-height: 1.5; }
+
+    .why-card.dk { background: var(--bk); color: var(--cr); border-color: var(--bk); }
+    .why-card.dk .why-card-sub { color: rgba(245,243,238,0.55); }
+    .why-card.rd { background: var(--rd); color: white; border-color: var(--rd); }
+    .why-card.rd .why-card-sub { color: rgba(255,255,255,0.7); }
+    .why-card.yl { background: var(--yl); color: var(--bk); border-color: var(--yl); }
+
+    .why-icon { font-size: 24px; color: var(--yl); }
+    .why-card.dk .why-icon { color: var(--yl); }
+    .why-card.rd .why-icon { color: rgba(255,255,255,0.8); }
+    .why-card.yl .why-icon { color: var(--bk); }
+
+    /* CARD PREVIEW */
+    .cards-section {
+      background: var(--bk);
+      padding: 96px 40px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .cards-title {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: clamp(36px, 6vw, 64px);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--cr);
+      max-width: 600px;
+      margin: 0 auto 12px;
+    }
+
+    .cards-sub { font-size: 17px; color: rgba(245,243,238,0.4); margin-bottom: 60px; }
+
+    .fan-wrap {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      height: 280px;
+    }
+
+    .fan-card {
+      width: 140px; height: 210px;
+      border-radius: 12px;
+      position: absolute;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 14px;
+      font-family: var(--gf);
+      background: white;
+      top: 20px;
+    }
+
+    .fan-card:nth-child(1) { transform: rotate(-18deg) translateX(-188px); z-index: 1; }
+    .fan-card:nth-child(2) { transform: rotate(-9deg) translateX(-94px); z-index: 2; }
+    .fan-card:nth-child(3) { background: var(--bk); border: 2px solid var(--yl); transform: rotate(0deg); z-index: 5; }
+    .fan-card:nth-child(4) { transform: rotate(9deg) translateX(94px); z-index: 2; }
+    .fan-card:nth-child(5) { transform: rotate(18deg) translateX(188px); z-index: 1; }
+
+    .fan-wrap:hover .fan-card:nth-child(1) { transform: rotate(-22deg) translateX(-220px) translateY(-20px); }
+    .fan-wrap:hover .fan-card:nth-child(2) { transform: rotate(-11deg) translateX(-116px) translateY(-10px); }
+    .fan-wrap:hover .fan-card:nth-child(3) { transform: rotate(0) translateX(0) translateY(-6px); }
+    .fan-wrap:hover .fan-card:hover { transform: rotate(0) translateX(0) translateY(-32px) !important; z-index: 10 !important; }
+    .fan-wrap:hover .fan-card:nth-child(4) { transform: rotate(11deg) translateX(116px) translateY(-10px); }
+    .fan-wrap:hover .fan-card:nth-child(5) { transform: rotate(22deg) translateX(220px) translateY(-20px); }
+
+    .fan-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gy); }
+    .fan-icon { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 36px; color: var(--bk); }
+    .fan-name { font-size: 13px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; color: var(--bk); }
+    .fan-card:nth-child(3) .fan-tag { color: var(--yl); }
+    .fan-card:nth-child(3) .fan-icon { color: var(--yl); }
+    .fan-card:nth-child(3) .fan-name { color: white; }
+
+    .fan-hint {
+      font-family: var(--gf);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,243,238,0.22);
+      margin-top: 20px;
+    }
+
+    /* MUMBAI */
+    .mumbai-section {
+      background: var(--bk);
+      color: var(--cr);
+      padding: 96px 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mumbai-title {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: clamp(44px, 9vw, 100px);
+      letter-spacing: -0.05em;
+      line-height: 0.88;
+      max-width: 800px;
+      margin: 0 auto 72px;
+      text-align: center;
+    }
+    .mumbai-yellow { color: var(--yl); }
+
+    .mumbai-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 1000px;
+      margin: 0 auto 80px;
+    }
+
+    .mumbai-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 30px 26px;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .mumbai-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); transform: translateY(-4px); }
+    .mumbai-card:hover .mumbai-badge { opacity: 1; }
+
+    .mumbai-badge {
+      position: absolute;
+      top: 14px; right: 14px;
+      background: var(--rd);
+      color: white;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .mumbai-icon { font-size: 24px; color: var(--yl); margin-bottom: 14px; }
+
+    .mumbai-card-title {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .mumbai-card-sub { font-size: 13px; color: rgba(245,243,238,0.4); line-height: 1.5; }
+
+    .mumbai-closing {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: clamp(28px, 5vw, 54px);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      text-align: center;
+      color: rgba(245,243,238,0.3);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* FINAL CTA */
+    .cta-section { background: var(--cr); padding: 116px 40px; text-align: center; }
+
+    .cta-price {
+      display: inline-flex;
+      align-items: center;
+      background: var(--yl);
+      color: var(--bk);
+      padding: 8px 24px;
+      border-radius: 100px;
+      font-family: var(--gf);
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: -0.02em;
+      margin-bottom: 48px;
+    }
+
+    .cta-title {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: clamp(56px, 12vw, 128px);
+      letter-spacing: -0.06em;
+      line-height: 0.87;
+      margin-bottom: 48px;
+    }
+    .cta-title-red { color: var(--rd); }
+
+    .cta-meta {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    .cta-meta-item { display: flex; align-items: center; gap: 8px; font-size: 15px; color: var(--gy); }
+    .cta-dot { width: 6px; height: 6px; background: var(--yl); border-radius: 50%; }
+    .cta-note { font-size: 14px; color: var(--gy); margin-top: 16px; }
+
+    /* SHARE */
+    .share-section { background: var(--bk); color: var(--cr); padding: 96px 40px; text-align: center; }
+
+    .share-title {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: clamp(36px, 6vw, 64px);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .share-sub { font-size: 17px; color: rgba(245,243,238,0.5); margin-bottom: 40px; }
+
+    .share-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    .share-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 26px;
+      border-radius: 100px;
+      font-family: var(--gf);
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 0.25s;
+      border: none;
+    }
+    .share-btn:hover { transform: translateY(-3px); }
+
+    .share-wa { background: #25D366; color: white; }
+    .share-ig { background: #E1306C; color: white; }
+    .share-cp { background: rgba(255,255,255,0.1); color: var(--cr); border: 1px solid rgba(255,255,255,0.15) !important; }
+
+    /* JUGAADORS */
+    .jugaadors-section { background: var(--cr); padding: 96px 40px; text-align: center; }
+
+    .jugaadors-inner { max-width: 680px; margin: 0 auto; }
+
+    .jugaadors-logo {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: 34px;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .jugaadors-desc { font-size: 19px; color: var(--gy); line-height: 1.6; margin-bottom: 24px; }
+    .jugaadors-note { font-size: 15px; color: var(--gy); margin-bottom: 24px; }
+
+    .jugaadors-link {
+      font-family: var(--gf);
+      font-weight: 700;
+      font-size: 15px;
+      border-bottom: 2px solid var(--bk);
+      padding-bottom: 2px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* FOOTER */
+    footer { background: var(--bk); padding: 40px; }
+
+    .footer-row {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 20px;
+    }
+
+    .footer-logo { font-family: var(--gf); font-weight: 700; font-size: 19px; letter-spacing: -0.02em; color: var(--cr); }
+
+    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+
+    .footer-link { font-size: 14px; color: rgba(245,243,238,0.45); cursor: pointer; transition: color 0.2s; text-decoration: none; }
+    .footer-link:hover { color: var(--cr); }
+
+    .footer-copy { text-align: center; font-size: 13px; color: rgba(245,243,238,0.22); max-width: 1100px; margin: 0 auto; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav, .nav.sol { padding: 14px 20px; }
+      section, .proof, .inside-section, .cards-section, .mumbai-section, .share-section { padding: 72px 20px; }
+      .product-section, .htp-section, .why-section, .cta-section, .jugaadors-section { padding: 72px 20px; }
+      footer { padding: 32px 20px; }
+      .hero { padding: 90px 20px 60px; }
+      .product-inner { grid-template-columns: 1fr; gap: 48px; }
+      .inside-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: 1fr; }
+      .why-card.big { grid-row: auto; }
+      .mumbai-grid { grid-template-columns: 1fr 1fr; }
+      .fan-wrap { height: 220px; }
+      .fan-card { width: 106px; height: 164px; padding: 10px; }
+      .fan-card:nth-child(1) { transform: rotate(-18deg) translateX(-140px); }
+      .fan-card:nth-child(2) { transform: rotate(-9deg) translateX(-70px); }
+      .fan-card:nth-child(4) { transform: rotate(9deg) translateX(70px); }
+      .fan-card:nth-child(5) { transform: rotate(18deg) translateX(140px); }
+      .hero-product-wrap { width: 260px; height: 290px; }
+      .footer-row { flex-direction: column; align-items: flex-start; }
+      .share-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">TMH<span>™</span></div>
+  <button class="nav-btn" onclick="scr('cta')">Buy Now — ₹249</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <div class="badge-dot"></div>
+    Now Available · Mumbai Edition
+  </div>
+
+  <h1 class="hero-title">
+    TRAFFIC<br>MEIN HOON<span class="hero-tm">™</span>
+    <span class="hero-edition">Mumbai Edition</span>
+  </h1>
+
+  <div class="hero-product-wrap" id="hpw">
+    <div class="product-box">
+      <div class="box-strip"></div>
+      <div class="box-circle"><div class="box-circle-text">TMH</div></div>
+      <div class="box-title">TRAFFIC<br>MEIN HOON</div>
+      <div class="box-sub">Mumbai Edition</div>
+    </div>
+
+    <div class="mini-card">
+      <div class="mc-tag">Event</div>
+      <i class="ti ti-device-mobile mc-icon" style="color:var(--rd)" aria-hidden="true"></i>
+      <div class="mc-name">Boss<br>Calling</div>
+    </div>
+
+    <div class="mini-card">
+      <div class="mc-tag">Jugaad</div>
+      <i class="ti ti-train mc-icon" style="color:var(--bk)" aria-hidden="true"></i>
+      <div class="mc-name">Local<br>Delay</div>
+    </div>
+  </div>
+
+  <div class="hero-hl">The City Survival Card Game.</div>
+  <p class="hero-sub">Turn Mumbai's daily chaos into your next game night.</p>
+
+  <div class="hero-ctas">
+    <button class="btn-buy" onclick="scr('cta')">Buy Now <span class="price-pill">₹249</span></button>
+    <button class="btn-learn" onclick="scr('htp')">Learn More ↓</button>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="proof">
+  <h2 class="proof-heading rv">Every Mumbaikar<br>has lived <span class="proof-yellow">this.</span></h2>
+  <div class="ticker-outer">
+    <div class="ticker-inner">
+      <span class="tick-item">Boss Calling <span class="tick-dot"></span></span>
+      <span class="tick-item">Signal Pe Atka <span class="tick-dot"></span></span>
+      <span class="tick-item">Local Delay <span class="tick-dot"></span></span>
+      <span class="tick-item">Auto Nahi Milega <span class="tick-dot"></span></span>
+      <span class="tick-item">Ganpati Procession <span class="tick-dot"></span></span>
+      <span class="tick-item">Waterlogging <span class="tick-dot"></span></span>
+      <span class="tick-item">Metro Construction <span class="tick-dot"></span></span>
+      <span class="tick-item">Missing The Train <span class="tick-dot"></span></span>
+      <span class="tick-item">Boss Calling <span class="tick-dot"></span></span>
+      <span class="tick-item">Signal Pe Atka <span class="tick-dot"></span></span>
+      <span class="tick-item">Local Delay <span class="tick-dot"></span></span>
+      <span class="tick-item">Auto Nahi Milega <span class="tick-dot"></span></span>
+      <span class="tick-item">Ganpati Procession <span class="tick-dot"></span></span>
+      <span class="tick-item">Waterlogging <span class="tick-dot"></span></span>
+      <span class="tick-item">Metro Construction <span class="tick-dot"></span></span>
+      <span class="tick-item">Missing The Train <span class="tick-dot"></span></span>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT SHOWCASE -->
+<section class="product-section">
+  <p class="section-label rv">Product</p>
+  <div class="product-inner">
+    <div class="product-visual rv">
+      <div class="product-viewer" id="vr" onclick="nxt()">
+
+        <div class="pface on" style="background:var(--bk)">
+          <div style="width:60px;height:60px;border-radius:50%;border:2px solid var(--yl);display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+            <span style="font-family:var(--gf);font-weight:800;font-size:14px;color:var(--yl)">TMH</span>
+          </div>
+          <div style="color:white;font-family:var(--gf);font-weight:700;font-size:26px;letter-spacing:-.03em;text-align:center;line-height:1.1;margin-bottom:8px">TRAFFIC<br>MEIN HOON</div>
+          <div style="color:var(--yl);font-family:var(--gf);font-weight:700;font-size:11px;letter-spacing:.15em;text-transform:uppercase">Mumbai Edition</div>
+        </div>
+
+        <div class="pface" style="background:var(--rd)">
+          <i class="ti ti-cards" style="font-size:40px;color:rgba(255,255,255,.6);margin-bottom:14px" aria-hidden="true"></i>
+          <div style="color:white;font-family:var(--gf);font-weight:700;font-size:22px;letter-spacing:-.02em;text-align:center;line-height:1.3;margin-bottom:12px">The City<br>Survival<br>Card Game</div>
+          <div style="color:rgba(255,255,255,.7);font-size:13px;text-align:center;line-height:1.6">2–6 Players · 15–20 Min<br>For those who survive daily.</div>
+        </div>
+
+        <div class="pface" style="background:var(--yl);padding:20px">
+          <div style="font-family:var(--gf);font-weight:700;font-size:15px;color:var(--bk);margin-bottom:16px">50–60 Cards Inside</div>
+          <div style="display:flex;gap:10px;justify-content:center">
+            <div style="width:56px;height:84px;background:white;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px">
+              <i class="ti ti-traffic-lights" style="font-size:22px;color:var(--rd)" aria-hidden="true"></i>
+              <span style="font-size:8px;font-weight:700;font-family:var(--gf)">EVENT</span>
+            </div>
+            <div style="width:56px;height:84px;background:white;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;transform:rotate(4deg)">
+              <i class="ti ti-tool" style="font-size:22px;color:var(--bk)" aria-hidden="true"></i>
+              <span style="font-size:8px;font-weight:700;font-family:var(--gf)">JUGAAD</span>
+            </div>
+            <div style="width:56px;height:84px;background:white;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;transform:rotate(-3deg)">
+              <i class="ti ti-bolt" style="font-size:22px;color:var(--yl)" aria-hidden="true"></i>
+              <span style="font-size:8px;font-weight:700;font-family:var(--gf)">CHAOS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pface" style="background:var(--cr);padding:28px">
+          <div style="font-family:var(--gf);font-weight:700;font-size:16px;color:var(--bk);margin-bottom:20px;width:100%;text-align:left">Contents</div>
+          <div style="width:100%;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--lt);padding-bottom:12px"><span style="font-size:14px;color:var(--gy)">Cards</span><span style="font-size:14px;font-weight:700;font-family:var(--gf)">50–60</span></div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--lt);padding-bottom:12px"><span style="font-size:14px;color:var(--gy)">Players</span><span style="font-size:14px;font-weight:700;font-family:var(--gf)">2–6</span></div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--lt);padding-bottom:12px"><span style="font-size:14px;color:var(--gy)">Duration</span><span style="font-size:14px;font-weight:700;font-family:var(--gf)">15–20 min</span></div>
+            <div style="display:flex;justify-content:space-between"><span style="font-size:14px;color:var(--gy)">Age</span><span style="font-size:14px;font-weight:700;font-family:var(--gf)">14+</span></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="product-dots" id="pds">
+        <button class="product-dot on" onclick="gf(0)" aria-label="View 1"></button>
+        <button class="product-dot" onclick="gf(1)" aria-label="View 2"></button>
+        <button class="product-dot" onclick="gf(2)" aria-label="View 3"></button>
+        <button class="product-dot" onclick="gf(3)" aria-label="View 4"></button>
+      </div>
+    </div>
+
+    <div class="product-text">
+      <h2 class="rv">Compact.<br>Portable.<br>Unforgettable.</h2>
+      <p class="rv d1">50–60 cards. Each one a real Mumbai moment. No board. No setup. Find a chai, deal the cards, start surviving.</p>
+      <button class="btn-buy rv d2" onclick="scr('cta')">Buy Now <span class="price-pill">₹249</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="inside-section">
+  <div class="inside-heading rv">What's Inside.</div>
+  <div class="inside-grid">
+    <div class="inside-cell rv d1"><div class="inside-icon"><i class="ti ti-cards" aria-hidden="true"></i></div><div class="inside-value">50–60</div><div class="inside-label">Cards</div></div>
+    <div class="inside-cell rv d2"><div class="inside-icon"><i class="ti ti-users" aria-hidden="true"></i></div><div class="inside-value">2–6</div><div class="inside-label">Players</div></div>
+    <div class="inside-cell rv d3"><div class="inside-icon"><i class="ti ti-clock" aria-hidden="true"></i></div><div class="inside-value">15–20</div><div class="inside-label">Minutes</div></div>
+    <div class="inside-cell rv d1"><div class="inside-icon"><i class="ti ti-user-check" aria-hidden="true"></i></div><div class="inside-value">14+</div><div class="inside-label">Age</div></div>
+    <div class="inside-cell rv d2"><div class="inside-icon"><i class="ti ti-package" aria-hidden="true"></i></div><div class="inside-value">Compact</div><div class="inside-label">Tuck Box</div></div>
+    <div class="inside-cell rv d3"><div class="inside-icon"><i class="ti ti-map-pin" aria-hidden="true"></i></div><div class="inside-value">Take</div><div class="inside-label">Anywhere</div></div>
+  </div>
+</section>
+
+<!-- HOW TO PLAY -->
+<section class="htp-section" id="htp">
+  <div class="htp-inner">
+    <p class="section-label">How to play</p>
+    <h2 class="htp-title rv">Four steps.<br>One winner.</h2>
+    <p class="htp-sub rv d1">Simple to learn. Impossible to put down.</p>
+
+    <div class="steps" id="stps">
+      <div class="step-line"></div>
+
+      <div class="step rv" id="s0">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Choose your character.</div>
+          <div class="step-desc">Pick your commuter card. Always late? Always on the wrong side of the platform? Choose wisely.</div>
+        </div>
+      </div>
+
+      <div class="step rv d1" id="s1">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Play event &amp; jugaad cards.</div>
+          <div class="step-desc">Every round, Mumbai throws something at you. A waterlogged road. A cancelled local. Use your jugaad cards to survive — or make others suffer.</div>
+        </div>
+      </div>
+
+      <div class="step rv d2" id="s2">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Survive the city's chaos.</div>
+          <div class="step-desc">Block opponents. Play your chaos cards at the right moment. This isn't a race — it's Mumbai. Timing is everything.</div>
+        </div>
+      </div>
+
+      <div class="step rv d3" id="s3">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Reach first. Win.</div>
+          <div class="step-desc">First one to reach the destination wins. Simple? Everyone else will try to stop you. This is Mumbai, after all.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY LOVE IT -->
+<section class="why-section">
+  <h2 class="why-heading rv">Built for<br>real life.</h2>
+  <div class="why-grid">
+    <div class="why-card dk big rv"><i class="ti ti-mood-laugh why-icon" aria-hidden="true"></i><div class="why-card-title">You'll recognise every single card.</div><div class="why-card-sub">We didn't invent anything. We just wrote it down.</div></div>
+    <div class="why-card rv d1"><i class="ti ti-coffee why-icon" aria-hidden="true"></i><div class="why-card-title">Perfect for cafés.</div><div class="why-card-sub">Fits in your bag. No table needed.</div></div>
+    <div class="why-card rv d2"><i class="ti ti-confetti why-icon" aria-hidden="true"></i><div class="why-card-title">Perfect for house parties.</div><div class="why-card-sub">Works with 2 or 6. Never a dull round.</div></div>
+    <div class="why-card rd rv d1"><i class="ti ti-gift why-icon" aria-hidden="true"></i><div class="why-card-title">Perfect gift under ₹250.</div><div class="why-card-sub">Everyone in Mumbai has lived this. Now they can play it.</div></div>
+    <div class="why-card yl rv d2"><i class="ti ti-car why-icon" aria-hidden="true"></i><div class="why-card-title">Perfect for road trips.</div><div class="why-card-sub">The irony of playing Traffic Mein Hoon™ in traffic is not lost on us.</div></div>
+    <div class="why-card rv d3"><i class="ti ti-refresh why-icon" aria-hidden="true"></i><div class="why-card-title">Instantly replayable.</div><div class="why-card-sub">Mumbai doesn't repeat itself. Neither does this game.</div></div>
+  </div>
+</section>
+
+<!-- CARD PREVIEW -->
+<section class="cards-section">
+  <p class="section-label rv" style="color:rgba(245,243,238,.4)">Card preview</p>
+  <h2 class="cards-title rv">A few cards.<br>Not all of them.</h2>
+  <p class="cards-sub rv d1">The rest are for game night.</p>
+
+  <div class="fan-wrap">
+    <div class="fan-card"><div class="fan-tag">Chaos</div><div class="fan-icon"><i class="ti ti-cloud-rain" aria-hidden="true"></i></div><div class="fan-name">Waterlogging</div></div>
+    <div class="fan-card"><div class="fan-tag">Event</div><div class="fan-icon"><i class="ti ti-traffic-lights" style="color:var(--rd)" aria-hidden="true"></i></div><div class="fan-name">Signal Pe Atka</div></div>
+    <div class="fan-card"><div class="fan-tag">Back</div><div class="fan-icon"><i class="ti ti-cards" aria-hidden="true"></i></div><div class="fan-name">Traffic<br>Mein Hoon™</div></div>
+    <div class="fan-card"><div class="fan-tag">Event</div><div class="fan-icon"><i class="ti ti-device-mobile" style="color:var(--rd)" aria-hidden="true"></i></div><div class="fan-name">Boss Calling</div></div>
+    <div class="fan-card"><div class="fan-tag">Jugaad</div><div class="fan-icon"><i class="ti ti-tool" aria-hidden="true"></i></div><div class="fan-name">Auto Jugaad</div></div>
+  </div>
+
+  <p class="fan-hint">Hover to fan the cards out</p>
+</section>
+
+<!-- MUMBAI SECTION -->
+<section class="mumbai-section">
+  <h2 class="mumbai-title rv">These aren't obstacles.<br><span class="mumbai-yellow">They're memories.</span></h2>
+
+  <div class="mumbai-grid">
+    <div class="mumbai-card rv"><div class="mumbai-badge">In The Game</div><div class="mumbai-icon"><i class="ti ti-device-mobile" aria-hidden="true"></i></div><div class="mumbai-card-title">Boss Calling.</div><div class="mumbai-card-sub">During your one free moment of the day.</div></div>
+    <div class="mumbai-card rv d1"><div class="mumbai-badge">In The Game</div><div class="mumbai-icon"><i class="ti ti-traffic-lights" aria-hidden="true"></i></div><div class="mumbai-card-title">Signal Pe Atka.</div><div class="mumbai-card-sub">Third light. Same corner. Every. Single. Time.</div></div>
+    <div class="mumbai-card rv d2"><div class="mumbai-badge">In The Game</div><div class="mumbai-icon"><i class="ti ti-train" aria-hidden="true"></i></div><div class="mumbai-card-title">Local Delay.</div><div class="mumbai-card-sub">Announced exactly when you're already late.</div></div>
+    <div class="mumbai-card rv d1"><div class="mumbai-badge">In The Game</div><div class="mumbai-icon"><i class="ti ti-star" aria-hidden="true"></i></div><div class="mumbai-card-title">Ganpati Procession.</div><div class="mumbai-card-sub">The whole city pauses. You pause too. You love it.</div></div>
+    <div class="mumbai-card rv d2"><div class="mumbai-badge">In The Game</div><div class="mumbai-icon"><i class="ti ti-cloud-rain" aria-hidden="true"></i></div><div class="mumbai-card-title">Waterlogging.</div><div class="mumbai-card-sub">June 1st. Without fail. Like clockwork.</div></div>
+    <div class="mumbai-card rv d3"><div class="mumbai-badge">In The Game</div><div class="mumbai-icon"><i class="ti ti-barrier-block" aria-hidden="true"></i></div><div class="mumbai-card-title">Metro Construction.</div><div class="mumbai-card-sub">The road that's been under construction for 4 years.</div></div>
+  </div>
+
+  <div class="mumbai-closing rv">Traffic isn't the problem.<br>Missing the train is.</div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section" id="cta">
+  <div class="cta-price rv">₹249</div>
+  <div class="cta-title rv">Traffic<br>Mein<br><span class="cta-title-red">Hoon.™</span></div>
+  <div class="cta-meta rv d1">
+    <div class="cta-meta-item"><div class="cta-dot"></div> Mumbai Edition</div>
+    <div class="cta-meta-item"><div class="cta-dot"></div> 2–6 Players</div>
+    <div class="cta-meta-item"><div class="cta-dot"></div> Ships Immediately</div>
+    <div class="cta-meta-item"><div class="cta-dot"></div> Free Mumbai Delivery</div>
+  </div>
+  <button class="btn-buy rv d2" style="margin:0 auto;font-size:20px;padding:20px 52px">Buy Now <span class="price-pill" style="font-size:17px">₹249</span></button>
+  <p class="cta-note rv d3">Compact tuck box · Premium card stock · Designed in Mumbai</p>
+</section>
+
+<!-- SHARE -->
+<section class="share-section">
+  <h2 class="share-title rv">Know someone<br>who's always late?</h2>
+  <p class="share-sub rv d1">This was made for them.</p>
+  <div class="share-btns rv d2">
+    <button class="share-btn share-wa" onclick="doWA()"><i class="ti ti-brand-whatsapp" style="font-size:18px" aria-hidden="true"></i> Send on WhatsApp</button>
+    <button class="share-btn share-ig"><i class="ti ti-brand-instagram" style="font-size:18px" aria-hidden="true"></i> Share on Instagram</button>
+    <button class="share-btn share-cp" id="cpb" onclick="doCP()"><i class="ti ti-link" style="font-size:18px" aria-hidden="true"></i> Copy Link</button>
+  </div>
+</section>
+
+<!-- JUGAADORS -->
+<section class="jugaadors-section">
+  <div class="jugaadors-inner">
+    <div class="jugaadors-logo rv">Jugaadors™</div>
+    <p class="jugaadors-desc rv d1">Creating unforgettable shared experiences inspired by everyday Indian life.</p>
+    <p class="jugaadors-note rv d2">Traffic Mein Hoon™ is just the beginning.</p>
+    <a href="/" class="jugaadors-link rv d3">See what's next <i class="ti ti-arrow-right" style="font-size:14px" aria-hidden="true"></i></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-row">
+    <div class="footer-logo">TMH™ × Jugaadors</div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/games.html" class="footer-link">Games</a>
+      <a href="/shop.html" class="footer-link">Shop</a>
+      <a href="/why.html" class="footer-link">About</a>
+      <a href="https://instagram.com/jugaadors" class="footer-link" target="_blank" rel="noopener">Instagram</a>
+      <a href="/#newsletter" class="footer-link">Newsletter</a>
+    </nav>
+  </div>
+  <div class="footer-copy">© 2025 Jugaadors. Traffic Mein Hoon™ is a trademark of Jugaadors. Made with frustration, love, and a very long commute.</div>
+</footer>
+
+<script>
+function scr(id){ document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
+
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('sol', window.scrollY > 60);
+});
+
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+
+let cur = 0;
+const faces = document.querySelectorAll('.pface');
+const dots  = document.querySelectorAll('.product-dot');
+
+function gf(i) {
+  faces[cur].classList.remove('on');
+  dots[cur].classList.remove('on');
+  cur = i;
+  faces[cur].classList.add('on');
+  dots[cur].classList.add('on');
+}
+function nxt() { gf((cur + 1) % faces.length); }
+setInterval(() => { gf((cur + 1) % faces.length); }, 3800);
+
+const stepEls = document.querySelectorAll('.step');
+window.addEventListener('scroll', () => {
+  stepEls.forEach(s => {
+    const r = s.getBoundingClientRect();
+    s.classList.toggle('act', r.top < window.innerHeight * 0.6 && r.bottom > 0);
+  });
+});
+
+document.addEventListener('mousemove', e => {
+  const pw = document.getElementById('hpw');
+  if (!pw) return;
+  const x = (e.clientX / window.innerWidth - 0.5) * 8;
+  const y = (e.clientY / window.innerHeight - 0.5) * 4;
+  pw.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+function doWA() {
+  const t = encodeURIComponent('You NEED this game — Traffic Mein Hoon™, Mumbai edition. Every Mumbaikar has lived this. Only ₹249. jugaadors.com/traffic-mein-hoon');
+  window.open('https://wa.me/?text=' + t, '_blank');
+}
+
+function doCP() {
+  const b = document.getElementById('cpb');
+  navigator.clipboard.writeText('https://jugaadors.com/traffic-mein-hoon')
+    .then(() => {
+      b.innerHTML = '<i class="ti ti-check" style="font-size:18px"></i> Copied!';
+      setTimeout(() => { b.innerHTML = '<i class="ti ti-link" style="font-size:18px"></i> Copy Link'; }, 2000);
+    })
+    .catch(() => { b.textContent = 'Copied!'; setTimeout(() => { b.innerHTML = '<i class="ti ti-link" style="font-size:18px"></i> Copy Link'; }, 2000); });
+}
+</script>
+
+</body>
+</html>
