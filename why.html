@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JD0K5WPE4Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JD0K5WPE4Q');
+  </script>
+
+  <!-- Primary SEO -->
+  <title>Why Jugaadors — The Studio Behind The Games</title>
+  <meta name="description" content="Jugaadors: where Jugaad meets Jugadores. Why we make what we make — the name, the mission, the team, and why shared experiences around a table still matter more than ever."/>
+  <meta name="keywords" content="Jugaadors story, India board game studio, who makes Jugaadors, shared experiences games, game design studio India, tabletop game company India, game studio founders"/>
+  <meta name="author" content="Jugaadors"/>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+  <meta name="theme-color" content="#0A0A0A"/>
+  <meta name="geo.region" content="IN"/>
+  <meta name="geo.placename" content="India"/>
+  <link rel="canonical" href="https://jugaadors.com/why"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Jugaadors"/>
+  <meta property="og:url" content="https://jugaadors.com/why"/>
+  <meta property="og:title" content="Why Jugaadors — The Studio Behind The Games"/>
+  <meta property="og:description" content="Where Jugaad meets Jugadores. The story of why we make what we make, the people building it, and what shared experiences around a table actually mean."/>
+  <meta property="og:image" content="https://jugaadors.com/assets/og-image.jpg"/>
+  <meta property="og:image:alt" content="Jugaadors — A Studio That Creates Reasons To Gather"/>
+  <meta property="og:image:type" content="image/jpeg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:locale" content="en_IN"/>
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@jugaadors"/>
+  <meta name="twitter:title" content="Why Jugaadors — The Studio Behind The Games"/>
+  <meta name="twitter:description" content="Where Jugaad meets Jugadores. Why we make what we make and who's building it. India First. 2026."/>
+  <meta name="twitter:image" content="https://jugaadors.com/assets/og-image.jpg"/>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "Why Jugaadors — The Studio",
+    "description": "The story behind Jugaadors — the name, the mission, the people, and why shared experiences around a table still matter.",
+    "url": "https://jugaadors.com/why",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Jugaadors",
+      "url": "https://jugaadors.com",
+      "logo": { "@type": "ImageObject", "url": "https://jugaadors.com/assets/logo.png" },
+      "foundingLocation": { "@type": "Place", "name": "Mumbai, India" },
+      "sameAs": [
+        "https://www.linkedin.com/company/jugaadors/",
+        "https://www.facebook.com/profile.php?id=100066866651196"
+      ]
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jugaadors.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Why Jugaadors", "item": "https://jugaadors.com/why" }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"/>
+  <link rel="apple-touch-icon" sizes="512x512" href="assets/favicon-512.png"/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- Shared design system -->
+  <link rel="stylesheet" href="shared.css"/>
+
+  <style>
+    /* ═══════════════════════════════════════
+       PAGE HERO
+    ═══════════════════════════════════════ */
+    #page-hero {
+      padding: calc(var(--nav-h) + 120px) 0 100px;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    #page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(82,200,164,.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-hero-in { max-width: 800px; }
+    .page-lbl   { margin-bottom: 28px; }
+    .page-hl    { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 1.06; margin-bottom: 36px; }
+    .page-intro {
+      font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+      color: var(--text-2); line-height: 1.82; max-width: 60ch;
+    }
+
+    /* ═══════════════════════════════════════
+       NAME STORY
+    ═══════════════════════════════════════ */
+    #name-story { padding: 140px 0; border-bottom: 1px solid var(--border); }
+    .name-g {
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; align-items: start;
+    }
+    .name-sticky { position: sticky; top: calc(var(--nav-h) + 56px); }
+    .name-lbl { margin-bottom: 24px; }
+    .name-hl  { font-size: clamp(2rem, 3.5vw, 3.25rem); margin-bottom: 28px; }
+    .name-sub { font-size: 1rem; color: var(--text-2); line-height: 1.75; }
+
+    .name-etymology { display: flex; flex-direction: column; gap: 2px; margin-bottom: 60px; }
+    .name-word {
+      padding: 28px 32px;
+      background: var(--surface); border: 1px solid var(--border);
+      transition: border-color .3s;
+    }
+    .name-word:hover { border-color: rgba(82,200,164,.25); }
+    .name-word-src {
+      font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;
+      color: var(--accent); margin-bottom: 6px;
+    }
+    .name-word-lang {
+      font-size: .625rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 10px; display: block;
+    }
+    .name-word-def { font-size: .9375rem; color: var(--text-2); line-height: 1.65; }
+
+    .name-plus {
+      text-align: center; padding: 16px 0;
+      font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--text-muted);
+    }
+
+    .name-result {
+      padding: 32px; border: 1px solid rgba(82,200,164,.25);
+      background: var(--accent-dim); text-align: center;
+    }
+    .name-result-word {
+      font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700;
+      color: var(--text); margin-bottom: 10px;
+    }
+    .name-result-def { font-size: 1rem; color: var(--text-2); line-height: 1.65; }
+
+    .name-story-body { font-size: 1.0625rem; color: var(--text-2); line-height: 1.9; }
+    .name-story-body p + p { margin-top: 28px; }
+    .name-story-body strong { color: var(--text); font-weight: 400; }
+
+    /* ═══════════════════════════════════════
+       MANIFESTO / PHILOSOPHY
+    ═══════════════════════════════════════ */
+    #philosophy {
+      padding: 140px 0; border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .phil-hdr { max-width: 680px; margin-bottom: 80px; }
+    .phil-hl  { font-size: clamp(2rem, 3.8vw, 3.5rem); margin-bottom: 28px; }
+    .phil-sub { font-size: 1.0625rem; color: var(--text-2); line-height: 1.82; }
+
+    .phil-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .phil-card {
+      background: var(--surface-2); padding: 48px 40px;
+      transition: background .3s;
+    }
+    .phil-card:hover { background: #1a1a1a; }
+    .phil-num {
+      font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700;
+      color: rgba(82,200,164,.12); line-height: 1; margin-bottom: 24px; display: block;
+    }
+    .phil-card-title {
+      font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 600;
+      margin-bottom: 14px; color: var(--text);
+    }
+    .phil-card-body { font-size: .9375rem; color: var(--text-2); line-height: 1.82; }
+
+    /* ═══════════════════════════════════════
+       MISSION / VISION / VALUES
+    ═══════════════════════════════════════ */
+    #mvv { padding: 140px 0; border-bottom: 1px solid var(--border); }
+    .mvv-g { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
+    .mvv-item {}
+    .mvv-lbl { margin-bottom: 16px; display: block; }
+    .mvv-item-hl {
+      font-family: 'Playfair Display', serif; font-size: 1.375rem; font-weight: 600;
+      color: var(--text); margin-bottom: 16px; line-height: 1.3;
+    }
+    .mvv-item-body { font-size: .9375rem; color: var(--text-2); line-height: 1.82; }
+
+    .mvv-divider { grid-column: 1 / -1; height: 1px; background: var(--border); }
+
+    /* ═══════════════════════════════════════
+       TEAM
+    ═══════════════════════════════════════ */
+    #team { padding: 140px 0; border-bottom: 1px solid var(--border); }
+    .team-hdr { max-width: 600px; margin-bottom: 72px; }
+    .team-hl  { font-size: clamp(1.75rem, 3vw, 2.75rem); }
+
+    .team-g {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+      background: var(--border); margin-bottom: 60px;
+    }
+    .tcard {
+      background: var(--bg); padding: 0;
+      display: flex; flex-direction: column;
+      transition: background .3s;
+    }
+    .tcard:hover { background: var(--surface); }
+    .tcard-visual {
+      aspect-ratio: 3/4; position: relative; overflow: hidden;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+    }
+    .tcard-initial {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700;
+      color: rgba(82,200,164,.15); z-index: 0;
+    }
+    .tcard-visual img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center top; display: block; z-index: 1;
+    }
+    .tcard-body { padding: 32px 32px 36px; }
+    .tcard-role { display: block; margin-bottom: 8px; }
+    .tcard-name {
+      font-family: 'Playfair Display', serif; font-size: 1.375rem; font-weight: 600;
+      margin-bottom: 12px; color: var(--text);
+    }
+    .tcard-bio { font-size: .875rem; color: var(--text-2); line-height: 1.75; margin-bottom: 20px; }
+    .tcard-li {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--text-muted); transition: color .2s;
+    }
+    .tcard-li:hover { color: var(--accent); }
+    .tcard-li svg { width: 14px; height: 14px; }
+
+    .cred-strip {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border);
+    }
+    .cred-cell {
+      background: var(--surface); padding: 32px 28px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .cred-n {
+      font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 600; color: var(--text);
+    }
+    .cred-l { font-size: .75rem; color: var(--text-muted); letter-spacing: .06em; }
+
+    /* HQ locations */
+    .team-hq {
+      display: flex; align-items: center; gap: 24px; margin-bottom: 56px;
+    }
+    .hq-item { display: flex; align-items: center; gap: 10px; font-size: .875rem; color: var(--text-2); }
+    .hq-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .hq-sep { width: 32px; height: 1px; background: var(--border); }
+
+    /* ═══════════════════════════════════════
+       CLOSING CTA
+    ═══════════════════════════════════════ */
+    #closing { padding: 120px 0; text-align: center; background: var(--surface); }
+    .closing-in { max-width: 640px; margin: 0 auto; }
+    .closing-hl { font-size: clamp(1.75rem, 3.5vw, 3rem); margin-bottom: 24px; }
+    .closing-sub { font-size: 1.0625rem; color: var(--text-2); line-height: 1.82; margin-bottom: 40px; }
+    .closing-ctas { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .name-g { grid-template-columns: 1fr; gap: 60px; }
+      .name-sticky { position: static; }
+      .phil-pillars { grid-template-columns: 1fr 1fr; }
+      .mvv-g { grid-template-columns: 1fr; gap: 48px; }
+      .mvv-divider { display: none; }
+      .team-g { grid-template-columns: 1fr 1fr; }
+      .cred-strip { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      #page-hero  { padding-block: calc(var(--nav-h) + 72px) 72px; }
+      #name-story, #philosophy, #mvv, #team { padding-block: 88px; }
+      #closing { padding-block: 80px; }
+      .phil-pillars { grid-template-columns: 1fr; }
+      .team-g { grid-template-columns: 1fr; }
+      .cred-strip { grid-template-columns: 1fr 1fr; }
+      .tcard-body { padding: 28px; }
+    }
+    @media (max-width: 480px) {
+      .cred-strip { grid-template-columns: 1fr; }
+      .closing-ctas { flex-direction: column; align-items: center; }
+      .btn-p, .btn-g { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="grain" aria-hidden="true"></canvas>
+  <div id="cursor-orb" aria-hidden="true"></div>
+  <div id="progress"></div>
+
+  <!-- ══════════════════════════════
+       NAVIGATION
+  ══════════════════════════════ -->
+  <nav id="nav">
+    <a href="/" class="nav-logo" aria-label="Jugaadors home">
+      <img src="assets/logo.png" alt="Jugaadors"/>
+    </a>
+    <div class="nav-r">
+      <a href="games.html" class="nav-link">Games</a>
+      <a href="shop.html" class="nav-link">Shop</a>
+      <a href="why.html" class="nav-link active">Why Jugaadors</a>
+      <a href="journal.html" class="nav-link">Journal</a>
+      <a href="/#wl" class="nav-cta"><span class="nav-full">Join The List</span><span class="nav-short">Join</span></a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <a href="games.html" class="nav-mobile-link">Games</a>
+    <a href="shop.html" class="nav-mobile-link">Shop</a>
+    <a href="why.html" class="nav-mobile-link">Why Jugaadors</a>
+    <a href="journal.html" class="nav-mobile-link">Journal</a>
+    <a href="/#wl" class="nav-mobile-cta">Join The Founding List</a>
+  </div>
+
+  <!-- ══════════════════════════════
+       PAGE HERO
+  ══════════════════════════════ -->
+  <section id="page-hero">
+    <div class="container">
+      <div class="page-hero-in">
+        <span class="t-label page-lbl rv">The Studio</span>
+        <h1 class="t-display page-hl rv d1">
+          We build the thing that makes the night worth showing up for.
+        </h1>
+        <p class="page-intro rv d2">
+          Jugaadors is a studio that creates original shared experiences through tabletop games.
+          Every game we make is inspired by the kinds of situations everyone already recognises.
+          Every one is designed with the same goal: give people a reason to gather,
+          and give them a night they'll still be talking about.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       THE NAME
+  ══════════════════════════════ -->
+  <section id="name-story">
+    <div class="container">
+      <div class="name-g">
+        <div class="name-sticky">
+          <span class="t-label name-lbl rv">The Name</span>
+          <h2 class="t-heading name-hl rv d1">Two words. One idea.</h2>
+          <p class="name-sub rv d2">
+            The name isn't random. It carries the spirit of everything we make —
+            and the spirit of the people we make it for.
+          </p>
+        </div>
+
+        <div>
+          <div class="name-etymology rv">
+            <div class="name-word">
+              <p class="name-word-src">Jugaad</p>
+              <span class="name-word-lang">Hindi · Indian English</span>
+              <p class="name-word-def">A resourceful fix. A creative workaround. Finding an unexpected solution with what you have. The Indian instinct for ingenuity — turning constraint into invention.</p>
+            </div>
+            <div class="name-plus">+</div>
+            <div class="name-word">
+              <p class="name-word-src">Jugadores</p>
+              <span class="name-word-lang">Spanish</span>
+              <p class="name-word-def">Players. People who play. Not passive participants — people who show up, engage, and play the game in front of them.</p>
+            </div>
+            <div class="name-plus">=</div>
+            <div class="name-result">
+              <p class="name-result-word">Jugaadors</p>
+              <p class="name-result-def">People who play creatively. Those who bring resourcefulness, wit, and curiosity to whatever situation they're in — especially a gathering.</p>
+            </div>
+          </div>
+
+          <div class="name-story-body rv d1">
+            <p>
+              We named ourselves after the kind of person we build for. Not the passive guest.
+              Not the person waiting to be entertained. The one who leans in, who picks up what
+              the situation offers, who makes the night more interesting just by being there.
+            </p>
+            <p>
+              <strong>That instinct — to play creatively with what's in front of you —
+              is what Jugaad has always described.</strong> And jugadores are the ones who do it.
+            </p>
+            <p>
+              Every game we make is built for Jugaadors. People who play — really play.
+              Who show up. Who turn an ordinary evening into one the group references for years.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       PHILOSOPHY
+  ══════════════════════════════ -->
+  <section id="philosophy">
+    <div class="container">
+      <div class="phil-hdr rv">
+        <span class="t-label sec-lbl" style="display:block;margin-bottom:20px">What We Believe</span>
+        <h2 class="t-heading phil-hl">Physical play still matters. Probably more than it ever has.</h2>
+        <p class="phil-sub">We're not nostalgic. We're not anti-technology. We just know that the moments that stay with people — the ones they actually remember — happen when they're fully present with the people around them.</p>
+      </div>
+
+      <div class="phil-pillars">
+        <div class="phil-card rv d1">
+          <span class="phil-num">01</span>
+          <h3 class="phil-card-title">Shared presence is rare — and that's the point.</h3>
+          <p class="phil-card-body">Most entertainment is designed to be consumed alone, in parallel with other people. We make things that only work when everyone's together. That's not a limitation. That's the whole idea.</p>
+        </div>
+        <div class="phil-card rv d2">
+          <span class="phil-num">02</span>
+          <h3 class="phil-card-title">The best moments are designed, not accidental.</h3>
+          <p class="phil-card-body">People say their best nights "just happened." That's not quite right. Something in the structure of the situation made it happen. We figured out what that something was, and we build it in on purpose.</p>
+        </div>
+        <div class="phil-card rv d3">
+          <span class="phil-num">03</span>
+          <h3 class="phil-card-title">Everyday life is the most interesting material there is.</h3>
+          <p class="phil-card-body">Every game we make is inspired by situations people already recognise. Not fantasy. Not trivia about things they don't know. The stuff of real life, in a room with real people — that's where things get interesting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-div" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════
+       MISSION / VISION / VALUES
+  ══════════════════════════════ -->
+  <section id="mvv">
+    <div class="container">
+      <div class="mvv-g">
+        <div class="mvv-item rv">
+          <span class="t-label mvv-lbl">Mission</span>
+          <h3 class="mvv-item-hl">Create original shared experiences that give people a reason to gather.</h3>
+          <p class="mvv-item-body">Every game we make has one goal: make the people in the room more interesting to each other than anything else. That night — the one they'll still be talking about next year — that's what we're building toward.</p>
+        </div>
+        <div class="mvv-item rv d1">
+          <span class="t-label mvv-lbl">Vision</span>
+          <h3 class="mvv-item-hl">Build a studio whose games become part of how people gather.</h3>
+          <p class="mvv-item-body">Not a single product. Not a moment. A body of work that spans years and situations — and that people reach for every time they want the night to matter. We're building toward that with every release.</p>
+        </div>
+        <div class="mvv-item rv d2">
+          <span class="t-label mvv-lbl">Values</span>
+          <h3 class="mvv-item-hl">Designed with intention. Made for real people. Honest about what we are.</h3>
+          <p class="mvv-item-body">We don't overclaim. We don't use jargon. We don't do what everyone else does and call it original. We make things we'd actually want to use — with the people we actually care about.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-div" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════
+       TEAM
+  ══════════════════════════════ -->
+  <section id="team">
+    <div class="container">
+      <div class="team-hdr rv">
+        <span class="t-label sec-lbl" style="display:block;margin-bottom:20px">The People Behind It</span>
+        <h2 class="t-heading team-hl">People who've thrown parties that flopped and nights that wouldn't end. They know the difference.</h2>
+      </div>
+
+      <div class="team-hq rv d1">
+        <div class="hq-item"><span class="hq-dot"></span><span>Mumbai, India</span></div>
+        <div class="hq-sep"></div>
+        <div class="hq-item"><span class="hq-dot"></span><span>San Francisco, California</span></div>
+      </div>
+
+      <div class="team-g">
+        <div class="tcard rv d1">
+          <div class="tcard-visual">
+            <span class="tcard-initial">AH</span>
+            <img src="assets/Amrita%20thumbnail.png" alt="Amrita Hemdev" loading="lazy" onerror="this.style.display='none'"/>
+          </div>
+          <div class="tcard-body">
+            <span class="t-label tcard-role">Co-Founder · CEO</span>
+            <h3 class="tcard-name">Amrita Hemdev</h3>
+            <p class="tcard-bio">Creative lead and brand architect. Designing India's most unexpected experience brand — one gathering at a time.</p>
+            <a href="https://www.linkedin.com/in/amritahemdev/" target="_blank" rel="noopener" class="tcard-li">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="tcard rv d2">
+          <div class="tcard-visual">
+            <span class="tcard-initial">VS</span>
+            <img src="assets/Vishnu%20Thumbnail.png" alt="Vishnu Sharon" loading="lazy" onerror="this.style.display='none'"/>
+          </div>
+          <div class="tcard-body">
+            <span class="t-label tcard-role">Co-Founder · CPO</span>
+            <h3 class="tcard-name">Vishnu Sharon</h3>
+            <p class="tcard-bio">Product visionary and experience architect. He doesn't design for what exists — he designs for what people didn't know they needed.</p>
+            <a href="https://www.linkedin.com/in/vishnusharon/" target="_blank" rel="noopener" class="tcard-li">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="tcard rv d3">
+          <div class="tcard-visual">
+            <span class="tcard-initial">SH</span>
+            <img src="assets/Sahil%20Professional%20Photo.png" alt="Dr. Sahil Haria" loading="lazy" onerror="this.style.display='none'"/>
+          </div>
+          <div class="tcard-body">
+            <span class="t-label tcard-role">Co-Founder · COO</span>
+            <h3 class="tcard-name">Dr. Sahil Haria</h3>
+            <p class="tcard-bio">PhD Strategic Management · MS UC Berkeley · MBA. 10+ years building companies across the US and India. The systems and strategy behind the experience. Mumbai ↔ San Francisco.</p>
+            <a href="https://www.linkedin.com/in/sahilharia92/" target="_blank" rel="noopener" class="tcard-li">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-strip">
+        <div class="cred-cell rv d1"><span class="cred-n">PhD · MBA · MS</span><span class="cred-l">Founding Team Credentials</span></div>
+        <div class="cred-cell rv d2"><span class="cred-n">Mumbai + SF</span><span class="cred-l">Two Global Headquarters</span></div>
+        <div class="cred-cell rv d3"><span class="cred-n">20+ Years</span><span class="cred-l">Combined US &amp; India Experience</span></div>
+        <div class="cred-cell rv d4"><span class="cred-n">India → World</span><span class="cred-l">Experience-Led Entertainment</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       CLOSING CTA
+  ══════════════════════════════ -->
+  <section id="closing">
+    <div class="container">
+      <div class="closing-in rv">
+        <span class="t-label" style="display:block;margin-bottom:24px">What's Next</span>
+        <h2 class="t-heading closing-hl">The first game launches in 2026. You should be on the list.</h2>
+        <p class="closing-sub">Everyone who joins the founding list gets access before the public, founding pricing, and the satisfaction of knowing you were here at the beginning.</p>
+        <div class="closing-ctas">
+          <a href="/#wl" class="btn-p">Join The Founding List →</a>
+          <a href="games.html" class="btn-g">See The Games</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="ft-top">
+        <div class="ft-brand">
+          <div class="ft-logo"><img src="assets/logo.png" alt="Jugaadors"/></div>
+          <p class="ft-tagline">A studio that creates original shared experiences through tabletop games.</p>
+          <span class="ft-loc">Mumbai · San Francisco</span>
+        </div>
+        <div class="ft-nav-col">
+          <span class="ft-nav-head">Games</span>
+          <a href="games.html">All Games</a>
+          <a href="shop.html">Shop</a>
+        </div>
+        <div class="ft-nav-col">
+          <span class="ft-nav-head">Studio</span>
+          <a href="why.html">Why Jugaadors</a>
+          <a href="journal.html">Journal</a>
+        </div>
+        <div class="ft-nav-col">
+          <span class="ft-nav-head">Connect</span>
+          <a href="https://www.linkedin.com/company/jugaadors/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100066866651196" target="_blank" rel="noopener">Facebook</a>
+          <a href="mailto:jugaadors@gmail.com">Contact</a>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        <p class="ft-copy">© 2026 Jugaadors. All rights reserved.</p>
+        <div class="ft-social">
+          <a href="https://www.linkedin.com/company/jugaadors/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100066866651196" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── MOBILE NAV ── */
+    (function() {
+      const toggle = document.getElementById('nav-toggle');
+      const drawer = document.getElementById('nav-mobile');
+      if (!toggle || !drawer) return;
+      toggle.addEventListener('click', () => {
+        const open = toggle.classList.toggle('open');
+        drawer.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open);
+        drawer.setAttribute('aria-hidden', !open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+    })();
+
+    const pb = document.getElementById('progress');
+    window.addEventListener('scroll', () => {
+      const dh = document.documentElement;
+      pb.style.width = (window.scrollY/(dh.scrollHeight-dh.clientHeight)*100)+'%';
+    }, { passive: true });
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('up', window.scrollY > 80), { passive: true });
+    nav.classList.add('up');
+
+    const rvEls = document.querySelectorAll('.rv,.rv-l,.rv-r');
+    const rvObs = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }),
+      { threshold: .08, rootMargin: '0px 0px -48px 0px' }
+    );
+    rvEls.forEach(el => rvObs.observe(el));
+    setTimeout(() => document.querySelectorAll('#page-hero .rv').forEach(el => el.classList.add('on')), 100);
+
+    (function() {
+      const orb = document.getElementById('cursor-orb');
+      if (!orb || !window.matchMedia('(hover: hover)').matches) return;
+      let ox=innerWidth/2, oy=innerHeight/2, mx=ox, my=oy;
+      window.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+      (function raf(){ ox+=(mx-ox)*.09; oy+=(my-oy)*.09; orb.style.left=ox+'px'; orb.style.top=oy+'px'; requestAnimationFrame(raf); })();
+    })();
+
+    (function() {
+      if (!window.matchMedia('(hover: hover)').matches) return;
+      const cv=document.getElementById('grain'); if (!cv) return;
+      const ctx=cv.getContext('2d'); const off=document.createElement('canvas'); const oc=off.getContext('2d');
+      let W,H;
+      function resize(){ W=cv.width=innerWidth; H=cv.height=innerHeight; off.width=Math.ceil(W/3); off.height=Math.ceil(H/3); }
+      resize(); window.addEventListener('resize',resize);
+      function draw(){ const w=off.width,h=off.height; const img=oc.createImageData(w,h); const d=img.data; for(let i=0;i<d.length;i+=4){const v=Math.random()*255|0;d[i]=d[i+1]=d[i+2]=v;d[i+3]=20;} oc.putImageData(img,0,0); ctx.clearRect(0,0,W,H); ctx.drawImage(off,0,0,W,H); setTimeout(draw,90); }
+      draw();
+    })();
+  </script>
+</body>
+</html>

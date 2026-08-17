@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JD0K5WPE4Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JD0K5WPE4Q');
+  </script>
+
+  <!-- Primary SEO -->
+  <title>Games — Jugaadors | Board Games That Bring People Together</title>
+  <meta name="description" content="Every game Jugaadors makes is designed to become the night your group still references a year later. Three projects. One mission. India First. Launching 2026."/>
+  <meta name="keywords" content="Jugaadors games, tabletop games India, board games India 2026, social games India, group party games, original board games, games that bring people together, India board game studio"/>
+  <meta name="author" content="Jugaadors"/>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+  <meta name="theme-color" content="#0A0A0A"/>
+  <meta name="geo.region" content="IN"/>
+  <meta name="geo.placename" content="India"/>
+  <link rel="canonical" href="https://jugaadors.com/games"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Jugaadors"/>
+  <meta property="og:url" content="https://jugaadors.com/games"/>
+  <meta property="og:title" content="Games — Jugaadors | Board Games That Bring People Together"/>
+  <meta property="og:description" content="Three projects. One mission: the game your group won't stop talking about. Original tabletop experiences. India First. Launching 2026."/>
+  <meta property="og:image" content="https://jugaadors.com/assets/og-image.jpg"/>
+  <meta property="og:image:alt" content="Jugaadors — A Studio That Creates Reasons To Gather"/>
+  <meta property="og:image:type" content="image/jpeg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:locale" content="en_IN"/>
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@jugaadors"/>
+  <meta name="twitter:title" content="Games — Jugaadors | Board Games That Bring People Together"/>
+  <meta name="twitter:description" content="Three projects. One mission: the game your group won't stop talking about. India First. 2026."/>
+  <meta name="twitter:image" content="https://jugaadors.com/assets/og-image.jpg"/>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Games — Jugaadors",
+    "description": "Every game Jugaadors makes is designed to become the night your group still references a year later. Three projects. One mission.",
+    "url": "https://jugaadors.com/games",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Jugaadors",
+      "url": "https://jugaadors.com",
+      "logo": { "@type": "ImageObject", "url": "https://jugaadors.com/assets/logo.png" }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jugaadors.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Games", "item": "https://jugaadors.com/games" }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"/>
+  <link rel="apple-touch-icon" sizes="512x512" href="assets/favicon-512.png"/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- Shared design system -->
+  <link rel="stylesheet" href="shared.css"/>
+
+  <style>
+    /* ═══════════════════════════════════════
+       PAGE HERO
+    ═══════════════════════════════════════ */
+    #page-hero {
+      padding: calc(var(--nav-h) + 100px) 0 96px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero-in { max-width: 680px; }
+    .page-lbl { margin-bottom: 24px; }
+    .page-hl {
+      font-size: clamp(2.25rem, 5vw, 4.5rem);
+      margin-bottom: 28px; line-height: 1.07;
+    }
+    .page-sub {
+      font-size: 1.0625rem; color: var(--text-2);
+      line-height: 1.82; max-width: 56ch;
+    }
+
+    /* ═══════════════════════════════════════
+       FILTERS / STATUS BAR
+    ═══════════════════════════════════════ */
+    #status-bar {
+      padding: 24px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+    }
+    .status-filter-label { font-size: .6875rem; letter-spacing: .16em; text-transform: uppercase; color: var(--text-muted); }
+    .status-filters { display: flex; gap: 10px; flex-wrap: wrap; }
+    .sf { padding: 6px 18px; border: 1px solid var(--border); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-2); cursor: pointer; background: transparent; transition: border-color .2s, color .2s; }
+    .sf.active, .sf:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ═══════════════════════════════════════
+       GAMES GRID
+    ═══════════════════════════════════════ */
+    #games-grid { padding: 80px 0 160px; }
+
+    .games-g {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+      background: var(--border);
+    }
+
+    .game-card {
+      background: var(--bg); display: flex; flex-direction: column;
+      transition: background .3s;
+    }
+    .game-card:hover { background: var(--surface); }
+
+    .game-card-art {
+      aspect-ratio: 4/3; background: var(--surface);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .game-card-art-inner {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 16px; z-index: 1;
+    }
+    .game-art-ring {
+      width: 72px; height: 72px; border-radius: 50%;
+      border: 1px solid rgba(82,200,164,.18);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .game-art-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent); opacity: .5;
+    }
+    .game-card.featured .game-art-dot { opacity: 1; box-shadow: 0 0 16px var(--accent-glow); }
+    .game-art-label {
+      font-size: .5625rem; letter-spacing: .22em; text-transform: uppercase; color: var(--text-muted);
+    }
+    /* Subtle grid pattern on art placeholder */
+    .game-card-art::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(82,200,164,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(82,200,164,.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .game-card-body { padding: 36px 36px 40px; display: flex; flex-direction: column; flex: 1; }
+    .game-card-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+    .game-n { font-size: .5625rem; letter-spacing: .18em; text-transform: uppercase; color: var(--text-muted); }
+
+    .game-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 600;
+      color: var(--text); margin-bottom: 14px;
+    }
+    .game-card-desc { font-size: .9375rem; color: var(--text-2); line-height: 1.82; margin-bottom: 32px; }
+    .game-card-specs {
+      display: flex; gap: 24px; flex-wrap: wrap;
+      padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+    .game-spec { display: flex; flex-direction: column; gap: 4px; }
+    .game-spec-n { font-size: .6875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+    .game-spec-v { font-size: .875rem; color: var(--text-2); }
+    .game-card-ft { margin-top: auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    /* Featured card — span full width */
+    .game-card.featured {
+      grid-column: 1 / -1;
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .game-card.featured .game-card-art {
+      aspect-ratio: auto; border-bottom: none; border-right: 1px solid var(--border);
+      min-height: 360px;
+    }
+    .game-card.featured .game-art-ring {
+      width: 100px; height: 100px; animation: slow-spin 24s linear infinite;
+    }
+    @keyframes slow-spin { to { transform: rotate(360deg); } }
+    .game-card.featured .game-card-body { padding: 56px 56px; justify-content: center; }
+    .game-card.featured .game-card-title { font-size: clamp(1.5rem, 2.5vw, 2rem); }
+
+    /* ═══════════════════════════════════════
+       COMING UP STRIP
+    ═══════════════════════════════════════ */
+    #coming-up {
+      padding: 80px 0; border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .cu-in { max-width: 600px; margin: 0 auto; text-align: center; }
+    .cu-hl  { font-size: clamp(1.5rem, 2.5vw, 2rem); margin-bottom: 20px; }
+    .cu-sub { font-size: 1rem; color: var(--text-2); line-height: 1.75; margin-bottom: 36px; }
+    .cu-form { display: flex; max-width: 420px; margin: 0 auto; }
+    .cu-fi {
+      flex: 1; padding: 14px 18px; background: rgba(10,10,10,.7);
+      border: 1px solid var(--border); border-right: none; color: var(--text);
+      font-size: .9375rem; font-weight: 300; outline: none;
+      transition: border-color .25s;
+    }
+    .cu-fi:focus { border-color: rgba(82,200,164,.5); }
+    .cu-fi::placeholder { color: var(--text-muted); }
+    .cu-fs {
+      padding: 14px 24px; background: var(--accent); color: #0A0A0A;
+      font-size: .875rem; font-weight: 500; border: none; cursor: pointer;
+      white-space: nowrap; transition: opacity .2s;
+    }
+    .cu-fs:hover { opacity: .86; }
+    .cu-ok { display: none; font-size: .9375rem; color: var(--accent); font-family: 'Playfair Display', serif; font-style: italic; }
+    .cu-note { font-size: .75rem; color: var(--text-muted); margin-top: 12px; }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .games-g { grid-template-columns: 1fr 1fr; }
+      .game-card.featured { grid-template-columns: 1fr; }
+      .game-card.featured .game-card-art { border-right: none; border-bottom: 1px solid var(--border); min-height: 240px; }
+      .game-card.featured .game-card-body { padding: 40px; }
+    }
+    @media (max-width: 768px) {
+      #page-hero { padding-block: calc(var(--nav-h) + 64px) 64px; }
+      #games-grid { padding-block: 56px 96px; }
+      .games-g { grid-template-columns: 1fr; }
+      .game-card.featured { grid-column: auto; }
+      .game-card-body { padding: 32px 28px; }
+      .game-card.featured .game-card-body { padding: 32px 28px; }
+    }
+    @media (max-width: 480px) {
+      .cu-form { flex-direction: column; }
+      .cu-fi { border-right: 1px solid var(--border); border-bottom: none; }
+      .cu-fs { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="grain" aria-hidden="true"></canvas>
+  <div id="cursor-orb" aria-hidden="true"></div>
+  <div id="progress"></div>
+
+  <!-- ══════════════════════════════
+       NAVIGATION
+  ══════════════════════════════ -->
+  <nav id="nav">
+    <a href="/" class="nav-logo" aria-label="Jugaadors home">
+      <img src="assets/logo.png" alt="Jugaadors"/>
+    </a>
+    <div class="nav-r">
+      <a href="games.html" class="nav-link active">Games</a>
+      <a href="shop.html" class="nav-link">Shop</a>
+      <a href="why.html" class="nav-link">Why Jugaadors</a>
+      <a href="journal.html" class="nav-link">Journal</a>
+      <a href="/#wl" class="nav-cta"><span class="nav-full">Join The List</span><span class="nav-short">Join</span></a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <a href="games.html" class="nav-mobile-link">Games</a>
+    <a href="shop.html" class="nav-mobile-link">Shop</a>
+    <a href="why.html" class="nav-mobile-link">Why Jugaadors</a>
+    <a href="journal.html" class="nav-mobile-link">Journal</a>
+    <a href="/#wl" class="nav-mobile-cta" id="nav-mobile-cta">Join The Founding List</a>
+  </div>
+
+  <!-- ══════════════════════════════
+       PAGE HERO
+  ══════════════════════════════ -->
+  <section id="page-hero">
+    <div class="container">
+      <div class="page-hero-in">
+        <span class="t-label page-lbl rv">The Games</span>
+        <h1 class="t-display page-hl rv d1">Every game is a reason to gather.</h1>
+        <p class="page-sub rv d2">
+          We create original tabletop experiences inspired by the kinds of situations
+          everyone already recognises. No complicated rules. No setup anxiety.
+          Just the people around the table and something that makes the night run long.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Status bar -->
+  <div id="status-bar">
+    <div class="container" style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;">
+      <span class="status-filter-label">Status</span>
+      <div class="status-filters">
+        <button class="sf active">All</button>
+        <button class="sf">Launching Soon</button>
+        <button class="sf">In Development</button>
+        <button class="sf">Coming Soon</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       GAMES GRID
+  ══════════════════════════════ -->
+  <section id="games-grid">
+    <div class="container">
+      <div class="games-g">
+
+        <!-- Project 01 — Featured, full width -->
+        <div class="game-card featured rv">
+          <div class="game-card-art">
+            <div class="game-card-art-inner">
+              <div class="game-art-ring">
+                <div class="game-art-dot"></div>
+              </div>
+              <span class="game-art-label">Artwork Reveal — 2026</span>
+            </div>
+          </div>
+          <div class="game-card-body">
+            <div class="game-card-meta">
+              <span class="game-n">Project 01</span>
+              <span class="status-badge launching"><span class="status-launch-dot"></span>Launching Soon</span>
+            </div>
+            <h2 class="game-card-title">The kind of night that runs longer than anyone planned.</h2>
+            <p class="game-card-desc">
+              Built for groups. Inspired by the kind of everyday situations everyone
+              recognises immediately. No long setup. No instructions to explain for
+              twenty minutes before you start. Just the people in the room and
+              something that makes them impossible to ignore.
+            </p>
+            <div class="game-card-specs">
+              <div class="game-spec">
+                <span class="game-spec-n">Players</span>
+                <span class="game-spec-v">4 – 10</span>
+              </div>
+              <div class="game-spec">
+                <span class="game-spec-n">Duration</span>
+                <span class="game-spec-v">One evening</span>
+              </div>
+              <div class="game-spec">
+                <span class="game-spec-n">Setting</span>
+                <span class="game-spec-v">Around a table</span>
+              </div>
+              <div class="game-spec">
+                <span class="game-spec-n">Origin</span>
+                <span class="game-spec-v">India · 2026</span>
+              </div>
+            </div>
+            <div class="game-card-ft">
+              <a href="/#wl" class="btn-p">Get Early Access →</a>
+              <a href="shop.html" class="btn-g">Visit Shop</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 02 -->
+        <div class="game-card rv d1">
+          <div class="game-card-art">
+            <div class="game-card-art-inner">
+              <div class="game-art-ring"><div class="game-art-dot"></div></div>
+              <span class="game-art-label">In the making</span>
+            </div>
+          </div>
+          <div class="game-card-body">
+            <div class="game-card-meta">
+              <span class="game-n">Project 02</span>
+              <span class="status-badge dev">In Development</span>
+            </div>
+            <h3 class="game-card-title">The next one is already in the making.</h3>
+            <p class="game-card-desc">
+              A different situation. The same promise. More detail when the time is right —
+              and it will be soon.
+            </p>
+            <div class="game-card-ft">
+              <a href="/#wl" class="btn-g">Stay Updated →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 03 -->
+        <div class="game-card rv d2">
+          <div class="game-card-art">
+            <div class="game-card-art-inner">
+              <div class="game-art-ring"><div class="game-art-dot"></div></div>
+              <span class="game-art-label">Conceptual stage</span>
+            </div>
+          </div>
+          <div class="game-card-body">
+            <div class="game-card-meta">
+              <span class="game-n">Project 03</span>
+              <span class="status-badge soon">Coming Soon</span>
+            </div>
+            <h3 class="game-card-title">On the horizon.</h3>
+            <p class="game-card-desc">
+              We're already thinking about the third one.
+              Every experience we build is inspired by something everyone already knows.
+              More when we're ready.
+            </p>
+            <div class="game-card-ft">
+              <a href="/#wl" class="btn-g">Follow Along →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       COMING UP STRIP
+  ══════════════════════════════ -->
+  <section id="coming-up">
+    <div class="container">
+      <div class="cu-in rv">
+        <span class="t-label" style="display:block;margin-bottom:20px">Stay In The Loop</span>
+        <h2 class="t-heading cu-hl">Be the first to know when each one drops.</h2>
+        <p class="cu-sub">New games launch here first. Join the list and you'll hear about every release before anyone else.</p>
+        <form class="cu-form" id="cu-form" novalidate>
+          <input type="text" name="_hp" class="hp-trap" autocomplete="off" aria-hidden="true"/>
+          <input type="email" class="cu-fi" id="cu-email" placeholder="your@email.com" autocomplete="email" required/>
+          <button type="submit" class="cu-fs" id="cu-btn">Notify Me →</button>
+        </form>
+        <p class="cu-ok" id="cu-ok">You're on the list. Every new game — you'll know first.</p>
+        <p class="cu-note">One email per launch. No noise.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="ft-top">
+        <div class="ft-brand">
+          <div class="ft-logo"><img src="assets/logo.png" alt="Jugaadors"/></div>
+          <p class="ft-tagline">A studio that creates original shared experiences through tabletop games.</p>
+          <span class="ft-loc">Mumbai · San Francisco</span>
+        </div>
+        <div class="ft-nav-col">
+          <span class="ft-nav-head">Games</span>
+          <a href="games.html">All Games</a>
+          <a href="shop.html">Shop</a>
+        </div>
+        <div class="ft-nav-col">
+          <span class="ft-nav-head">Studio</span>
+          <a href="why.html">Why Jugaadors</a>
+          <a href="journal.html">Journal</a>
+        </div>
+        <div class="ft-nav-col">
+          <span class="ft-nav-head">Connect</span>
+          <a href="https://www.linkedin.com/company/jugaadors/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100066866651196" target="_blank" rel="noopener">Facebook</a>
+          <a href="mailto:jugaadors@gmail.com">Contact</a>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        <p class="ft-copy">© 2026 Jugaadors. All rights reserved.</p>
+        <div class="ft-social">
+          <a href="https://www.linkedin.com/company/jugaadors/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100066866651196" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── MOBILE NAV ── */
+    (function() {
+      const toggle = document.getElementById('nav-toggle');
+      const drawer = document.getElementById('nav-mobile');
+      if (!toggle || !drawer) return;
+      toggle.addEventListener('click', () => {
+        const open = toggle.classList.toggle('open');
+        drawer.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open);
+        drawer.setAttribute('aria-hidden', !open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+    })();
+
+    /* ── PROGRESS + NAV ── */
+    const pb = document.getElementById('progress');
+    window.addEventListener('scroll', () => {
+      const dh = document.documentElement;
+      pb.style.width = (window.scrollY / (dh.scrollHeight - dh.clientHeight) * 100) + '%';
+    }, { passive: true });
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('up', window.scrollY > 80), { passive: true });
+    nav.classList.add('up');
+
+    /* ── SCROLL REVEAL ── */
+    const rvEls = document.querySelectorAll('.rv, .rv-l, .rv-r');
+    const rvObs = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }),
+      { threshold: .08, rootMargin: '0px 0px -48px 0px' }
+    );
+    rvEls.forEach(el => rvObs.observe(el));
+    setTimeout(() => document.querySelectorAll('#page-hero .rv').forEach(el => el.classList.add('on')), 100);
+
+    /* ── CURSOR ORB ── */
+    (function() {
+      const orb = document.getElementById('cursor-orb');
+      if (!orb || !window.matchMedia('(hover: hover)').matches) return;
+      let ox = innerWidth/2, oy = innerHeight/2, mx = ox, my = oy;
+      window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+      (function raf() { ox += (mx-ox)*.09; oy += (my-oy)*.09; orb.style.left = ox+'px'; orb.style.top = oy+'px'; requestAnimationFrame(raf); })();
+    })();
+
+    /* ── GRAIN ── */
+    (function() {
+      if (!window.matchMedia('(hover: hover)').matches) return;
+      const cv = document.getElementById('grain'); if (!cv) return;
+      const ctx = cv.getContext('2d'); const off = document.createElement('canvas'); const oc = off.getContext('2d');
+      let W, H;
+      function resize() { W = cv.width = innerWidth; H = cv.height = innerHeight; off.width = Math.ceil(W/3); off.height = Math.ceil(H/3); }
+      resize(); window.addEventListener('resize', resize);
+      function draw() {
+        const w = off.width, h = off.height; const img = oc.createImageData(w,h); const d = img.data;
+        for (let i = 0; i < d.length; i+=4) { const v = Math.random()*255|0; d[i]=d[i+1]=d[i+2]=v; d[i+3]=20; }
+        oc.putImageData(img,0,0); ctx.clearRect(0,0,W,H); ctx.drawImage(off,0,0,W,H); setTimeout(draw,90);
+      }
+      draw();
+    })();
+
+    /* ── STATUS FILTER TABS (visual only) ── */
+    document.querySelectorAll('.sf').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.sf').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    /* ── COMING UP FORM ── */
+    const ENDPOINT = '/api/waitlist';
+    const _pageLoad = Date.now();
+    const cuForm = document.getElementById('cu-form');
+    const cuBtn  = document.getElementById('cu-btn');
+    const cuOk   = document.getElementById('cu-ok');
+    cuForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('cu-email').value.trim();
+      if (!email) return;
+      const hp = cuForm.querySelector('.hp-trap');
+      if (hp && hp.value) { cuForm.style.display='none'; cuOk.style.display='block'; return; }
+      cuBtn.disabled = true; cuBtn.textContent = 'Joining…';
+      fetch(ENDPOINT, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, _hp: '', _t: _pageLoad }),
+      }).then(() => { cuForm.style.display='none'; cuOk.style.display='block'; })
+        .catch(() => { cuBtn.disabled=false; cuBtn.textContent='Try again →'; });
+    });
+  </script>
+</body>
+</html>

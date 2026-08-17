@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JD0K5WPE4Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JD0K5WPE4Q');
+  </script>
+
+  <!-- Primary SEO -->
+  <title>Journal — Jugaadors | Design Diaries &amp; Studio Updates</title>
+  <meta name="description" content="Behind the scenes at Jugaadors. Design diaries, playtesting reports, launch updates, and the thinking behind every game we make. India First. 2026."/>
+  <meta name="keywords" content="Jugaadors journal, board game design process, game studio blog India, tabletop game development diary, how games are made India, game design behind the scenes"/>
+  <meta name="author" content="Jugaadors"/>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+  <meta name="theme-color" content="#0A0A0A"/>
+  <meta name="geo.region" content="IN"/>
+  <meta name="geo.placename" content="India"/>
+  <link rel="canonical" href="https://jugaadors.com/journal"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Jugaadors"/>
+  <meta property="og:url" content="https://jugaadors.com/journal"/>
+  <meta property="og:title" content="Journal — Jugaadors | Design Diaries &amp; Studio Updates"/>
+  <meta property="og:description" content="Behind the scenes at Jugaadors. Design diaries, playtesting, launch updates, and the thinking behind every game we make."/>
+  <meta property="og:image" content="https://jugaadors.com/assets/og-image.jpg"/>
+  <meta property="og:image:alt" content="Jugaadors — A Studio That Creates Reasons To Gather"/>
+  <meta property="og:image:type" content="image/jpeg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:locale" content="en_IN"/>
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@jugaadors"/>
+  <meta name="twitter:title" content="Journal — Jugaadors | Design Diaries &amp; Studio Updates"/>
+  <meta name="twitter:description" content="Behind the scenes at Jugaadors. The design process, the playtesting, the launch build. India First. 2026."/>
+  <meta name="twitter:image" content="https://jugaadors.com/assets/og-image.jpg"/>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Jugaadors Journal",
+    "description": "Behind the scenes at Jugaadors — design process, playtesting, launch diaries, and the thinking behind everything we make.",
+    "url": "https://jugaadors.com/journal",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Jugaadors",
+      "url": "https://jugaadors.com",
+      "logo": { "@type": "ImageObject", "url": "https://jugaadors.com/assets/logo.png" }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jugaadors.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://jugaadors.com/journal" }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"/>
+  <link rel="apple-touch-icon" sizes="512x512" href="assets/favicon-512.png"/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- Shared design system -->
+  <link rel="stylesheet" href="shared.css"/>
+
+  <style>
+    /* ═══════════════════════════════════════
+       PAGE HERO
+    ═══════════════════════════════════════ */
+    #page-hero {
+      padding: calc(var(--nav-h) + 100px) 0 80px;
+      border-bottom: 1px solid var(--border);
+    }
+    .journal-hero-g {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
+    }
+    .page-lbl  { margin-bottom: 24px; }
+    .page-hl   { font-size: clamp(2.25rem, 5vw, 4.5rem); line-height: 1.06; }
+    .page-sub  {
+      font-size: 1.0625rem; color: var(--text-2); line-height: 1.82; max-width: 48ch;
+      align-self: end;
+    }
+
+    /* ═══════════════════════════════════════
+       COMING SOON HERO BLOCK
+    ═══════════════════════════════════════ */
+    #journal-coming {
+      padding: 100px 0 80px; border-bottom: 1px solid var(--border);
+    }
+    .jc-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .jc-visual {
+      border: 1px solid var(--border); background: var(--surface);
+      aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .jc-visual::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(82,200,164,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(82,200,164,.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .jc-visual-inner { z-index: 1; text-align: center; display: flex; flex-direction: column; gap: 16px; align-items: center; }
+    .jc-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(82,200,164,.3); animation: jc-pulse 2s ease-in-out infinite; }
+    @keyframes jc-pulse { 0%,100%{transform:scale(1);opacity:.3;} 50%{transform:scale(1.4);opacity:.7;} }
+    .jc-visual-label { font-size: .5625rem; letter-spacing: .22em; text-transform: uppercase; color: var(--text-muted); }
+
+    .jc-body {}
+    .jc-hl  { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 24px; line-height: 1.2; }
+    .jc-sub { font-size: 1.0625rem; color: var(--text-2); line-height: 1.82; margin-bottom: 36px; }
+    .jc-eta {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-muted); border: 1px solid var(--border);
+      padding: 10px 20px; margin-bottom: 36px;
+    }
+    .jc-eta-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(82,200,164,.4); }
+
+    /* ═══════════════════════════════════════
+       UPCOMING TOPICS
+    ═══════════════════════════════════════ */
+    #topics { padding: 100px 0; border-bottom: 1px solid var(--border); background: var(--surface); }
+    .topics-hdr { max-width: 560px; margin-bottom: 64px; }
+    .topics-hl  { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 16px; }
+    .topics-sub { font-size: 1rem; color: var(--text-2); line-height: 1.75; }
+
+    .topics-g {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+      background: var(--border);
+    }
+    .topic-card {
+      background: var(--surface-2); padding: 40px 36px;
+      transition: background .3s; position: relative;
+    }
+    .topic-card:hover { background: #1a1a1a; }
+    .topic-cat {
+      font-size: .5625rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px; display: block;
+    }
+    .topic-title {
+      font-family: 'Playfair Display', serif; font-size: 1.125rem; font-weight: 600;
+      color: var(--text); margin-bottom: 12px; line-height: 1.35;
+    }
+    .topic-desc { font-size: .875rem; color: var(--text-2); line-height: 1.75; }
+    .topic-coming {
+      display: inline-block; margin-top: 20px;
+      font-size: .625rem; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════
+       PLACEHOLDER ARTICLE CARDS
+    ═══════════════════════════════════════ */
+    #articles { padding: 100px 0; border-bottom: 1px solid var(--border); }
+    .articles-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 56px; flex-wrap: wrap; gap: 16px; }
+    .articles-hl  { font-size: clamp(1.5rem, 2.5vw, 2rem); }
+    .articles-note { font-size: .8125rem; color: var(--text-muted); }
+
+    .articles-g { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+    .article-card {
+      background: var(--bg); display: flex; flex-direction: column;
+      transition: background .3s; opacity: .5; pointer-events: none;
+    }
+    .article-thumb {
+      aspect-ratio: 16/9; background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .article-thumb-label {
+      font-size: .5625rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted);
+    }
+    .article-body { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column; }
+    .article-cat {
+      font-size: .5625rem; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 12px; display: block;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif; font-size: 1.0625rem; font-weight: 600;
+      color: var(--text); line-height: 1.4; margin-bottom: 10px;
+    }
+    .article-excerpt { font-size: .875rem; color: var(--text-2); line-height: 1.7; }
+    .article-ft {
+      margin-top: auto; padding-top: 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--border);
+    }
+    .article-meta { font-size: .75rem; color: var(--text-muted); }
+
+    /* ═══════════════════════════════════════
+       NOTIFY SECTION
+    ═══════════════════════════════════════ */
+    #notify { padding: 100px 0; }
+    .notify-in { max-width: 560px; margin: 0 auto; text-align: center; }
+    .notify-hl  { font-size: clamp(1.5rem, 2.5vw, 2.25rem); margin-bottom: 20px; }
+    .notify-sub { font-size: 1rem; color: var(--text-2); line-height: 1.75; margin-bottom: 36px; }
+    .notify-form-wrap { display: flex; max-width: 400px; margin: 0 auto; }
+    .notify-fi {
+      flex: 1; padding: 14px 18px; background: rgba(10,10,10,.7);
+      border: 1px solid var(--border); border-right: none; color: var(--text);
+      font-size: .9375rem; font-weight: 300; outline: none; transition: border-color .25s;
+    }
+    .notify-fi:focus { border-color: rgba(82,200,164,.5); }
+    .notify-fi::placeholder { color: var(--text-muted); }
+    .notify-fs {
+      padding: 14px 24px; background: var(--accent); color: #0A0A0A;
+      font-size: .875rem; font-weight: 500; border: none; cursor: pointer;
+      white-space: nowrap; transition: opacity .2s;
+    }
+    .notify-fs:hover { opacity: .86; }
+    .notify-ok-msg {
+      display: none; font-size: 1rem; color: var(--accent);
+      font-family: 'Playfair Display', serif; font-style: italic; margin-top: 16px;
+    }
+    .notify-note { font-size: .75rem; color: var(--text-muted); margin-top: 12px; }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .journal-hero-g { grid-template-columns: 1fr; gap: 32px; }
+      .jc-inner { grid-template-columns: 1fr; gap: 48px; }
+      .topics-g { grid-template-columns: 1fr 1fr; }
+      .articles-g { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      #page-hero { padding-block: calc(var(--nav-h) + 64px) 56px; }
+      #journal-coming, #topics, #articles, #notify { padding-block: 72px; }
+      .topics-g { grid-template-columns: 1fr; }
+      .articles-g { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .notify-form-wrap { flex-direction: column; }
+      .notify-fi { border-right: 1px solid var(--border); border-bottom: none; }
+      .notify-fs { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="grain" aria-hidden="true"></canvas>
+  <div id="cursor-orb" aria-hidden="true"></div>
+  <div id="progress"></div>
+
+  <!-- ══════════════════════════════
+       NAVIGATION
+  ══════════════════════════════ -->
+  <nav id="nav">
+    <a href="/" class="nav-logo" aria-label="Jugaadors home">
+      <img src="assets/logo.png" alt="Jugaadors"/>
+    </a>
+    <div class="nav-r">
+      <a href="games.html" class="nav-link">Games</a>
+      <a href="shop.html" class="nav-link">Shop</a>
+      <a href="why.html" class="nav-link">Why Jugaadors</a>
+      <a href="journal.html" class="nav-link active">Journal</a>
+      <a href="/#wl" class="nav-cta"><span class="nav-full">Join The List</span><span class="nav-short">Join</span></a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <a href="games.html" class="nav-mobile-link">Games</a>
+    <a href="shop.html" class="nav-mobile-link">Shop</a>
+    <a href="why.html" class="nav-mobile-link">Why Jugaadors</a>
+    <a href="journal.html" class="nav-mobile-link">Journal</a>
+    <a href="/#wl" class="nav-mobile-cta">Join The Founding List</a>
+  </div>
+
+  <!-- ══════════════════════════════
+       PAGE HERO
+  ══════════════════════════════ -->
+  <section id="page-hero">
+    <div class="container">
+      <div class="journal-hero-g">
+        <div>
+          <span class="t-label page-lbl rv">The Journal</span>
+          <h1 class="t-display page-hl rv d1">Behind the work.</h1>
+        </div>
+        <p class="page-sub rv d2">
+          Where we write about what we're building and why. Design process.
+          Playtesting stories. Launch diaries. The thinking behind every decision.
+          The journal opens when we have something worth saying.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       COMING SOON BLOCK
+  ══════════════════════════════ -->
+  <section id="journal-coming">
+    <div class="container">
+      <div class="jc-inner">
+        <div class="jc-visual rv-l">
+          <div class="jc-visual-inner">
+            <div class="jc-dot"></div>
+            <span class="jc-visual-label">First entry — coming soon</span>
+          </div>
+        </div>
+        <div class="rv-r">
+          <div class="jc-eta"><div class="jc-eta-dot"></div>First entry coming soon</div>
+          <h2 class="t-heading jc-hl">The first post is already being written.</h2>
+          <p class="jc-sub">
+            We're working on the first proper entry — a look at where the first game
+            came from and what we learned building it. Not a press release. Not a
+            product update. An honest account of what it actually takes.
+          </p>
+          <a href="#notify" class="btn-g">Notify me when it's live →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       UPCOMING TOPICS
+  ══════════════════════════════ -->
+  <section id="topics">
+    <div class="container">
+      <div class="topics-hdr rv">
+        <span class="t-label sec-lbl" style="display:block;margin-bottom:20px">What's Coming</span>
+        <h2 class="t-heading topics-hl">Things we're planning to write about.</h2>
+        <p class="topics-sub">Not yet published. But coming — honest, specific, and worth reading.</p>
+      </div>
+
+      <div class="topics-g">
+        <div class="topic-card rv d1">
+          <span class="topic-cat">Design Process</span>
+          <h3 class="topic-title">How the first game actually got made.</h3>
+          <p class="topic-desc">Where the idea came from. What failed in playtesting. What we almost kept but didn't. The whole honest account.</p>
+          <span class="topic-coming">Coming Soon</span>
+        </div>
+        <div class="topic-card rv d2">
+          <span class="topic-cat">Playtesting</span>
+          <h3 class="topic-title">The night we knew it was working.</h3>
+          <p class="topic-desc">There's always a moment in playtesting when something shifts — you stop watching the mechanics and start watching the people. We're writing about that moment.</p>
+          <span class="topic-coming">Coming Soon</span>
+        </div>
+        <div class="topic-card rv d3">
+          <span class="topic-cat">Launch Diary</span>
+          <h3 class="topic-title">What we got right and what we got wrong.</h3>
+          <p class="topic-desc">A launch diary starting from the beginning. Honest about the decisions, the mistakes, and the things we'd do differently.</p>
+          <span class="topic-coming">Coming Soon</span>
+        </div>
+        <div class="topic-card rv d4">
+          <span class="topic-cat">Behind The Name</span>
+          <h3 class="topic-title">Why we called it what we called it.</h3>
+          <p class="topic-desc">The full story of the name — longer than the page version. Where both words come from and what they mean to us.</p>
+          <span class="topic-coming">Coming Soon</span>
+        </div>
+        <div class="topic-card rv d5">
+          <span class="topic-cat">Community</span>
+          <h3 class="topic-title">Stories from the people who played early versions.</h3>
+          <p class="topic-desc">Some of the playtests produced moments we weren't expecting. We're collecting the stories — with permission.</p>
+          <span class="topic-coming">Coming Soon</span>
+        </div>
+        <div class="topic-card rv d5">
+          <span class="topic-cat">Next Up</span>
+          <h3 class="topic-title">What we're building next, and why.</h3>
+          <p class="topic-desc">The first look at Project 02 — where it started, what everyday situation it came from, and how it's different from the first one.</p>
+          <span class="topic-coming">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       PLACEHOLDER ARTICLE CARDS
+  ══════════════════════════════ -->
+  <section id="articles">
+    <div class="container">
+      <div class="articles-hdr rv">
+        <h2 class="t-heading articles-hl">Archive</h2>
+        <span class="articles-note">Entries publish as we write them.</span>
+      </div>
+      <div class="articles-g">
+        <div class="article-card">
+          <div class="article-thumb"><span class="article-thumb-label">Unpublished</span></div>
+          <div class="article-body">
+            <span class="article-cat">Design Process</span>
+            <h3 class="article-title">How the first game actually got made.</h3>
+            <p class="article-excerpt">The full account — idea to prototype, prototype to playtest, playtest to what you'll hold in your hands.</p>
+            <div class="article-ft">
+              <span class="article-meta">Not yet published</span>
+            </div>
+          </div>
+        </div>
+        <div class="article-card">
+          <div class="article-thumb"><span class="article-thumb-label">Unpublished</span></div>
+          <div class="article-body">
+            <span class="article-cat">Playtesting</span>
+            <h3 class="article-title">The night we knew it was working.</h3>
+            <p class="article-excerpt">There was a moment in playtesting where everyone forgot they were testing something. That's the entry.</p>
+            <div class="article-ft">
+              <span class="article-meta">Not yet published</span>
+            </div>
+          </div>
+        </div>
+        <div class="article-card">
+          <div class="article-thumb"><span class="article-thumb-label">Unpublished</span></div>
+          <div class="article-body">
+            <span class="article-cat">Launch Diary</span>
+            <h3 class="article-title">Entry 01: Why we didn't launch when we planned to.</h3>
+            <p class="article-excerpt">The honest version of the first six months — what slowed us down, what we changed, and what we're glad we didn't rush.</p>
+            <div class="article-ft">
+              <span class="article-meta">Not yet published</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       NOTIFY
+  ══════════════════════════════ -->
+  <section id="notify">
+    <div class="container">
+      <div class="notify-in rv">
+        <span class="t-label" style="display:block;margin-bottom:20px">Stay In The Loop</span>
+        <h2 class="t-heading notify-hl">Get the first entry when it publishes.</h2>
+        <p class="notify-sub">Drop your email and we'll send you a note when the journal goes live. One email. No noise.</p>
+        <form class="notify-form-wrap" id="journal-form" novalidate>
+          <input type="text" name="_hp" class="hp-trap" autocomplete="off" aria-hidden="true"/>
+          <input type="email" class="notify-fi" id="journal-email" placeholder="your@email.com" autocomplete="email" required/>
+          <button type="submit" class="notify-fs" id="journal-btn">Notify Me →</button>
+        </form>
+        <p class="notify-ok-msg" id="journal-ok">You'll hear from us when the first entry is up.</p>
+        <p class="notify-note">We won't email you until there's something worth reading.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="ft-top">
+        <div class="ft-brand">
+          <div class="ft-logo"><img src="assets/logo.png" alt="Jugaadors"/></div>
+          <p class="ft-tagline">A studio that creates original shared experiences through tabletop games.</p>
+          <span class="ft-loc">Mumbai · San Francisco</span>
+        </div>
+        <div class="ft-nav-col">
+          <span class="ft-nav-head">Games</span>
+          <a href="games.html">All Games</a>
+          <a href="shop.html">Shop</a>
+        </div>
+        <div class="ft-nav-col">
+          <span class="ft-nav-head">Studio</span>
+          <a href="why.html">Why Jugaadors</a>
+          <a href="journal.html">Journal</a>
+        </div>
+        <div class="ft-nav-col">
+          <span class="ft-nav-head">Connect</span>
+          <a href="https://www.linkedin.com/company/jugaadors/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100066866651196" target="_blank" rel="noopener">Facebook</a>
+          <a href="mailto:jugaadors@gmail.com">Contact</a>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        <p class="ft-copy">© 2026 Jugaadors. All rights reserved.</p>
+        <div class="ft-social">
+          <a href="https://www.linkedin.com/company/jugaadors/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100066866651196" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── MOBILE NAV ── */
+    (function() {
+      const toggle = document.getElementById('nav-toggle');
+      const drawer = document.getElementById('nav-mobile');
+      if (!toggle || !drawer) return;
+      toggle.addEventListener('click', () => {
+        const open = toggle.classList.toggle('open');
+        drawer.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open);
+        drawer.setAttribute('aria-hidden', !open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+    })();
+
+    const pb = document.getElementById('progress');
+    window.addEventListener('scroll', () => {
+      const dh = document.documentElement;
+      pb.style.width = (window.scrollY/(dh.scrollHeight-dh.clientHeight)*100)+'%';
+    }, { passive: true });
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('up', window.scrollY > 80), { passive: true });
+    nav.classList.add('up');
+
+    const rvEls = document.querySelectorAll('.rv,.rv-l,.rv-r');
+    const rvObs = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }),
+      { threshold: .08, rootMargin: '0px 0px -48px 0px' }
+    );
+    rvEls.forEach(el => rvObs.observe(el));
+    setTimeout(() => document.querySelectorAll('#page-hero .rv').forEach(el => el.classList.add('on')), 100);
+
+    (function() {
+      const orb = document.getElementById('cursor-orb');
+      if (!orb || !window.matchMedia('(hover: hover)').matches) return;
+      let ox=innerWidth/2, oy=innerHeight/2, mx=ox, my=oy;
+      window.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+      (function raf(){ ox+=(mx-ox)*.09; oy+=(my-oy)*.09; orb.style.left=ox+'px'; orb.style.top=oy+'px'; requestAnimationFrame(raf); })();
+    })();
+
+    (function() {
+      if (!window.matchMedia('(hover: hover)').matches) return;
+      const cv=document.getElementById('grain'); if (!cv) return;
+      const ctx=cv.getContext('2d'); const off=document.createElement('canvas'); const oc=off.getContext('2d');
+      let W,H;
+      function resize(){ W=cv.width=innerWidth; H=cv.height=innerHeight; off.width=Math.ceil(W/3); off.height=Math.ceil(H/3); }
+      resize(); window.addEventListener('resize',resize);
+      function draw(){ const w=off.width,h=off.height; const img=oc.createImageData(w,h); const d=img.data; for(let i=0;i<d.length;i+=4){const v=Math.random()*255|0;d[i]=d[i+1]=d[i+2]=v;d[i+3]=20;} oc.putImageData(img,0,0); ctx.clearRect(0,0,W,H); ctx.drawImage(off,0,0,W,H); setTimeout(draw,90); }
+      draw();
+    })();
+
+    const ENDPOINT = '/api/waitlist';
+    const _pageLoad = Date.now();
+    const jForm = document.getElementById('journal-form');
+    const jBtn  = document.getElementById('journal-btn');
+    const jOk   = document.getElementById('journal-ok');
+    jForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('journal-email').value.trim();
+      if (!email) return;
+      const hp = jForm.querySelector('.hp-trap');
+      if (hp && hp.value) { jForm.style.display='none'; jOk.style.display='block'; return; }
+      jBtn.disabled=true; jBtn.textContent='Saving…';
+      fetch(ENDPOINT, {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ email, _hp:'', _t: _pageLoad }),
+      }).then(()=>{ jForm.style.display='none'; jOk.style.display='block'; })
+        .catch(()=>{ jBtn.disabled=false; jBtn.textContent='Try again →'; });
+    });
+  </script>
+</body>
+</html>
