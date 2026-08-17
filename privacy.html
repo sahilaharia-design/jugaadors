@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JD0K5WPE4Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JD0K5WPE4Q');
+  </script>
+
+  <!-- Primary SEO -->
+  <title>Privacy Policy — Jugaadors</title>
+  <meta name="description" content="Jugaadors Privacy Policy — how we collect, use, store, and protect your personal data. Covers waitlist submissions, analytics, cookies, email communications, and your rights under Indian DPDPA, GDPR, and US privacy law."/>
+  <meta name="author" content="Jugaadors"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="theme-color" content="#0A0A0A"/>
+  <link rel="canonical" href="https://www.jugaadors.com/privacy"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Jugaadors"/>
+  <meta property="og:url" content="https://www.jugaadors.com/privacy"/>
+  <meta property="og:title" content="Privacy Policy — Jugaadors"/>
+  <meta property="og:description" content="How Jugaadors collects, uses, and protects your data. Full legal disclosure."/>
+  <meta property="og:image" content="https://jugaadors.com/assets/og-image.jpg"/>
+  <meta property="og:image:alt" content="Jugaadors — A Studio That Creates Reasons To Gather"/>
+  <meta property="og:locale" content="en_IN"/>
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@jugaadors"/>
+  <meta name="twitter:title" content="Privacy Policy — Jugaadors"/>
+  <meta name="twitter:image" content="https://jugaadors.com/assets/og-image.jpg"/>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy — Jugaadors",
+    "url": "https://www.jugaadors.com/privacy",
+    "description": "Privacy Policy for Jugaadors — how we collect, use, and protect personal data.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Jugaadors",
+      "url": "https://jugaadors.com",
+      "email": "jugaadors@gmail.com"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jugaadors.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://jugaadors.com/privacy" }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"/>
+  <link rel="apple-touch-icon" sizes="512x512" href="assets/favicon-512.png"/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- Shared design system -->
+  <link rel="stylesheet" href="shared.css"/>
+
+  <style>
+    /* ═══════════════════════════════════════
+       PAGE HERO
+    ═══════════════════════════════════════ */
+    #page-hero {
+      padding: calc(var(--nav-h) + 100px) 0 80px;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    #page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 70% at 100% 50%, rgba(82,200,164,.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-hero-in { max-width: 780px; }
+    .page-lbl   { margin-bottom: 24px; }
+    .page-hl    { font-size: clamp(2.2rem, 5vw, 4.25rem); line-height: 1.08; margin-bottom: 28px; }
+    .page-meta  { font-size: .875rem; color: var(--text-3); margin-top: 20px; }
+    .page-meta a { color: var(--accent); text-decoration: none; }
+
+    /* ═══════════════════════════════════════
+       LAYOUT
+    ═══════════════════════════════════════ */
+    #policy-body { padding: 100px 0 140px; }
+    .policy-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ═══════════════════════════════════════
+       SIDEBAR / TOC
+    ═══════════════════════════════════════ */
+    .policy-toc {
+      position: sticky;
+      top: calc(var(--nav-h) + 40px);
+    }
+    .toc-head {
+      font-size: .6875rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 20px;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { margin-bottom: 4px; }
+    .toc-list a {
+      display: block;
+      font-size: .8125rem;
+      color: var(--text-3);
+      text-decoration: none;
+      padding: 5px 10px;
+      border-left: 1px solid var(--border);
+      transition: color .2s, border-color .2s;
+      line-height: 1.5;
+    }
+    .toc-list a:hover,
+    .toc-list a.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    /* ═══════════════════════════════════════
+       POLICY CONTENT
+    ═══════════════════════════════════════ */
+    .policy-content { max-width: 760px; }
+
+    .policy-section {
+      padding-bottom: 72px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 72px;
+    }
+    .policy-section:last-child {
+      border-bottom: none; margin-bottom: 0; padding-bottom: 0;
+    }
+
+    .ps-num {
+      font-size: .6875rem; font-weight: 500; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--accent);
+      display: block; margin-bottom: 16px;
+    }
+    .ps-head {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+      font-weight: 600; line-height: 1.2;
+      color: var(--text); margin-bottom: 24px;
+    }
+    .ps-body {
+      font-size: 1rem; line-height: 1.85;
+      color: var(--text-2);
+    }
+    .ps-body p { margin-bottom: 18px; }
+    .ps-body p:last-child { margin-bottom: 0; }
+    .ps-body strong { color: var(--text); font-weight: 500; }
+    .ps-body a { color: var(--accent); text-decoration: none; }
+    .ps-body a:hover { text-decoration: underline; }
+
+    /* Sub-section heads */
+    .ps-sub {
+      font-size: .9375rem; font-weight: 500;
+      color: var(--text); margin: 32px 0 12px;
+      letter-spacing: .01em;
+    }
+
+    /* Data table */
+    .policy-table {
+      width: 100%; border-collapse: collapse;
+      margin: 28px 0; font-size: .9375rem;
+      color: var(--text-2);
+    }
+    .policy-table th {
+      text-align: left; font-size: .75rem;
+      font-weight: 500; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--text-3);
+      padding: 10px 16px; border-bottom: 1px solid var(--border);
+    }
+    .policy-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(242,240,235,.05);
+      vertical-align: top; line-height: 1.6;
+    }
+    .policy-table tr:last-child td { border-bottom: none; }
+    .policy-table td:first-child { color: var(--text); font-weight: 500; white-space: nowrap; }
+
+    /* Rights chips */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px; margin-top: 28px;
+    }
+    .right-card {
+      border: 1px solid var(--border);
+      padding: 20px 22px; border-radius: 2px;
+    }
+    .right-card-head {
+      font-size: .8125rem; font-weight: 500; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 8px; display: block;
+    }
+    .right-card p {
+      font-size: .875rem; color: var(--text-2);
+      line-height: 1.65; margin: 0;
+    }
+
+    /* Highlight block */
+    .ps-note {
+      border-left: 2px solid var(--accent);
+      padding: 16px 20px; margin: 24px 0;
+      background: rgba(82,200,164,.04);
+      border-radius: 0 2px 2px 0;
+      font-size: .9375rem; color: var(--text-2);
+      line-height: 1.7;
+    }
+    .ps-note strong { color: var(--text); }
+
+    /* ═══════════════════════════════════════
+       MOBILE
+    ═══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .policy-layout { grid-template-columns: 1fr; gap: 48px; }
+      .policy-toc { position: static; }
+      .toc-list { display: none; }
+    }
+    @media (max-width: 600px) {
+      #policy-body { padding: 64px 0 100px; }
+      .policy-section { padding-bottom: 52px; margin-bottom: 52px; }
+      .rights-grid { grid-template-columns: 1fr; }
+      .policy-table { font-size: .875rem; }
+      .policy-table th, .policy-table td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="grain" aria-hidden="true"></canvas>
+  <div id="cursor-orb" aria-hidden="true"></div>
+  <div id="progress"></div>
+
+  <!-- ══════════════════════════════
+       NAVIGATION
+  ══════════════════════════════ -->
+  <nav id="nav">
+    <a href="/" class="nav-logo" aria-label="Jugaadors home">
+      <img src="assets/logo.png" alt="Jugaadors"/>
+    </a>
+    <div class="nav-r">
+      <a href="games.html" class="nav-link">Games</a>
+      <a href="shop.html" class="nav-link">Shop</a>
+      <a href="why.html" class="nav-link">Why Jugaadors</a>
+      <a href="journal.html" class="nav-link">Journal</a>
+      <a href="/#wl" class="nav-cta"><span class="nav-full">Join The List</span><span class="nav-short">Join</span></a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <a href="games.html" class="nav-mobile-link">Games</a>
+    <a href="shop.html" class="nav-mobile-link">Shop</a>
+    <a href="why.html" class="nav-mobile-link">Why Jugaadors</a>
+    <a href="journal.html" class="nav-mobile-link">Journal</a>
+    <a href="privacy.html" class="nav-mobile-link">Privacy</a>
+    <a href="/#wl" class="nav-mobile-cta">Join The Founding List</a>
+  </div>
+
+  <!-- ══════════════════════════════
+       PAGE HERO
+  ══════════════════════════════ -->
+  <section id="page-hero">
+    <div class="container">
+      <div class="page-hero-in rv">
+        <span class="t-label page-lbl">Legal</span>
+        <h1 class="t-heading page-hl">Privacy Policy</h1>
+        <p class="page-meta">
+          Effective: <strong>17 August 2026</strong> &nbsp;·&nbsp; Last updated: <strong>17 August 2026</strong><br>
+          Questions? <a href="mailto:jugaadors@gmail.com">jugaadors@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       POLICY BODY
+  ══════════════════════════════ -->
+  <section id="policy-body">
+    <div class="container">
+      <div class="policy-layout">
+
+        <!-- SIDEBAR TOC -->
+        <aside class="policy-toc" aria-label="Table of contents">
+          <p class="toc-head">Contents</p>
+          <ul class="toc-list" id="toc-list">
+            <li><a href="#s1">1. Who We Are</a></li>
+            <li><a href="#s2">2. Data We Collect</a></li>
+            <li><a href="#s3">3. How We Collect It</a></li>
+            <li><a href="#s4">4. Why We Collect It</a></li>
+            <li><a href="#s5">5. How We Use Your Data</a></li>
+            <li><a href="#s6">6. Third-Party Services</a></li>
+            <li><a href="#s7">7. Cookies & Tracking</a></li>
+            <li><a href="#s8">8. Data Retention</a></li>
+            <li><a href="#s9">9. Data Security</a></li>
+            <li><a href="#s10">10. International Transfers</a></li>
+            <li><a href="#s11">11. Your Rights</a></li>
+            <li><a href="#s12">12. Children's Privacy</a></li>
+            <li><a href="#s13">13. Third-Party Links</a></li>
+            <li><a href="#s14">14. Changes to This Policy</a></li>
+            <li><a href="#s15">15. Contact Us</a></li>
+          </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <div class="policy-content">
+
+          <div class="ps-note">
+            <strong>Plain-language summary:</strong> We collect your name and email when you join our waitlist. We use Google Analytics to understand how people use our site. We use Brevo to send waitlist updates. We don't sell your data, we don't use it for advertising, and you can ask us to delete it anytime.
+          </div>
+
+          <!-- ── 1. WHO WE ARE ── -->
+          <div class="policy-section rv" id="s1">
+            <span class="ps-num">01</span>
+            <h2 class="ps-head">Who We Are</h2>
+            <div class="ps-body">
+              <p>Jugaadors ("we", "us", "our") is an original tabletop game studio headquartered in Mumbai, India, with commercial operations in the United States. We operate the website at <strong>www.jugaadors.com</strong> (the "Site") and any associated sub-domains, APIs, and email communications.</p>
+              <p>For purposes of applicable privacy law, Jugaadors is the <strong>data controller</strong> of personal information collected through this Site.</p>
+              <table class="policy-table">
+                <thead>
+                  <tr><th>Detail</th><th>Information</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Legal name</td><td>Jugaadors</td></tr>
+                  <tr><td>Headquarters</td><td>Mumbai, Maharashtra, India</td></tr>
+                  <tr><td>Commercial presence</td><td>United States (Amazon FBA distribution)</td></tr>
+                  <tr><td>Email</td><td><a href="mailto:jugaadors@gmail.com">jugaadors@gmail.com</a></td></tr>
+                  <tr><td>Website</td><td>www.jugaadors.com</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- ── 2. DATA WE COLLECT ── -->
+          <div class="policy-section rv" id="s2">
+            <span class="ps-num">02</span>
+            <h2 class="ps-head">Data We Collect</h2>
+            <div class="ps-body">
+              <p class="ps-sub">2.1 Information You Provide Directly</p>
+              <p>When you submit the waitlist or founding list form on our Site, we collect:</p>
+              <table class="policy-table">
+                <thead>
+                  <tr><th>Field</th><th>Required</th><th>Purpose</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Email address</td><td>Yes</td><td>To add you to the waitlist and send updates about our games and launch</td></tr>
+                  <tr><td>Name</td><td>No</td><td>To personalise communications if provided</td></tr>
+                </tbody>
+              </table>
+              <p>We do not collect payment information, government-issued IDs, physical addresses, or any sensitive personal data through the Site.</p>
+
+              <p class="ps-sub">2.2 Information Collected Automatically</p>
+              <p>When you visit our Site, we automatically collect:</p>
+              <table class="policy-table">
+                <thead>
+                  <tr><th>Data type</th><th>How collected</th><th>Retention</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>IP address</td><td>Vercel (hosting) server logs; our API rate-limiter (in-memory only, not persisted)</td><td>Ephemeral / Vercel standard log retention</td></tr>
+                  <tr><td>Browser &amp; device type</td><td>Google Analytics 4</td><td>Up to 14 months (GA4 default)</td></tr>
+                  <tr><td>Pages viewed, session duration, referrer URL</td><td>Google Analytics 4</td><td>Up to 14 months</td></tr>
+                  <tr><td>Approximate geographic location (country/city)</td><td>Google Analytics 4 (derived from anonymised IP)</td><td>Up to 14 months</td></tr>
+                  <tr><td>Cookie identifiers (_ga, _gid, _ga_*)</td><td>Google Analytics 4</td><td>_ga: 2 years; _gid: 24 hours</td></tr>
+                </tbody>
+              </table>
+              <p>Google Analytics 4 anonymises IP addresses by default before any geographic data is stored. We do not use GA4's advertising features or cross-site tracking.</p>
+
+              <p class="ps-sub">2.3 Spam &amp; Bot Protection Data</p>
+              <p>Our waitlist submission form uses server-side spam protections. We process:</p>
+              <ul style="margin: 0 0 18px 20px; color: var(--text-2); line-height: 1.85;">
+                <li>A honeypot field (hidden from real users — only bots fill it)</li>
+                <li>Form submission timestamp (to detect bot-speed submissions)</li>
+                <li>Your IP address in-memory during the request (3 submissions / 60 seconds rate limit — not stored after the request ends)</li>
+                <li>Email domain (checked against a list of known disposable email providers)</li>
+              </ul>
+              <p>No spam-protection data is persisted to a database.</p>
+            </div>
+          </div>
+
+          <!-- ── 3. HOW WE COLLECT ── -->
+          <div class="policy-section rv" id="s3">
+            <span class="ps-num">03</span>
+            <h2 class="ps-head">How We Collect It</h2>
+            <div class="ps-body">
+              <table class="policy-table">
+                <thead>
+                  <tr><th>Collection method</th><th>What it captures</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Waitlist / founding list form</td><td>Name, email address — you actively submit these</td></tr>
+                  <tr><td>Google Analytics 4 (gtag.js)</td><td>Pageviews, events, session data, device/browser info, anonymised location</td></tr>
+                  <tr><td>Vercel serverless functions</td><td>IP address (for rate limiting, ephemeral), HTTP request metadata</td></tr>
+                  <tr><td>Google Apps Script / Sheets</td><td>Stores submitted name + email in a private Google Sheet (our CRM backbone)</td></tr>
+                  <tr><td>Brevo (email platform)</td><td>Receives name + email to send transactional and marketing communications</td></tr>
+                </tbody>
+              </table>
+              <p>We do not use session recording tools (e.g. Hotjar), heatmaps, ad pixels (Facebook Pixel, Google Ads tags), or any third-party tracking beyond GA4.</p>
+            </div>
+          </div>
+
+          <!-- ── 4. WHY / LEGAL BASIS ── -->
+          <div class="policy-section rv" id="s4">
+            <span class="ps-num">04</span>
+            <h2 class="ps-head">Why We Collect It — Legal Basis</h2>
+            <div class="ps-body">
+              <p>We process personal data only where we have a lawful basis to do so. The bases we rely on are:</p>
+              <table class="policy-table">
+                <thead>
+                  <tr><th>Processing activity</th><th>Legal basis</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Adding you to the waitlist and sending launch communications</td><td><strong>Consent</strong> — you actively submit your email and agree to receive updates. You may withdraw consent at any time by unsubscribing.</td></tr>
+                  <tr><td>Site analytics via Google Analytics 4</td><td><strong>Legitimate interests</strong> — understanding how visitors use the Site so we can improve it. We use anonymised data only and do not enable advertising features.</td></tr>
+                  <tr><td>Spam / bot protection (rate limiting, honeypot)</td><td><strong>Legitimate interests</strong> — protecting the integrity of our systems and preventing abuse.</td></tr>
+                  <tr><td>Hosting and infrastructure (Vercel logs)</td><td><strong>Legitimate interests</strong> — operating a secure and functional website requires standard server-side logging.</td></tr>
+                </tbody>
+              </table>
+              <p>For users in the European Economic Area (EEA) and United Kingdom, this processing is governed by Articles 6(1)(a) (consent) and 6(1)(f) (legitimate interests) of the GDPR / UK GDPR. For users in India, processing is governed by the Digital Personal Data Protection Act, 2023 (DPDPA) and, where applicable, the IT Act 2000 and SPDI Rules 2011.</p>
+            </div>
+          </div>
+
+          <!-- ── 5. HOW WE USE ── -->
+          <div class="policy-section rv" id="s5">
+            <span class="ps-num">05</span>
+            <h2 class="ps-head">How We Use Your Data</h2>
+            <div class="ps-body">
+              <p>We use the information we collect strictly for the following purposes:</p>
+              <table class="policy-table">
+                <thead>
+                  <tr><th>Use</th><th>Data involved</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Waitlist management — notifying you before our first game launches</td><td>Email, name</td></tr>
+                  <tr><td>Founding member communications — exclusive early access, founding pricing, studio updates</td><td>Email, name</td></tr>
+                  <tr><td>Transactional emails (waitlist confirmation, launch date announcements)</td><td>Email</td></tr>
+                  <tr><td>Site performance and improvement (which pages perform well, where drop-offs happen)</td><td>Anonymised analytics data</td></tr>
+                  <tr><td>Spam and abuse prevention</td><td>IP address (ephemeral), email domain</td></tr>
+                  <tr><td>Legal compliance — responding to lawful requests from authorities</td><td>Relevant data as required</td></tr>
+                </tbody>
+              </table>
+              <div class="ps-note">
+                <strong>We will never:</strong> sell your personal data to third parties · use your data for behavioural advertising · share your data with data brokers · use your data for any purpose beyond those listed above without your explicit consent.
+              </div>
+            </div>
+          </div>
+
+          <!-- ── 6. THIRD PARTIES ── -->
+          <div class="policy-section rv" id="s6">
+            <span class="ps-num">06</span>
+            <h2 class="ps-head">Third-Party Services</h2>
+            <div class="ps-body">
+              <p>We use a limited number of trusted third-party service providers. Each receives only the data necessary to perform their function.</p>
+              <table class="policy-table">
+                <thead>
+                  <tr><th>Provider</th><th>Role</th><th>Data shared</th><th>Their privacy policy</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Vercel Inc.</td>
+                    <td>Website hosting &amp; serverless compute</td>
+                    <td>IP addresses, HTTP request metadata</td>
+                    <td><a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a></td>
+                  </tr>
+                  <tr>
+                    <td>Google LLC (Analytics 4)</td>
+                    <td>Website analytics</td>
+                    <td>Anonymised usage data, cookies</td>
+                    <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
+                  </tr>
+                  <tr>
+                    <td>Google LLC (Apps Script / Sheets)</td>
+                    <td>Waitlist data storage</td>
+                    <td>Name, email address</td>
+                    <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
+                  </tr>
+                  <tr>
+                    <td>Brevo (Sendinblue SAS)</td>
+                    <td>Email marketing &amp; transactional email</td>
+                    <td>Name, email address</td>
+                    <td><a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener">brevo.com/legal/privacypolicy</a></td>
+                  </tr>
+                  <tr>
+                    <td>Amazon Services LLC (future)</td>
+                    <td>US product distribution (Amazon FBA)</td>
+                    <td>Purchase data handled directly by Amazon — governed by Amazon's privacy policy</td>
+                    <td><a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ" target="_blank" rel="noopener">amazon.com privacy notice</a></td>
+                  </tr>
+                  <tr>
+                    <td>Google Fonts</td>
+                    <td>Web typography</td>
+                    <td>IP address (on font load)</td>
+                    <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>We do not share your personal data with any other third parties. We do not sell, rent, or trade your data.</p>
+              <p><strong>Sub-processors of sub-processors:</strong> Each of the above providers may use their own sub-processors; we direct you to their respective privacy policies for details on their data chains.</p>
+            </div>
+          </div>
+
+          <!-- ── 7. COOKIES ── -->
+          <div class="policy-section rv" id="s7">
+            <span class="ps-num">07</span>
+            <h2 class="ps-head">Cookies &amp; Tracking Technologies</h2>
+            <div class="ps-body">
+              <p>Our Site uses cookies placed by Google Analytics 4. We do not set any first-party cookies ourselves.</p>
+              <table class="policy-table">
+                <thead>
+                  <tr><th>Cookie</th><th>Set by</th><th>Purpose</th><th>Duration</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>_ga</td><td>Google Analytics</td><td>Distinguishes unique users. Contains a randomly generated identifier — no personal data.</td><td>2 years</td></tr>
+                  <tr><td>_gid</td><td>Google Analytics</td><td>Distinguishes users across sessions within a 24-hour window.</td><td>24 hours</td></tr>
+                  <tr><td>_ga_[ID]</td><td>Google Analytics</td><td>Persists session state for GA4 property G-JD0K5WPE4Q.</td><td>2 years</td></tr>
+                </tbody>
+              </table>
+              <p class="ps-sub">Managing cookies</p>
+              <p>You can control and delete cookies through your browser settings. Disabling GA4 cookies does not affect your ability to use any feature of the Site — the waitlist form, page content, and all interactive elements function without cookies. You can also opt out of Google Analytics tracking across all websites by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+              <p>We do not use advertising cookies, social media pixels, fingerprinting, or any cross-site tracking technologies.</p>
+            </div>
+          </div>
+
+          <!-- ── 8. RETENTION ── -->
+          <div class="policy-section rv" id="s8">
+            <span class="ps-num">08</span>
+            <h2 class="ps-head">Data Retention</h2>
+            <div class="ps-body">
+              <table class="policy-table">
+                <thead>
+                  <tr><th>Data</th><th>Retained for</th><th>Reason</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Waitlist email &amp; name</td><td>Until you unsubscribe, or until 2 years after our last product launch, whichever comes first</td><td>To fulfil our waitlist commitment and communicate launch information</td></tr>
+                  <tr><td>Brevo contact record</td><td>Until you unsubscribe — deletion is immediate on request</td><td>Email platform contact management</td></tr>
+                  <tr><td>Google Sheets waitlist record</td><td>Until manually deleted on request</td><td>Our internal CRM; we will delete your record within 30 days of a valid deletion request</td></tr>
+                  <tr><td>Google Analytics data</td><td>14 months (GA4 default, anonymised)</td><td>Site performance analysis</td></tr>
+                  <tr><td>Vercel server logs</td><td>Per Vercel's standard retention (typically 7–30 days)</td><td>Platform security and debugging</td></tr>
+                  <tr><td>IP address (rate limiter)</td><td>Duration of the server instance (ephemeral — not persisted to any database)</td><td>Abuse prevention</td></tr>
+                </tbody>
+              </table>
+              <p>When retention periods expire or you exercise a deletion right, we will delete or irreversibly anonymise your personal data within 30 days, except where we are required to retain it by applicable law.</p>
+            </div>
+          </div>
+
+          <!-- ── 9. SECURITY ── -->
+          <div class="policy-section rv" id="s9">
+            <span class="ps-num">09</span>
+            <h2 class="ps-head">Data Security</h2>
+            <div class="ps-body">
+              <p>We take reasonable technical and organisational measures to protect your personal data against unauthorised access, disclosure, alteration, or destruction. These include:</p>
+              <ul style="margin: 0 0 18px 20px; color: var(--text-2); line-height: 1.85;">
+                <li><strong>TLS/HTTPS</strong> — all data in transit between your browser and our Site is encrypted via HTTPS. Our hosting (Vercel) enforces HTTPS on all routes.</li>
+                <li><strong>Server-side submission handling</strong> — form data is not exposed client-side; it is processed via a private serverless function endpoint.</li>
+                <li><strong>Rate limiting</strong> — our API limits submissions to 3 per IP per 60 seconds to prevent mass enumeration and abuse.</li>
+                <li><strong>Spam &amp; bot filters</strong> — honeypot fields, timing analysis, and disposable-domain blocking reduce inauthentic submissions.</li>
+                <li><strong>Access control</strong> — Google Sheets and Brevo data are accessible only to authorised team members under individual account credentials.</li>
+                <li><strong>No unnecessary data</strong> — we collect only what we need and do not store IP addresses, payment data, or sensitive personal information.</li>
+              </ul>
+              <p>No method of electronic transmission or storage is 100% secure. While we strive to use commercially acceptable means to protect your data, we cannot guarantee absolute security. In the event of a personal data breach that poses a risk to your rights and freedoms, we will notify you and the relevant supervisory authority within the timeframes required by applicable law.</p>
+            </div>
+          </div>
+
+          <!-- ── 10. INTERNATIONAL TRANSFERS ── -->
+          <div class="policy-section rv" id="s10">
+            <span class="ps-num">10</span>
+            <h2 class="ps-head">International Data Transfers</h2>
+            <div class="ps-body">
+              <p>Jugaadors is based in India. Our service providers (Vercel, Google, Brevo) operate globally and may process your data in countries outside of India, including the United States and the European Union.</p>
+              <p>When your data is transferred outside India, we rely on the following safeguards as applicable under the DPDPA 2023:</p>
+              <ul style="margin: 0 0 18px 20px; color: var(--text-2); line-height: 1.85;">
+                <li><strong>Vercel and Google</strong> are certified under data protection frameworks and operate under standard contractual clauses (SCCs) for EU data transfers where applicable.</li>
+                <li><strong>Brevo (Sendinblue)</strong> is an EU-based company compliant with GDPR and processes data under its Data Processing Agreement (DPA).</li>
+              </ul>
+              <p>For EEA/UK users: transfers to the US are made under Standard Contractual Clauses (SCCs) approved by the European Commission or the UK ICO, as applicable, per each provider's data transfer mechanisms. You may request copies of applicable transfer mechanisms by contacting us.</p>
+            </div>
+          </div>
+
+          <!-- ── 11. YOUR RIGHTS ── -->
+          <div class="policy-section rv" id="s11">
+            <span class="ps-num">11</span>
+            <h2 class="ps-head">Your Rights</h2>
+            <div class="ps-body">
+              <p>Depending on where you are located, you have the following rights over your personal data. We honour all rights requests regardless of jurisdiction.</p>
+              <div class="rights-grid">
+                <div class="right-card">
+                  <span class="right-card-head">Access</span>
+                  <p>Request a copy of the personal data we hold about you.</p>
+                </div>
+                <div class="right-card">
+                  <span class="right-card-head">Correction</span>
+                  <p>Ask us to correct inaccurate or incomplete data we hold about you.</p>
+                </div>
+                <div class="right-card">
+                  <span class="right-card-head">Deletion / Erasure</span>
+                  <p>Request that we delete your personal data. We will action this within 30 days.</p>
+                </div>
+                <div class="right-card">
+                  <span class="right-card-head">Withdraw Consent</span>
+                  <p>Withdraw consent to email communications at any time by clicking Unsubscribe in any email or contacting us directly.</p>
+                </div>
+                <div class="right-card">
+                  <span class="right-card-head">Object</span>
+                  <p>Object to processing based on legitimate interests. We will cease unless we have compelling grounds.</p>
+                </div>
+                <div class="right-card">
+                  <span class="right-card-head">Portability</span>
+                  <p>Request your data in a structured, machine-readable format (email + name as CSV).</p>
+                </div>
+                <div class="right-card">
+                  <span class="right-card-head">Restrict</span>
+                  <p>Request we restrict processing of your data in certain circumstances.</p>
+                </div>
+                <div class="right-card">
+                  <span class="right-card-head">Complain</span>
+                  <p>Lodge a complaint with your local supervisory authority if you believe we've mishandled your data.</p>
+                </div>
+              </div>
+
+              <p class="ps-sub">How to exercise your rights</p>
+              <p>Email us at <a href="mailto:jugaadors@gmail.com">jugaadors@gmail.com</a> with the subject line <strong>"Privacy Request"</strong>. Include your name (if provided) and email address so we can locate your record. We will respond within 30 days. We do not charge a fee for exercising your rights unless requests are manifestly unfounded or excessive.</p>
+
+              <p class="ps-sub">Unsubscribing from email</p>
+              <p>Every marketing email we send contains an unsubscribe link. Clicking it removes you from all marketing communications immediately. Alternatively, email <a href="mailto:jugaadors@gmail.com">jugaadors@gmail.com</a> with the subject "Unsubscribe".</p>
+
+              <p class="ps-sub">Jurisdiction-specific rights</p>
+              <table class="policy-table" style="margin-top: 16px;">
+                <thead>
+                  <tr><th>Jurisdiction</th><th>Governing law</th><th>Supervisory authority</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>India</td>
+                    <td>Digital Personal Data Protection Act, 2023 (DPDPA); IT Act 2000 &amp; SPDI Rules 2011</td>
+                    <td>Data Protection Board of India (once operational)</td>
+                  </tr>
+                  <tr>
+                    <td>European Union / EEA</td>
+                    <td>General Data Protection Regulation (GDPR 2016/679)</td>
+                    <td>Your local EU Data Protection Authority (list at <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" target="_blank" rel="noopener">edpb.europa.eu</a>)</td>
+                  </tr>
+                  <tr>
+                    <td>United Kingdom</td>
+                    <td>UK GDPR &amp; Data Protection Act 2018</td>
+                    <td>Information Commissioner's Office (ICO) — <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a></td>
+                  </tr>
+                  <tr>
+                    <td>California, USA</td>
+                    <td>California Consumer Privacy Act (CCPA) / CPRA</td>
+                    <td>California Privacy Protection Agency (CPPA)</td>
+                  </tr>
+                  <tr>
+                    <td>All others</td>
+                    <td>We apply DPDPA standards as a minimum baseline to all users globally</td>
+                    <td>Contact us directly</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="margin-top: 20px;"><strong>California residents (CCPA):</strong> We do not sell personal information. We do not share personal information for cross-context behavioural advertising. You have the right to know, delete, and opt-out. To exercise these rights, contact us at <a href="mailto:jugaadors@gmail.com">jugaadors@gmail.com</a>.</p>
+            </div>
+          </div>
+
+          <!-- ── 12. CHILDREN ── -->
+          <div class="policy-section rv" id="s12">
+            <span class="ps-num">12</span>
+            <h2 class="ps-head">Children's Privacy</h2>
+            <div class="ps-body">
+              <p>Our Site is not directed at children under the age of 13 (or 16 in the EEA). We do not knowingly collect personal data from anyone under these ages.</p>
+              <p>Our games are designed for adults and social gatherings of adults. The waitlist and founding-member programme is intended for adults aged 18 and above.</p>
+              <p>If you are a parent or guardian and believe your child has submitted personal data to us, please contact us at <a href="mailto:jugaadors@gmail.com">jugaadors@gmail.com</a> and we will delete the information promptly.</p>
+            </div>
+          </div>
+
+          <!-- ── 13. THIRD-PARTY LINKS ── -->
+          <div class="policy-section rv" id="s13">
+            <span class="ps-num">13</span>
+            <h2 class="ps-head">Third-Party Links</h2>
+            <div class="ps-body">
+              <p>Our Site contains links to third-party websites and platforms including LinkedIn, Facebook, Amazon, and others. Once you leave our Site, this Privacy Policy no longer applies. We have no control over and assume no responsibility for the privacy practices or content of third-party sites.</p>
+              <p>We encourage you to review the privacy policies of any external sites you visit. Links to third-party sites are provided for convenience and do not signify our endorsement of those sites or their privacy practices.</p>
+            </div>
+          </div>
+
+          <!-- ── 14. CHANGES ── -->
+          <div class="policy-section rv" id="s14">
+            <span class="ps-num">14</span>
+            <h2 class="ps-head">Changes to This Policy</h2>
+            <div class="ps-body">
+              <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or for other operational, legal, or regulatory reasons.</p>
+              <p>When we make material changes, we will:</p>
+              <ul style="margin: 0 0 18px 20px; color: var(--text-2); line-height: 1.85;">
+                <li>Update the <strong>"Last updated"</strong> date at the top of this page</li>
+                <li>Notify waitlist subscribers by email where required by law or where the changes materially affect how we process their data</li>
+              </ul>
+              <p>We encourage you to review this page periodically. Your continued use of the Site after changes are posted constitutes your acknowledgement of the updated policy. Where applicable law requires renewed consent, we will seek it before continuing to process your data under the new terms.</p>
+              <p><strong>Previous versions</strong> of this policy are available on request by emailing <a href="mailto:jugaadors@gmail.com">jugaadors@gmail.com</a>.</p>
+            </div>
+          </div>
+
+          <!-- ── 15. CONTACT ── -->
+          <div class="policy-section rv" id="s15">
+            <span class="ps-num">15</span>
+            <h2 class="ps-head">Contact Us</h2>
+            <div class="ps-body">
+              <p>For any privacy-related questions, requests, or concerns — including exercising any of your rights under applicable law — please contact us:</p>
+              <table class="policy-table">
+                <thead>
+                  <tr><th>Method</th><th>Details</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Email (preferred)</td><td><a href="mailto:jugaadors@gmail.com">jugaadors@gmail.com</a><br>Subject line: <em>Privacy Request</em></td></tr>
+                  <tr><td>Response time</td><td>Within 30 days of receiving your request</td></tr>
+                  <tr><td>Business location</td><td>Mumbai, Maharashtra, India</td></tr>
+                </tbody>
+              </table>
+              <p>We take privacy seriously. Every request is reviewed by a human and handled with care. We do not use automated decision-making or profiling.</p>
+            </div>
+          </div>
+
+        </div><!-- /policy-content -->
+      </div><!-- /policy-layout -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="ft-top">
+        <div class="ft-brand">
+          <div class="ft-logo"><img src="assets/logo.png" alt="Jugaadors"/></div>
+          <p class="ft-tagline">A studio that creates original shared experiences through tabletop games.</p>
+          <span class="ft-loc">Mumbai · San Francisco</span>
+        </div>
+        <div class="ft-nav-col">
+          <span class="ft-nav-head">Games</span>
+          <a href="games.html">All Games</a>
+          <a href="shop.html">Shop</a>
+        </div>
+        <div class="ft-nav-col">
+          <span class="ft-nav-head">Studio</span>
+          <a href="why.html">Why Jugaadors</a>
+          <a href="journal.html">Journal</a>
+        </div>
+        <div class="ft-nav-col">
+          <span class="ft-nav-head">Connect</span>
+          <a href="https://www.linkedin.com/company/jugaadors/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100066866651196" target="_blank" rel="noopener">Facebook</a>
+          <a href="mailto:jugaadors@gmail.com">Contact</a>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        <p class="ft-copy">© 2026 Jugaadors. All rights reserved.</p>
+        <div class="ft-social">
+          <a href="privacy.html">Privacy</a>
+          <a href="https://www.linkedin.com/company/jugaadors/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100066866651196" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── MOBILE NAV ── */
+    (function() {
+      const toggle = document.getElementById('nav-toggle');
+      const drawer = document.getElementById('nav-mobile');
+      if (!toggle || !drawer) return;
+      toggle.addEventListener('click', () => {
+        const open = toggle.classList.toggle('open');
+        drawer.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open);
+        drawer.setAttribute('aria-hidden', !open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+    })();
+
+    /* ── PROGRESS BAR ── */
+    const pb = document.getElementById('progress');
+    window.addEventListener('scroll', () => {
+      const dh = document.documentElement;
+      pb.style.width = (window.scrollY/(dh.scrollHeight-dh.clientHeight)*100)+'%';
+    }, { passive: true });
+
+    /* ── NAV ALWAYS VISIBLE ON SUBPAGES ── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('up', window.scrollY > 80), { passive: true });
+    nav.classList.add('up');
+
+    /* ── SCROLL REVEAL ── */
+    const rvEls = document.querySelectorAll('.rv,.rv-l,.rv-r');
+    const rvObs = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }),
+      { threshold: .08, rootMargin: '0px 0px -48px 0px' }
+    );
+    rvEls.forEach(el => rvObs.observe(el));
+    setTimeout(() => document.querySelectorAll('#page-hero .rv').forEach(el => el.classList.add('on')), 100);
+
+    /* ── CURSOR ORB ── */
+    (function() {
+      const orb = document.getElementById('cursor-orb');
+      if (!orb || !window.matchMedia('(hover: hover)').matches) return;
+      let ox=innerWidth/2, oy=innerHeight/2, mx=ox, my=oy;
+      window.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+      (function raf(){ ox+=(mx-ox)*.09; oy+=(my-oy)*.09; orb.style.left=ox+'px'; orb.style.top=oy+'px'; requestAnimationFrame(raf); })();
+    })();
+
+    /* ── FILM GRAIN ── */
+    (function() {
+      if (!window.matchMedia('(hover: hover)').matches) return;
+      const cv=document.getElementById('grain'); if (!cv) return;
+      const ctx=cv.getContext('2d'); const off=document.createElement('canvas'); const oc=off.getContext('2d');
+      let W,H;
+      function resize(){ W=cv.width=innerWidth; H=cv.height=innerHeight; off.width=Math.ceil(W/3); off.height=Math.ceil(H/3); }
+      resize(); window.addEventListener('resize',resize);
+      function draw(){ const w=off.width,h=off.height; const img=oc.createImageData(w,h); const d=img.data; for(let i=0;i<d.length;i+=4){const v=Math.random()*255|0;d[i]=d[i+1]=d[i+2]=v;d[i+3]=20;} oc.putImageData(img,0,0); ctx.clearRect(0,0,W,H); ctx.drawImage(off,0,0,W,H); setTimeout(draw,90); }
+      draw();
+    })();
+
+    /* ── TOC ACTIVE STATE ── */
+    (function() {
+      const sections = document.querySelectorAll('.policy-section[id]');
+      const links = document.querySelectorAll('.toc-list a');
+      if (!sections.length || !links.length) return;
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            links.forEach(l => l.classList.remove('active'));
+            const active = document.querySelector(`.toc-list a[href="#${e.target.id}"]`);
+            if (active) active.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+      sections.forEach(s => obs.observe(s));
+    })();
+  </script>
+</body>
+</html>
